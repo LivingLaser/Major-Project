@@ -34,5 +34,5 @@
   </div>
 
 
-</body>
+</body><br>
 <jsp:include page="inc/footer.jsp"></jsp:include>
