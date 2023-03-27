@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>About us</title>
+<title>About_us</title>
 </head>
 <body>
 <jsp:include page="inc/base.jsp"></jsp:include>
