@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <title>update profile</title>
 <jsp:include page="inc/base.jsp"></jsp:include>
 
 <!-- ekhane user chaille nijer profile update korbe ar placeholder a existing data fetch kore show hbe -->

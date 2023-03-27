@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <titlE>signup</titlE>
 <jsp:include page="inc/base.jsp"></jsp:include>
 
 

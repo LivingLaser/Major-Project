@@ -12,7 +12,7 @@
 <jsp:include page="inc/base.jsp"></jsp:include>
 
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="https://files.sysers.com/cp/upload/omega/gallery/full/front-door-deliver-groceries-right-to-my-front-door-grocery-delivery-bay-area-food-delivery.jpg" class="d-block w-100" alt="...">

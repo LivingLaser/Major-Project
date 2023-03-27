@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+    <title>contact us</title>
 <style>
     body {
       background-image: url('https://www.coldflowmechanical.com.au/wp-content/uploads/2014/08/contact-us-page-blue-background.jpg');

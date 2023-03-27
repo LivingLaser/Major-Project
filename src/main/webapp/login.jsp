@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<title>login</title>
 <jsp:include page="inc/base.jsp"></jsp:include>
-
 <style>
     body {
       background-image: url('https://www.designcap.com/media/pages/images/home/clipart.svg?v=1602654254');

@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
     <style>
         body {
           background-image: url('https://png.pngtree.com/background/20211217/original/pngtree-technology-round-dashboard-picture-image_1598385.jpg');
@@ -30,7 +32,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Users message</h5>
-                <p class="card-text">All the mssages sent by the users are stored here.</p>
+                <p class="card-text">All the messages sent by the users are stored here.</p>
                 <div class="ab text-center"><a href="#" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
@@ -39,7 +41,7 @@
             <div class="card ">
               <div class="card-body">
                 <h5 class="card-title">Users Data</h5>
-                <p class="card-text">All the data of Users are stored here</p>
+                <p class="card-text">All the data of Users are stored in here</p>
                 <div class="ab text-center"><a href="#" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
@@ -48,7 +50,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Product Details</h5>
-                <p class="card-text">All the product data are sore here</p>
+                <p class="card-text">All the product data are stored in here</p>
                 <div class="ab text-center"><a href="#" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
@@ -57,7 +59,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Cart details</h5>
-                <p class="card-text">Data related to users cart items stored in here</p>
+                <p class="card-text">Data related to users cart items stored here</p>
                 <div class="ab text-center"><a href="#" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
