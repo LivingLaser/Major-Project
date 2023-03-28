@@ -6,7 +6,7 @@
 
 <style>
     body {
-      background-image: url('https://coolbackgrounds.io/images/backgrounds/white/white-trianglify-b79c7e1f.jpg');
+      background-image: url('https://www.designcap.com/media/pages/images/home/clipart.svg?v=1602654254');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -50,8 +50,8 @@
             <div class="col">
               <input type="password" class="form-control" placeholder="confirm password" aria-label="password" name="" >
             </div>
-          </div><br>
-          <div class="d-grid gap-2 col-6 mx-auto">
+          </div>
+          <div class="d-grid gap-2 col-6 mx-auto"><br>
             <button class="btn btn-primary" type="submit" name="" >Signup</button>
           </div>
       </form>

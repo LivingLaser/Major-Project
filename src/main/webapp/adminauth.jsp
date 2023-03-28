@@ -34,7 +34,7 @@
             <div class="col-sm-10">
               <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password" name="">
             </div>
-          </div>
+          </div><br>
           <div class="d-grid gap-2 col-6 mx-auto">
             <button class="btn btn-primary" type="submit" name="" >Login</button>
             <br><br>

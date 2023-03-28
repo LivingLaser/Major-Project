@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<title>My profile</title>
+    <style>
+    body {
+      background-image: url('https://img.freepik.com/free-vector/abstract-blue-watercolor-background-vector_53876-144154.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+</style>
+<title>My profile</title> 
 <jsp:include page="inc/base.jsp"></jsp:include>
 <body><br>
     <div class="container">

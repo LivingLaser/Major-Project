@@ -38,7 +38,7 @@
         <div class="card-body">
           <h5 class="card-title">Vegetables & Fruits</h5>
           <p class="card-text">Fresh and healthy vegetables.</p>
-          <div class="ab text-center"><a href="#" class="btn btn-primary">Shop Now</a></div>
+          <div class="ab text-center"><a href="shop1.jsp" class="btn btn-primary">Shop Now</a></div>
         </div>
       </div>
     </div>
@@ -47,8 +47,8 @@
         <img class="card-img-top" src="https://img.freepik.com/premium-photo/natural-super-foods-cereals-selection-bowls_788160-735.jpg?w=360" alt="Fruits">
         <div class="card-body">
           <h5 class="card-title">Foodgrains & Masalas</h5>
-          <p class="card-text">Enjoy all type of masalas and ingridients.</p>
-          <div class="ab text-center"><a href="#" class="btn btn-primary">Shop Now</a></div>
+          <p class="card-text">Enjoy all type of masalas and ingredients.</p>
+          <div class="ab text-center"><a href="shop2.jsp" class="btn btn-primary">Shop Now</a></div>
         </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
         <div class="card-body">
           <h5 class="card-title">Eggs,Meats & Fish</h5>
           <p class="card-text">Fresh Meat and eggs at Discount</p>
-          <div class="ab text-center"><a href="#" class="btn btn-primary">Shop Now</a></div>
+          <div class="ab text-center"><a href="shop3.jsp" class="btn btn-primary">Shop Now</a></div>
         </div>
       </div>
     </div>

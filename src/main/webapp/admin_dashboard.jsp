@@ -24,7 +24,7 @@
     </style>
 </head>
 <body>
-<p class="h2 text-center text-light bg-dark">ADMINISTRATION PANEL</p><br><br><br><br><br><br><br>
+<p class="h2 text-center text-light bg-dark"><strong>ADMINISTRATOR PANEL</strong></p><br><br><br><br><br><br><br><br><br>
 <div class="container">
     <div class="container">
         <div class="row">
@@ -33,7 +33,7 @@
               <div class="card-body">
                 <h5 class="card-title">Users message</h5>
                 <p class="card-text">All the messages sent by the users are stored here.</p>
-                <div class="ab text-center"><a href="#" class="btn btn-primary">Visit</a></div>
+                <div class="ab text-center"><a href="admin_msgdb.jsp" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@
               <div class="card-body">
                 <h5 class="card-title">Users Data</h5>
                 <p class="card-text">All the data of Users are stored in here</p>
-                <div class="ab text-center"><a href="#" class="btn btn-primary">Visit</a></div>
+                <div class="ab text-center"><a href="admin_userdb.jsp" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
           </div>
@@ -51,7 +51,7 @@
               <div class="card-body">
                 <h5 class="card-title">Product Details</h5>
                 <p class="card-text">All the product data are stored in here</p>
-                <div class="ab text-center"><a href="#" class="btn btn-primary">Visit</a></div>
+                <div class="ab text-center"><a href="admin_productdb.jsp" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@
               <div class="card-body">
                 <h5 class="card-title">Cart details</h5>
                 <p class="card-text">Data related to users cart items stored here</p>
-                <div class="ab text-center"><a href="#" class="btn btn-primary">Visit</a></div>
+                <div class="ab text-center"><a href="admin_cartdb.jsp" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
           </div>

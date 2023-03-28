@@ -26,13 +26,13 @@
       <input type="password" class="form-control" id="inputPassword" placeholder="Enter your password" name="">
     </div>
   </div>
-  <div class="d-grid gap-2 col-6 mx-auto">
+  <div class="d-grid gap-2 col-6 mx-auto"><br>
     <button class="btn btn-primary" type="submit" name="" >Login</button>
     <br><br>
     <span class="text-center">Don't have an account with us? <br>Please click here to <a href="">Signup</a> 
     </span>
   </div>
-
+</div>
 
 </body><br>
 <jsp:include page="inc/footer.jsp"></jsp:include>
