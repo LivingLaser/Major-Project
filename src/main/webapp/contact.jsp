@@ -3,7 +3,7 @@
     <title>contact us</title>
 <style>
     body {
-      background-image: url('https://lilithaengineering.co.za/wp-content/uploads/2015/11/contact-us-background.jpg');
+      background-image: url('https://img.pikbest.com/backgrounds/20191028/abstract-white-background-can-be-used-in-cover-design--book-design--website-background-v_1582398jpg!bwr800');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;

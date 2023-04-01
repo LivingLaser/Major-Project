@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="col-md-2 text-end">
-            <button class="btn btn-outline-success">Button</button>
+            <button class="btn btn-outline-warning">Button</button>
           </div>
         </div>
       </nav>

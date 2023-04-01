@@ -50,6 +50,7 @@
 
 </head>
 <body>
+<p class="h2 text-center text-light bg-dark"><strong>ADMINISTRATOR PANEL</strong></p>
 <div class="container-fluid">
     <div class="heading"><h1>PRODUCT LISTS</h1></div>
     <div class="col-md-12 text-end">

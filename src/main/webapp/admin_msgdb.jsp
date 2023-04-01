@@ -50,6 +50,7 @@
 
 </head>
 <body>
+<p class="h2 text-center text-light bg-dark"><strong>ADMINISTRATOR PANEL</strong></p>
 <div class="container-fluid">
     <div class="heading"><h1>USER'S MESSAGES </h1></div>
 
@@ -61,7 +62,7 @@
                     <th scope="col">NAME</th>
                     <th scope="col">EMAIL ID</th>
                     <th scope="col">MESSAGES</th>
-                    <th colspan="3" scope="col">ADMIN ACTIONS</th>
+                    <th colspan="2" scope="col">ADMIN ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,7 +74,6 @@
                     <td>data</td>
                     <td><button class="btn btn-info"><a href="#">View</button></td>
                     <td><button class="btn btn-danger"><a href="#">Delete</button></a></td>
-                    <td><button onclick="window.print()" class="btn btn-secondary">Print</button></td>
 
                 </tr>
                      
