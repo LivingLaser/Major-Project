@@ -71,8 +71,8 @@
                     <td>data</td>
                     <td>data</td>
                     <td>data</td>
-                    <td><button class="btn btn-info"><a href="">View</button></td>
-                    <td><button class="btn btn-danger"><a href="">Delete</button></a></td>
+                    <td><button class="btn btn-info"><a href="#">View</button></td>
+                    <td><button class="btn btn-danger"><a href="#">Delete</button></a></td>
                     <td><button onclick="window.print()" class="btn btn-secondary">Print</button></td>
 
                 </tr>
