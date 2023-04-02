@@ -30,21 +30,26 @@ public class ContactUs extends HttpServlet {
 			
 			String sql = "insert into contact_us (name, email, message) values('"+name+"','"+email+"','"+message+"')";
 			PreparedStatement pstm = con.prepareStatement(sql);
-			pstm.executeUpdate();
-			
+			int rows = pstm.executeUpdate();
+			if(rows>0) { //condition check
+			String color = "success";
 			String msg = "We have received your message";
 			HttpSession session = request.getSession();
 			session.setAttribute("message", msg);
-			response.sendRedirect(request.getContextPath()+"/index.jsp");
-			session.invalidate();
+			session.setAttribute("color",color);
+			}
+			else {
+			String color = "danger";
+			String msg = "error";
+			HttpSession session = request.getSession();
+			session.setAttribute("message", msg);
+			session.setAttribute("color",color);
+			}
+			response.sendRedirect("index.jsp");
 		}
 		catch(Exception e) {
 			System.out.println("Exception: " + e);
 			
-			String msg = "Error" + e.getMessage();
-			e.printStackTrace();
-			HttpSession session = request.getSession();
-			session.setAttribute("message", msg);
 			//response.sendRedirect(request.getContextPath()+"/index.jsp");
 		}
 		
