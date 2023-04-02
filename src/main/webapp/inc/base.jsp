@@ -55,3 +55,16 @@
   </div>
 </nav>
 
+<%-- <%
+        String message = (String)session.getAttribute("message");
+        if (message != null) {
+            String alertClass = (message.startsWith("Record added")) ? "alert-success" : "alert-danger";
+%>
+            <div class="alert <%=alertClass%> alert-dismissible fade show" role="alert">
+                <%=message%>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+<%}%> --%>
+
