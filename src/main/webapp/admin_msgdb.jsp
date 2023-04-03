@@ -1,3 +1,4 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -66,23 +67,31 @@
                 </tr>
             </thead>
             <tbody>
-<!-- loop cholbe -->
+            <%
+            @SuppressWarnings({"unchecked", "rawtypes"})
+            ArrayList<HashMap> contacts = (ArrayList<HashMap>)request.getAttribute("contact");
+            
+            for(int i=0;i<contacts.size();i++) {
+            %>
                 <tr>
-                    <td><b>data</b></td>
-                    <td>data</td>
-                    <td>data</td>
-                    <td>data</td>
-                    <td><button class="btn btn-info"><a href="#">View</button></td>
-                    <td><button class="btn btn-danger"><a href="#">Delete</button></a></td>
-
+                    <td><b><% out.print(contacts.get(i).get("id")); %></b></td>
+                    <td><% out.print(contacts.get(i).get("name")); %></td>
+                    <td><% out.print(contacts.get(i).get("email")); %></td>
+                    <td><% out.print(contacts.get(i).get("message")); %></td>
+                    <td><button class="btn btn-info"><a href="#">View</a></button></td>
+                    <td>
+                    <form action="delete_message" method="post">
+                    <input type="hidden" name="id" value="<% out.print(contacts.get(i).get("id")); %>">
+                    <button onclick="return confirm('Are you sure ?')" type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    </td>
                 </tr>
-                     
+            <% } %>
             </tbody>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-                       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-                           crossorigin="anonymous"></script>
-        </table>
+	 </table>
    
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

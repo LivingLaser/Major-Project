@@ -33,7 +33,7 @@
               <div class="card-body">
                 <h5 class="card-title">Users message</h5>
                 <p class="card-text">All the messages sent by the users are stored here.</p>
-                <div class="ab text-center"><a href="admin_msgdb.jsp" class="btn btn-primary">Visit</a></div>
+                <div class="ab text-center"><a href="contact_us_admin" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
           </div>
