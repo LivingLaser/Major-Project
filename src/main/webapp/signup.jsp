@@ -17,38 +17,38 @@
    <h1 class="text-center">SIGNUP</h1><br>
    <div class="container">
 
-    <form class="row g-3">
+    <form action="/signup" method="POST" class="row g-3">
         <div class="col-12">
             <label for="inputName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="inputName" required name="" placeholder="Enter your full name...">
+            <input type="text" class="form-control" id="inputName" required name="name" placeholder="Enter your full name...">
           </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" required placeholder="Enter your email" name="" >
+          <input type="email" class="form-control" id="inputEmail4" required placeholder="Enter your email" name="email" >
         </div>
         <div class="col-md-6">
           <label for="inputPhone" class="form-label">Phone No</label>
-          <input type="number" class="form-control" id="inputPhone" required placeholder="Enter your 10 digits Phone No" name="" >
+          <input type="number" class="form-control" id="inputPhone" required placeholder="Enter your 10 digits Phone No" name="phone_number" >
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" required placeholder="Your Address..." name="" >
+          <input type="text" class="form-control" id="inputAddress" required placeholder="Your Address..." name="address" >
         </div>
         <div class="col-md-6">
           <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity" required placeholder="Enter your City here..." name="" >
+          <input type="text" class="form-control" id="inputCity" required placeholder="Enter your City here..." name="city" >
         </div>
         <div class="col-md-6">
           <label for="inputpincode" class="form-label">Pin code</label>
-          <input type="text" class="form-control" id="inputpincode" required placeholder="Area PIN code" name="" >
+          <input type="text" class="form-control" id="inputpincode" required placeholder="Area PIN code" name="pincode" >
         </div>
         <hr>Create a new password
         <div class="row g-3">
             <div class="col">
-              <input type="password" class="form-control" placeholder="password" required aria-label="password" name="" >
+              <input type="password" class="form-control" placeholder="password" required aria-label="password" name="password" >
             </div>
             <div class="col">
-              <input type="password" class="form-control" placeholder="confirm password" required aria-label="password" name="" >
+              <input type="password" class="form-control" placeholder="confirm password" required aria-label="password" name="confirm_password" >
             </div>
           </div>
           <div class="d-grid gap-2 col-6 mx-auto"><br>

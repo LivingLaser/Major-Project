@@ -29,6 +29,7 @@ public class ContactUs extends HttpServlet {
 			
 			String sql = "insert into contact_us set name='"+name+"',email='"+email+"',message='"+message+"'";
 			PreparedStatement pstm = con.prepareStatement(sql);
+			
 			int rows = pstm.executeUpdate();
 			if(rows>0) { //condition check
 			String color = "success";

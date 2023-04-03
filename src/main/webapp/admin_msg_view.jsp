@@ -13,16 +13,20 @@
     <div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1 class="text-center">User Message</h1>
+				<h1 class="text-center">User's Feedback Messages</h1>
 				<form>
+				    <div class="form-group">
+						<label for="name"><h4><b>Customer's unique message ID</b></h4></label>
+						<input type="text" class="form-control" id="name" placeholder="Enter your name" disabled>
+					</div><br>
 					<div class="form-group">
 						<label for="name"><h4><b>Name:</b></h4></label>
 						<input type="text" class="form-control" id="name" placeholder="Enter your name" disabled>
-					</div><br><br>
+					</div><br>
 					<div class="form-group">
 						<label for="email"><h4><b>Email:</b></h4></label>
 						<input type="email" class="form-control" id="email" placeholder="Enter your email" disabled>
-					</div><br><br>
+					</div><br>
 					<div class="form-group">
 						<label for="message"><h4><b>Message:</b></h4></label>
 						<textarea class="form-control" id="message" rows="5" placeholder="Enter your message" disabled></textarea>
