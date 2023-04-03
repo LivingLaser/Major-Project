@@ -27,7 +27,7 @@ public class ContactUs extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
-			String sql = "insert into contact_us (name, email, message) values('"+name+"','"+email+"','"+message+"')";
+			String sql = "insert into contact_us set name='"+name+"',email='"+email+"',message='"+message+"'";
 			PreparedStatement pstm = con.prepareStatement(sql);
 			int rows = pstm.executeUpdate();
 			if(rows>0) { //condition check
