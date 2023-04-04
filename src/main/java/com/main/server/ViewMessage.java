@@ -2,7 +2,7 @@ package com.main.server;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.*;
+import java.util.HashMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,38 +10,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ContactUsAdmin
+ * Servlet implementation class ViewMessage
  */
-@WebServlet("/contact_us_admin")
-public class ContactUsAdmin extends HttpServlet {
+@WebServlet("/view_message")
+public class ViewMessage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String id = request.getParameter("id");
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
-			String sql = "select id, name, email from contact_us";
+			String sql = "select * from contact_us where id='"+id+"'";
 			PreparedStatement pstm = con.prepareStatement(sql);
 			ResultSet rs = pstm.executeQuery();
 			
-			@SuppressWarnings("rawtypes")
-			ArrayList<HashMap> arr = new ArrayList<>();
+			HashMap<String, String> hm = new HashMap<>();
 			
 			while(rs.next()) {
-				HashMap<String, String> hm = new HashMap<>();
-				
 				hm.put("id", rs.getString("id"));
 				hm.put("name", rs.getString("name"));
 				hm.put("email", rs.getString("email"));
-				
-				arr.add(hm);
+				hm.put("message", rs.getString("message"));
 			}
 			
-			request.setAttribute("contact", arr);
-			request.getRequestDispatcher("admin_msgdb.jsp").forward(request, response);
+			request.setAttribute("view", hm);
+			request.getRequestDispatcher("admin_msg_view.jsp").forward(request, response);
 		}
 		catch(Exception e) {
 			System.out.println("Exception: " + e);

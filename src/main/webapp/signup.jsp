@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <titlE>signup</titlE>
+<!DOCTYPE html>
+<html>
+<head>
+<title>signup</title>
 <jsp:include page="inc/base.jsp"></jsp:include>
-
 
 <style>
     body {
@@ -12,12 +14,12 @@
       background-size: cover;
     }
 </style>
-
+</head>
 <body>
    <h1 class="text-center">SIGNUP</h1><br>
    <div class="container">
 
-    <form action="/signup" method="POST" class="row g-3">
+    <form action="signup" method="post" class="row g-3">
         <div class="col-12">
             <label for="inputName" class="form-label">Name</label>
             <input type="text" class="form-control" id="inputName" required name="name" placeholder="Enter your full name...">
@@ -28,7 +30,7 @@
         </div>
         <div class="col-md-6">
           <label for="inputPhone" class="form-label">Phone No</label>
-          <input type="number" class="form-control" id="inputPhone" required placeholder="Enter your 10 digits Phone No" name="phone_number" >
+          <input type="number" class="form-control" id="inputPhone" required placeholder="Enter your 10 digits Phone No" name="phone" >
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">Address</label>
@@ -60,3 +62,4 @@
 </body>
 <br>
 <jsp:include page="inc/footer.jsp"></jsp:include>
+</html>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<!DOCTYPE html>
+<html>
+<head>
 <title>login</title>
 <jsp:include page="inc/base.jsp"></jsp:include>
 <style>
@@ -11,6 +13,7 @@
       background-size: cover;
     }
 </style>
+</head>
 <body>
 <div class="container d-grid gap-2 col-6 mx-auto"><br>
 <h1 class="text-center">Login</h1>
@@ -36,3 +39,4 @@
 
 </body><br>
 <jsp:include page="inc/footer.jsp"></jsp:include>
+</html>

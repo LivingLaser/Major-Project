@@ -59,10 +59,9 @@
     <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">SL. NO.</th>
                     <th scope="col">NAME</th>
                     <th scope="col">EMAIL ID</th>
-                    <th scope="col">MESSAGES</th>
                     <th colspan="2" scope="col">ADMIN ACTIONS</th>
                 </tr>
             </thead>
@@ -74,11 +73,15 @@
             for(int i=0;i<contacts.size();i++) {
             %>
                 <tr>
-                    <td><b><% out.print(contacts.get(i).get("id")); %></b></td>
+                    <td><b><% out.print(i+1); %></b></td>
                     <td><% out.print(contacts.get(i).get("name")); %></td>
                     <td><% out.print(contacts.get(i).get("email")); %></td>
-                    <td><% out.print(contacts.get(i).get("message")); %></td>
-                    <td><button class="btn btn-info"><a href="#">View</a></button></td>
+                    <td>
+                    <form action="view_message" method="post">
+                    <input type="hidden" name="id" value="<% out.print(contacts.get(i).get("id")); %>">
+                    <button type="submit" class="btn btn-info">View</button>
+                    </form>
+                    </td>
                     <td>
                     <form action="delete_message" method="post">
                     <input type="hidden" name="id" value="<% out.print(contacts.get(i).get("id")); %>">
