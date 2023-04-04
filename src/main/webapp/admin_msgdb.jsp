@@ -51,7 +51,8 @@
 
 </head>
 <body>
-<p class="h2 text-center text-light bg-dark"><strong>ADMINISTRATOR PANEL</strong></p>
+
+<jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <div class="container-fluid">
     <div class="heading"><h1>USER'S MESSAGES </h1></div>
 

@@ -12,19 +12,20 @@
     <script src="js/bootstrap.min.js"></script>
     <style>
         body {
-          background-image: url('https://png.pngtree.com/background/20211217/original/pngtree-technology-round-dashboard-picture-image_1598385.jpg');
+          background-image: url('https://c4.wallpaperflare.com/wallpaper/904/1022/350/hud-1-wallpaper-preview.jpg');
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: cover;
         }
 
         .card {
-          background-color: rgba(255, 255, 255, 0.8);
+          background-color: rgba(255, 255, 255, 0.7);
         }
     </style>
 </head>
 <body>
-<p class="h2 text-center text-light bg-dark"><strong>ADMINISTRATOR PANEL</strong></p><br><br><br><br><br><br><br><br><br>
+<jsp:include page="inc/admin_navbar.jsp"></jsp:include>
+<br><br><br><br><br><br><br><br><br>
 <div class="container">
     <div class="container">
         <div class="row">

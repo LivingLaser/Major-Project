@@ -10,7 +10,7 @@
  <link rel="stylesheet" type = "text/css" href ="css/bootstrap.min.css">
 </head>
 <body>
-<p class="h2 text-center text-light bg-dark"><strong>ADMINISTRATOR PANEL</strong></p>
+<jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <h1>WORKING</h1>
 </body>
 </html>

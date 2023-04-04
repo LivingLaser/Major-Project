@@ -20,7 +20,7 @@
     </style>
 </head>
 <body>
-    <p class="h2 text-center text-light bg-dark">ADMINISTRATION PANEL</p><br><br>
+    <p class="h2 text-center text-light bg-dark">ADMINISTRATOR AUTHENTICATION </p><br><br>
     <div class="container d-grid gap-2 col-6 mx-auto"> <br>
         <h1 class="text-center text-light">LOGIN</h1>
         <div class="mb-3 row">

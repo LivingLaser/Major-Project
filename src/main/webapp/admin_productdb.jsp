@@ -50,12 +50,28 @@
 
 </head>
 <body>
-<p class="h2 text-center text-light bg-dark"><strong>ADMINISTRATOR PANEL</strong></p>
-<div class="container-fluid">
-    <div class="heading"><h1>PRODUCT LISTS</h1></div>
-    <div class="col-md-12 text-end">
-        <a href="" class="btn btn-primary">ADD NEW PRODUCT</a>
-      </div><br>
+<jsp:include page="inc/admin_navbar.jsp"></jsp:include>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-auto text-dark"><h2><b>PRODUCT LIST</b></h2></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link me-2 btn btn-secondary btn-lg" href="#">ADD NEW PRODUCT</a>
+        </li>
+        <li class="nav-item">
+          <button onclick="window.print()" class="btn btn-secondary btn-lg">PRINT PRODUCT LIST</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
     <table class="table table-dark">
             <thead>
                 <tr>
@@ -64,7 +80,7 @@
                     <th scope="col">PRODUCT DETAILS</th>
                     <th scope="col">PRICE</th>
                     <th scope="col">Image</th>
-                    <th colspan="4" scope="col">ADMIN ACTIONS</th>
+                    <th colspan="3" scope="col">ADMIN ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
@@ -77,8 +93,7 @@
                     <td>data</td>
                     <td><button class="btn btn-info"><a href="">View</button></td>
                     <td><button class="btn btn-warning"><a href="">Update</button></td>
-                    <td><button class="btn btn-danger"><a href="">Delete</button></a></td>
-                    <td><button onclick="window.print()" class="btn btn-secondary">Print</button></td>
+                    <td><button class="btn btn-danger"><a href="">Delete</button></td>
 
                 </tr>
                      
