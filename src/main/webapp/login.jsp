@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<form action="/login" method="post">
+<form action="login" method="post">
 <div class="container d-grid gap-2 col-6 mx-auto"><br>
 <h1 class="text-center">Login</h1>
 <div class="mb-3 row">
@@ -34,7 +34,7 @@
   <div class="d-grid gap-2 col-6 mx-auto"><br>
     <button class="btn btn-primary" type="submit">Login</button>
     <br><br>
-    <span class="text-center">Don't have an account with us? <br>Please click here to <a href="signup.jsp">Signup</a> 
+    <span class="text-center">Don't have an account with us? <br>Please click here to <a href="signup.jsp">Signup</a>
     </span>
   </div>
 </div>
