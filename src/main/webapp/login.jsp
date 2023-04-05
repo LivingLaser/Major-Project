@@ -14,7 +14,9 @@
     }
 </style>
 </head>
+
 <body>
+<form action="/login" method="post">
 <div class="container d-grid gap-2 col-6 mx-auto"><br>
 <h1 class="text-center">Login</h1>
 <div class="mb-3 row">
@@ -36,7 +38,7 @@
     </span>
   </div>
 </div>
-
+</form>
 </body><br>
 <jsp:include page="inc/footer.jsp"></jsp:include>
 </html>
