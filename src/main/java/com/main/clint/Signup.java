@@ -33,27 +33,38 @@ public class Signup extends HttpServlet {
 				Class.forName("com.mysql.cj.jdbc.Driver");
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 				
-				String sql = "insert into user set name='"+name+"',email='"+email+"',phone_number='"+phone+"',address='"+address+"',city='"+city+"',pincode='"+pincode+"',password='"+password+"'";
-				PreparedStatement pstm = con.prepareStatement(sql);
-				int rows = pstm.executeUpdate();
-				
-				if(rows>0) {
-					String color = "success";
-					String msg = "Account created successfully!";
-					HttpSession session = request.getSession();
-					session.setAttribute("message", msg);
-					session.setAttribute("color",color);
+				try {
+					String sql = "insert into user set name=?, email=?, phone_number=?, address=?, city=?, pincode=?, password=?";
+					PreparedStatement pstm = con.prepareStatement(sql);
+					pstm.setString(1, name);
+					pstm.setString(2, email);
+					pstm.setString(3, phone);
+					pstm.setString(4, address);
+					pstm.setString(5, city);
+					pstm.setString(6, pincode);
+					pstm.setString(7, password);
+					int rows = pstm.executeUpdate();
 					
+					if(rows>0) {
+						String color = "success";
+						String msg = "Account created successfully!";
+						HttpSession session = request.getSession();
+						session.setAttribute("message", msg);
+						session.setAttribute("color",color);
+						response.sendRedirect("login.jsp");
+					}
+					else {
+						String color = "danger";
+						String msg = "Failed to create an account";
+						HttpSession session = request.getSession();
+						session.setAttribute("message", msg);
+						session.setAttribute("color",color);
+						response.sendRedirect("signup.jsp");
+					}
 				}
-				else {
-					String color = "danger";
-					String msg = "Failed to create an account";
-					HttpSession session = request.getSession();
-					session.setAttribute("message", msg);
-					session.setAttribute("color",color);
+				finally {
+					con.close();
 				}
-				
-				response.sendRedirect("login.jsp");
 			}
 			catch(Exception e) {
 				System.out.println("Exception: " + e);

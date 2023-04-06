@@ -26,27 +26,32 @@ public class Login extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
-			String sql = "select name from user where email=? and password=?";
-			PreparedStatement pstm = con.prepareStatement(sql);
-			pstm.setString(1, email);
-			pstm.setString(2, password);
-			ResultSet rs = pstm.executeQuery();
-			
-			if(rs.next()) {
-				String color = "success";
-				String msg = "Welcome " + rs.getString("name");
-				HttpSession session = request.getSession();
-				session.setAttribute("message", msg);
-				session.setAttribute("color",color);
-				response.sendRedirect("index.jsp");
+			try {
+				String sql = "select name from user where email=? and password=?";
+				PreparedStatement pstm = con.prepareStatement(sql);
+				pstm.setString(1, email);
+				pstm.setString(2, password);
+				ResultSet rs = pstm.executeQuery();
+				
+				if(rs.next()) {
+					String color = "success";
+					String msg = "Welcome " + rs.getString("name");
+					HttpSession session = request.getSession();
+					session.setAttribute("message", msg);
+					session.setAttribute("color",color);
+					response.sendRedirect("index.jsp");
+				}
+				else {
+					String color = "danger";
+					String msg = "Wrong Email or Password";
+					HttpSession session = request.getSession();
+					session.setAttribute("message", msg);
+					session.setAttribute("color",color);
+					response.sendRedirect("login.jsp");
+				}
 			}
-			else {
-				String color = "danger";
-				String msg = "Wrong Email or Password";
-				HttpSession session = request.getSession();
-				session.setAttribute("message", msg);
-				session.setAttribute("color",color);
-				response.sendRedirect("login.jsp");
+			finally {
+				con.close();
 			}
 		}
 		catch(Exception e) {

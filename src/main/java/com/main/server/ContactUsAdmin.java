@@ -23,25 +23,30 @@ public class ContactUsAdmin extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
-			String sql = "select id, name, email from contact_us";
-			PreparedStatement pstm = con.prepareStatement(sql);
-			ResultSet rs = pstm.executeQuery();
-			
-			@SuppressWarnings("rawtypes")
-			ArrayList<HashMap> arr = new ArrayList<>();
-			
-			while(rs.next()) {
-				HashMap<String, String> hm = new HashMap<>();
+			try {
+				String sql = "select id, name, email from contact_us";
+				PreparedStatement pstm = con.prepareStatement(sql);
+				ResultSet rs = pstm.executeQuery();
 				
-				hm.put("id", rs.getString("id"));
-				hm.put("name", rs.getString("name"));
-				hm.put("email", rs.getString("email"));
+				@SuppressWarnings("rawtypes")
+				ArrayList<HashMap> arr = new ArrayList<>();
 				
-				arr.add(hm);
+				while(rs.next()) {
+					HashMap<String, String> hm = new HashMap<>();
+					
+					hm.put("id", rs.getString("id"));
+					hm.put("name", rs.getString("name"));
+					hm.put("email", rs.getString("email"));
+					
+					arr.add(hm);
+				}
+				
+				request.setAttribute("contact", arr);
+				request.getRequestDispatcher("admin_msgdb.jsp").forward(request, response);
 			}
-			
-			request.setAttribute("contact", arr);
-			request.getRequestDispatcher("admin_msgdb.jsp").forward(request, response);
+			finally {
+				con.close();
+			}
 		}
 		catch(Exception e) {
 			System.out.println("Exception: " + e);

@@ -24,11 +24,17 @@ public class DeleteMessage extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
-			String sql = "delete from contact_us where id='"+id+"'";
-			PreparedStatement pstm = con.prepareStatement(sql);
-			pstm.executeUpdate();
-			
-			response.sendRedirect("contact_us_admin");
+			try {
+				String sql = "delete from contact_us where id=?";
+				PreparedStatement pstm = con.prepareStatement(sql);
+				pstm.setString(1, id);
+				pstm.executeUpdate();
+				
+				response.sendRedirect("contact_us_admin");
+			}
+			finally {
+				con.close();
+			}
 		}
 		catch(Exception e) {
 			System.out.println("Exception: " + e);

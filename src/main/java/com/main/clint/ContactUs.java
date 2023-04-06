@@ -27,30 +27,38 @@ public class ContactUs extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
-			String sql = "insert into contact_us set name='"+name+"',email='"+email+"',message='"+message+"'";
-			PreparedStatement pstm = con.prepareStatement(sql);
-			
-			int rows = pstm.executeUpdate();
-			if(rows>0) { //condition check
-			String color = "success";
-			String msg = "We have received your message";
-			HttpSession session = request.getSession();
-			session.setAttribute("message", msg);
-			session.setAttribute("color",color);
+			try {
+				String sql = "insert into contact_us set name=?, email=?, message=?";
+				PreparedStatement pstm = con.prepareStatement(sql);
+				pstm.setString(1, name);
+				pstm.setString(2, email);
+				pstm.setString(3, message);
+				int rows = pstm.executeUpdate();
+				
+				if(rows>0) {
+					String color = "success";
+					String msg = "We have received your message";
+					HttpSession session = request.getSession();
+					session.setAttribute("message", msg);
+					session.setAttribute("color",color);
+					response.sendRedirect("index.jsp");
+				}
+				else {
+					String color = "danger";
+					String msg = "error";
+					HttpSession session = request.getSession();
+					session.setAttribute("message", msg);
+					session.setAttribute("color",color);
+					response.sendRedirect("contact.jsp");
+				}
 			}
-			else {
-			String color = "danger";
-			String msg = "error";
-			HttpSession session = request.getSession();
-			session.setAttribute("message", msg);
-			session.setAttribute("color",color);
+			finally {
+				con.close();
 			}
-			response.sendRedirect("index.jsp");
 		}
 		catch(Exception e) {
 			System.out.println("Exception: " + e);
 		}
-		
 	}
 
 	

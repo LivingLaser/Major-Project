@@ -34,7 +34,9 @@
               <div class="card-body">
                 <h5 class="card-title">Users message</h5>
                 <p class="card-text">All the messages sent by the users are stored here.</p>
-                <div class="ab text-center"><a href="contact_us_admin" class="btn btn-primary">Visit</a></div>
+                <form action="contact_us_admin" method="post">
+                <div class="ab text-center"><button type="submit" class="btn btn-primary">Visit</button></div>
+                </form>
               </div>
             </div>
           </div>

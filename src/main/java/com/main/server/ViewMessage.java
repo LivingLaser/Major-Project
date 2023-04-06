@@ -2,7 +2,7 @@ package com.main.server;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.HashMap;
+import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,21 +25,27 @@ public class ViewMessage extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
-			String sql = "select * from contact_us where id='"+id+"'";
-			PreparedStatement pstm = con.prepareStatement(sql);
-			ResultSet rs = pstm.executeQuery();
-			
-			HashMap<String, String> hm = new HashMap<>();
-			
-			while(rs.next()) {
-				hm.put("id", rs.getString("id"));
-				hm.put("name", rs.getString("name"));
-				hm.put("email", rs.getString("email"));
-				hm.put("message", rs.getString("message"));
+			try {
+				String sql = "select * from contact_us where id=?";
+				PreparedStatement pstm = con.prepareStatement(sql);
+				pstm.setString(1, id);
+				ResultSet rs = pstm.executeQuery();
+				
+				HashMap<String, String> hm = new HashMap<>();
+				
+				if(rs.next()) {
+					hm.put("id", rs.getString("id"));
+					hm.put("name", rs.getString("name"));
+					hm.put("email", rs.getString("email"));
+					hm.put("message", rs.getString("message"));
+				}
+				
+				request.setAttribute("view", hm);
+				request.getRequestDispatcher("admin_msg_view.jsp").forward(request, response);
 			}
-			
-			request.setAttribute("view", hm);
-			request.getRequestDispatcher("admin_msg_view.jsp").forward(request, response);
+			finally {
+				con.close();
+			}
 		}
 		catch(Exception e) {
 			System.out.println("Exception: " + e);
