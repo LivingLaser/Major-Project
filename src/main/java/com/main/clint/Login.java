@@ -39,6 +39,7 @@ public class Login extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
+					request.getSession().setAttribute("loggedIn", true);
 					response.sendRedirect("index.jsp");
 				}
 				else {
@@ -47,6 +48,7 @@ public class Login extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
+					request.getSession().removeAttribute("loggedIn");
 					response.sendRedirect("login.jsp");
 				}
 			}
