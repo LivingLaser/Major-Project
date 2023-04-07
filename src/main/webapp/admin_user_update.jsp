@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Admin User's details</title>
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <br>
@@ -43,7 +42,7 @@
           <label for="inputpassword" class="form-label">Password</label>
           <input type="password" class="form-control" disabled placeholder="password" aria-label="password" name="" >
         </div>
-        ><br>
+        <br>
           <div class="d-grid gap-2 col-6 mx-auto">
             <button class="btn btn-primary" type="submit" name="" >UPDATE</button>
           </div>

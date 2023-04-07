@@ -1,3 +1,4 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -21,33 +22,40 @@
     <table class="table table-dark">
         <thead>
           <tr>
-            <th scope="col">User ID</th>
+            <th scope="col">SL. NO.</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Phone No</th>
-            <th scope="col">Address</th>
-            <th scope="col">City</th>
-            <th scope="col">Pincode</th>
-            <th scope="col">Password</th>
             <th colspan="3" scope="col">ADMIN ACTIONS</th>
-            
           </tr>
         </thead>
         <tbody>
-<!-- loop chobe -->
+        <%
+        @SuppressWarnings({"unchecked", "rawtypes"})
+        ArrayList<HashMap> users = (ArrayList<HashMap>)request.getAttribute("user");
+        
+        for(int i=0;i<users.size();i++) {
+        %>
           <tr>
-            <th scope="row">data</th>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-            <td>data</td>
-            <td><a class="linkbtn" href="#"><button type="button" class="btn btn-primary">View</button></a></td>
+            <th scope="row"><% out.print(i+1); %></th>
+            <td><% out.print(users.get(i).get("name")); %></td>
+            <td><% out.print(users.get(i).get("email")); %></td>
+            <td><% out.print(users.get(i).get("phone")); %></td>
+            <td>
+            <form action="view_user" method="post">
+            <input type="hidden" name="id" value="<% out.print(users.get(i).get("id")); %>">
+            <button type="submit" class="btn btn-primary">View</button>
+            </form>
+            </td>
             <td><a class="linkbtn" href="#"><button type="button" class="btn btn-warning">Edit</button></a></td>
-            <td><a class="linkbtn" href="#"><button type="button" class="btn btn-danger">Delete</button></a></td>
+            <td>
+            <form action="delete_user" method="post">
+            <input type="hidden" name="id" value="<% out.print(users.get(i).get("id")); %>">
+            <button onclick="return confirm('Are you sure ?')" type="submit" class="btn btn-danger">Delete</button>
+            </form>
+            </td>
           </tr>
+        <% } %>
         </tbody>
       </table>
 </div>

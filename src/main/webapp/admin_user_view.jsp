@@ -1,12 +1,13 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Admin User's details</title>
 </head>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <br>
@@ -15,39 +16,43 @@
 			<div class="col-md-12">
 				<h1 class="text-center"><b>User's Details</b></h1>
 				<form class="row g-3">
+				<%
+				@SuppressWarnings("unchecked")
+				HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
+				%>
 					<div class="col-12">
 						<label for="inputName" class="form-label">Name</label>
-						<input type="text" class="form-control" id="inputName" disabled placeholder="Enter your full name...">
+						<input type="text" class="form-control" id="inputName" value="<% out.print(views.get("name")); %>" disabled>
 					  </div>
 					<div class="col-md-6">
 					  <label for="inputEmail4" class="form-label">Email</label>
-					  <input type="email" class="form-control" id="inputEmail4" placeholder="Enter your email" disabled>
+					  <input type="email" class="form-control" id="inputEmail4" value="<% out.print(views.get("email")); %>" disabled>
 					</div>
 					<div class="col-md-6">
 					  <label for="inputPhone" class="form-label">Phone No</label>
-					  <input type="number" class="form-control" id="inputPhone" placeholder="Enter your 10 digits Phone No" disabled>
+					  <input type="number" class="form-control" id="inputPhone" value="<% out.print(views.get("phone")); %>" disabled>
 					</div>
 					<div class="col-12">
 					  <label for="inputAddress" class="form-label">Address</label>
-					  <input type="text" class="form-control" id="inputAddress" placeholder="Your Address..." disabled>
+					  <input type="text" class="form-control" id="inputAddress" value="<% out.print(views.get("address")); %>" disabled>
 					</div>
 					<div class="col-md-6">
 					  <label for="inputCity" class="form-label">City</label>
-					  <input type="text" class="form-control" id="inputCity" placeholder="Enter your City here..." disabled >
+					  <input type="text" class="form-control" id="inputCity" value="<% out.print(views.get("city")); %>" disabled >
 					</div>
 					<div class="col-md-6">
 					  <label for="inputpincode" class="form-label">Pin code</label>
-					  <input type="text" class="form-control" id="inputpincode" placeholder="Area PIN code" disabled>
+					  <input type="text" class="form-control" id="inputpincode" value="<% out.print(views.get("pincode")); %>" disabled>
 					</div>
 					<hr>
 					<div class="row g-3">
 						<div class="col">
 							<label for="inputpassword" class="form-label">Password</label>
-						  <input type="text" class="form-control" placeholder="password" aria-label="password" disabled>
+						  <input type="text" class="form-control" value="<% out.print(views.get("password")); %>" aria-label="password" disabled>
 						</div>
 						<div class="col">
 							<label for="inputid" class="form-label">User's ID</label>
-						  <input type="text" class="form-control" placeholder="id" aria-label="password" disabled>
+						  <input type="text" class="form-control" value="<% out.print(views.get("id")); %>" aria-label="password" disabled>
 						</div>
 					  </div>
 					<br>
@@ -60,7 +65,6 @@
 			   </div>
 			</div>
 		</div>
-    </div>
 
 </body>
 </html>

@@ -22,19 +22,19 @@
 				%>
 				    <div class="form-group">
 						<label for="name"><h4><b>Customer's message ID</b></h4></label>
-						<input type="text" class="form-control" id="name" placeholder="<% out.print(views.get("id")); %>" disabled>
+						<input type="text" class="form-control" id="name" value="<% out.print(views.get("id")); %>" disabled>
 					</div><br>
 					<div class="form-group">
 						<label for="name"><h4><b>Name:</b></h4></label>
-						<input type="text" class="form-control" id="name" placeholder="<% out.print(views.get("name")); %>" disabled>
+						<input type="text" class="form-control" id="name" value="<% out.print(views.get("name")); %>" disabled>
 					</div><br>
 					<div class="form-group">
 						<label for="email"><h4><b>Email:</b></h4></label>
-						<input type="email" class="form-control" id="email" placeholder="<% out.print(views.get("email")); %>" disabled>
+						<input type="email" class="form-control" id="email" value="<% out.print(views.get("email")); %>" disabled>
 					</div><br>
 					<div class="form-group">
 						<label for="message"><h4><b>Message:</b></h4></label>
-						<textarea class="form-control" id="message" rows="5" placeholder="<% out.print(views.get("message")); %>" disabled></textarea>
+						<textarea class="form-control" id="message" rows="5" disabled><% out.print(views.get("message")); %></textarea>
 					</div><br><br><div class="text-center"><button onclick="window.print()" class="btn btn-secondary btn-lg">Print</button> </div>
 				</form>
 			</div>
