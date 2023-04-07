@@ -1,3 +1,4 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,44 +13,49 @@
  <h3 class="text-center"><b>UPDATE USER'S DATA</b></h3><br>
    <div class="container">
 
-    <form class="row g-3">
+    <form action="update_user_db" method="post" class="row g-3">
+    <%
+    @SuppressWarnings("unchecked")
+	HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
+    %>
         <div class="col-12">
             <label for="inputName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="inputName"  value="Enter your full name..." name="">
+            <input type="text" class="form-control" id="inputName"  value="<% out.print(views.get("name")); %>" name="name">
           </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" value="Enter your email" name="" >
+          <input type="email" class="form-control" id="inputEmail4" value="<% out.print(views.get("email")); %>" name="email" >
         </div>
         <div class="col-md-6">
           <label for="inputPhone" class="form-label">Phone No</label>
-          <input type="number" class="form-control" id="inputPhone" value="1001001010" name="" >
+          <input type="number" class="form-control" id="inputPhone" value="<% out.print(views.get("phone")); %>" name="phone" >
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" value="Your Address..." name="" >
+          <input type="text" class="form-control" id="inputAddress" value="<% out.print(views.get("address")); %>" name="address" >
         </div>
         <div class="col-md-6">
           <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity" value="Enter your City here..." name="" >
+          <input type="text" class="form-control" id="inputCity" value="<% out.print(views.get("city")); %>" name="city" >
         </div>
         <div class="col-md-6">
           <label for="inputpincode" class="form-label">Pin code</label>
-          <input type="text" class="form-control" id="inputpincode" value="Area PIN code" name="" >
+          <input type="text" class="form-control" id="inputpincode" value="<% out.print(views.get("pincode")); %>" name="pincode" >
         </div>
         <hr>
         <div class="col-md-6">
           <label for="inputpassword" class="form-label">PASSWORD</label>
-          <input type="text" class="form-control" id="inputpassword" disabled placeholder="password" name="" >
+          <input type="text" class="form-control" id="inputpassword" value="<% out.print(views.get("password")); %>" disabled >
         </div>
         <div class="col-md-6">
           <label for="inputid" class="form-label">USER ID</label>
-          <input type="text" class="form-control" id="inputid" disabled placeholder="user id" name="" >
+          <input type="text" class="form-control" id="inputid" value="<% out.print(views.get("id")); %>" disabled >
+          <input type="hidden" class="form-control" id="inputid" value="<% out.print(views.get("id")); %>" name="id" >
         </div>
 
         <br>
           <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-primary" type="submit" name="" >UPDATE</button>
+            <button type="submit" class="btn btn-primary">UPDATE</button>
           </div>
       </form>
 

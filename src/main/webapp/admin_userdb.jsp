@@ -47,7 +47,12 @@
             <button type="submit" class="btn btn-primary">View</button>
             </form>
             </td>
-            <td><a class="linkbtn" href="#"><button type="button" class="btn btn-warning">Edit</button></a></td>
+            <td>
+            <form action="update_user" method="post">
+            <input type="hidden" name="id" value="<% out.print(users.get(i).get("id")); %>">
+            <button type="submit" class="btn btn-warning">Edit</button>
+            </form>
+            </td>
             <td>
             <form action="delete_user" method="post">
             <input type="hidden" name="id" value="<% out.print(users.get(i).get("id")); %>">
