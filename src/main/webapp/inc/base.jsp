@@ -34,7 +34,7 @@
             <li><a class="dropdown-item" href="signup.jsp">Signup</a></li>
             <li><a class="dropdown-item" href="login.jsp">Login</a></li>
             <li>
-               <form action="/logout" method="post"><button class="dropdown-item" type="submit" >Logout</button></form></li>
+               <form action="Logout" method="post"><button class="dropdown-item" type="submit" >Logout</button></form></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="adminauth.jsp">ADMIN</a></li>
           </ul>
