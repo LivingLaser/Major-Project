@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+    body {
+      background-image: url('https://img.freepik.com/free-vector/abstract-blue-watercolor-background-vector_53876-144154.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }

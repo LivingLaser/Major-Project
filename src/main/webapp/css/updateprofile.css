@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+    body {
+      background-image: url('https://static.storyweaver.org.in/illustrations/58827/large/14.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }

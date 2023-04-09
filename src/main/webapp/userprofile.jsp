@@ -1,14 +1,13 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <style>
-    body {
-      background-image: url('https://img.freepik.com/free-vector/abstract-blue-watercolor-background-vector_53876-144154.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/userprofile.css">
 <title>My profile</title> 
+</head>
 <jsp:include page="inc/base.jsp"></jsp:include>
 <body><br>
     <div class="container">
@@ -19,17 +18,23 @@
                 <h2>View Profile</h2>
               </div>
               <div class="card-body">
-                <!-- <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle mb-3" /> -->
+              <%
+              @SuppressWarnings("unchecked")
+              HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
+              %>
                 <h4 class="card-title">Name</h4>
-                <p class="card-text">some message..........................</p>
+                <p class="card-text"><% out.print(views.get("name")); %></p>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><strong>Email:</strong> john.doe@example.com</li>
-                  <li class="list-group-item"><strong>Phone:</strong> +1 (123) 456-7890</li>
-                  <li class="list-group-item"><strong>Address:</strong> 123 Main St, Anytown USA</li>
-                  <li class="list-group-item"><strong>Ciy:</strong> kolkata</li>
-                  <li class="list-group-item"><strong>Pin Code:</strong> 700 042</li><br>
+                  <li class="list-group-item"><strong>Email:</strong> <% out.print(views.get("email")); %></li>
+                  <li class="list-group-item"><strong>Phone:</strong> <% out.print(views.get("phone")); %></li>
+                  <li class="list-group-item"><strong>Address:</strong> <% out.print(views.get("address")); %></li>
+                  <li class="list-group-item"><strong>Ciy:</strong> <% out.print(views.get("city")); %></li>
+                  <li class="list-group-item"><strong>Pin Code:</strong> <% out.print(views.get("pincode")); %></li><br>
                   <li class="list-group-item"><div class="d-grid gap-2 col-6 mx-auto">
-                    <a class="btn btn-info" href="updateprofile.jsp" type="button" name="" >UPDATE PROFILE</a>
+                    <form action="update_profile" method="post">
+                    <input type="hidden" name="id" value="<% out.print(views.get("id")); %>">
+                    <button type="submit" class="btn btn-info">UPDATE PROFILE</button>
+                    </form>
                 </div></li>
                 </ul>
               </div>
@@ -40,3 +45,4 @@
 </body>
 
 <jsp:include page="inc/footer.jsp"></jsp:include>
+</html>

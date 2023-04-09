@@ -43,9 +43,15 @@
           </ul>
         </li>
           <!-- profile btn only show korbe if user is logged in -->
-        <% if(session.getAttribute("loggedIn") != null && (Boolean) session.getAttribute("loggedIn")) { %>
+        <%
+        if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("loggedIn")) {
+        	String id = (String)session.getAttribute("id");
+        %>
           <li class="nav-item">
-            <a class="nav-link" href="userprofile.jsp">Profile</a>
+          <form action="profile" method="post">
+          <input type="hidden" name="id" value="<% out.print(id); %>">
+          <button type="submit" class="btn btn-primary nav-link">Profile</button>
+          </form>
           </li>
          <!-- cart button only if user is logged in-->
         <li class="nav-item">
