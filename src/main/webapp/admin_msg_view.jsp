@@ -1,6 +1,9 @@
 <%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+            <%
+        if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute("loggedAdmin")) {
+        %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,3 +45,10 @@
 	</div>
 </body>
 </html>
+
+        <% }
+           else
+           {%>
+<jsp:include page="inc/errorpage.jsp"></jsp:include>
+
+        <% } %>

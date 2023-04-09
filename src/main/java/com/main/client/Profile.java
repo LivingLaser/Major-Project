@@ -1,4 +1,4 @@
-package com.main.clint;
+package com.main.client;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class UpdateProfile
+ * Servlet implementation class Profile
  */
-@WebServlet("/update_profile")
-public class UpdateProfile extends HttpServlet {
+@WebServlet("/profile")
+public class Profile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -41,11 +41,10 @@ public class UpdateProfile extends HttpServlet {
 					hm.put("address", rs.getString("address"));
 					hm.put("city", rs.getString("city"));
 					hm.put("pincode", rs.getString("pincode"));
-					hm.put("password", rs.getString("password"));
 				}
 				
 				request.setAttribute("view", hm);
-				request.getRequestDispatcher("updateprofile.jsp").forward(request, response);
+				request.getRequestDispatcher("userprofile.jsp").forward(request, response);
 			}
 			finally {
 				con.close();

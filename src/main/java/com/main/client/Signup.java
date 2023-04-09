@@ -1,4 +1,4 @@
-package com.main.clint;
+package com.main.client;
 
 import java.io.IOException;
 import java.sql.*;

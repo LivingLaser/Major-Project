@@ -16,13 +16,25 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="btn btn-outline-light me-2" href="#" role="button">Logout</a>
+            <form action="adminlogout" method="post">
+            <button class="btn btn-outline-light mx-2" type="submit" >Logout</button>
+            </form>
         </li>
         <li class="nav-item">
-          <a class="btn btn-outline-light" href="admin_dashboard.jsp" role="button">Dashboard</a>
+          <a class="btn btn-outline-light mx-2" href="admin_dashboard.jsp" role="button">Dash board</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
+<%-- Check hobe session a msg ta ache kina --%>
+<% if (session.getAttribute("message") != null) { %>
+  <div class="alert alert-<%= session.getAttribute("color") %> alert-dismissible fade show" role="alert">
+    <%= session.getAttribute("message") %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <%-- session close hochhe --%>
+  <% session.removeAttribute("message"); %>
+<% } %>

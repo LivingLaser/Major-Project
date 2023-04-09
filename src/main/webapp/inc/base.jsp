@@ -50,12 +50,12 @@
           <li class="nav-item">
           <form action="profile" method="post">
           <input type="hidden" name="id" value="<% out.print(id); %>">
-          <button type="submit" class="btn btn-primary nav-link">Profile</button>
+          <button type="submit" class="btn btn-primary mx-2">Profile</button>
           </form>
           </li>
          <!-- cart button only if user is logged in-->
         <li class="nav-item">
-          <a type="button" class="btn btn-warning nav-link mr-2" href="cart.jsp">My Cart</a>
+          <a type="button" class="btn btn-warning mx-2" href="cart.jsp">My Cart</a>
         </li>
         <% } %>
       
