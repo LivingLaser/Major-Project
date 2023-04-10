@@ -4,18 +4,14 @@
 <html>
 <head>
 <title>login</title>
-<jsp:include page="inc/base.jsp"></jsp:include>
-<style>
-    body {
-      background-image: url('https://www.designcap.com/media/pages/images/home/clipart.svg?v=1602654254');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-</style>
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
+
+<jsp:include page="inc/base.jsp"></jsp:include>
+
 <form action="login" method="post">
 <div class="container d-grid gap-2 col-6 mx-auto"><br>
 <h1 class="text-center">Login</h1>
@@ -29,6 +25,7 @@
     <label for="inputPassword" class="col-sm-2 col-form-label">Password:</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword"  required placeholder="Enter your password" name="password">
+      <span class="eye"><i class="fa fa-eye fa-2x" id="showHide" aria-hidden="true"></i></span>
     </div>
   </div>
   <div class="d-grid gap-2 col-6 mx-auto"><br>
@@ -39,6 +36,9 @@
   </div>
 </div>
 </form>
+
+<script src="js/eye_button.js"></script>
+
 </body><br>
 <jsp:include page="inc/footer.jsp"></jsp:include>
 </html>

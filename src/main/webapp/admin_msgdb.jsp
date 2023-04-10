@@ -1,9 +1,9 @@
 <%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-        <%
-        if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute("loggedAdmin")) {
-        %>
+<%
+if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute("loggedAdmin")) {
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,16 +57,15 @@
             <% } %>
             </tbody>
 	 </table>
-   
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
-        <% }
-           else
-           {%>
+<% 
+}
+else {
+%>
+
 <jsp:include page="inc/errorpage.jsp"></jsp:include>
 
-        <% } %>
+<% } %>

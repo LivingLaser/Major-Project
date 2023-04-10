@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-            <%
-        if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute("loggedAdmin")) {
-        %>
+<%
+if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute("loggedAdmin")) {
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
     <link rel="stylesheet" href="css/admin_dashboard.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
@@ -68,9 +67,11 @@
 </body>
 </html>
 
-        <% }
-           else
-           {%>
+<% 
+}
+else {
+%>
+
 <jsp:include page="inc/errorpage.jsp"></jsp:include>
 
-        <% } %>
+<% } %>

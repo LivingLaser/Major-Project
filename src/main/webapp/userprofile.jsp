@@ -8,8 +8,8 @@
 <link rel="stylesheet" href="css/userprofile.css">
 <title>My profile</title> 
 </head>
-<jsp:include page="inc/base.jsp"></jsp:include>
-<body><br>
+<body>
+<jsp:include page="inc/base.jsp"></jsp:include><br>
     <div class="container">
         <div class="row mt-7">
           <div class="col-md-6 offset-md-3">

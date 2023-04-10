@@ -4,18 +4,13 @@
 <html>
 <head>
 <title>signup</title>
-<jsp:include page="inc/base.jsp"></jsp:include>
-
-<style>
-    body {
-      background-image: url('https://www.designcap.com/media/pages/images/home/clipart.svg?v=1602654254');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-</style>
+<link rel="stylesheet" href="css/signup.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+<jsp:include page="inc/base.jsp"></jsp:include>
+
    <h1 class="text-center">SIGNUP</h1><br>
    <div class="container">
 
@@ -47,18 +42,20 @@
         <hr>Create a new password
         <div class="row g-3">
             <div class="col">
-              <input type="password" class="form-control" placeholder="password" required aria-label="password" name="password" >
+              <input type="password" class="form-control" id="inputPassword" placeholder="password" required aria-label="password" name="password" >
+              <span class="eye"><i class="fa fa-eye fa-2x" id="showHide" aria-hidden="true"></i></span>
             </div>
             <div class="col">
               <input type="password" class="form-control" placeholder="confirm password" required aria-label="password" name="confirm_password" >
             </div>
           </div>
           <div class="d-grid gap-2 col-6 mx-auto"><br>
-            <button class="btn btn-primary" type="submit" name="" >Signup</button>
+            <button class="btn btn-primary" type="submit">Signup</button>
           </div>
       </form>
 
    </div>
+   <script src="js/eye_button.js"></script>
 </body>
 <br>
 <jsp:include page="inc/footer.jsp"></jsp:include>

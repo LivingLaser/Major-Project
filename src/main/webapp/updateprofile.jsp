@@ -7,11 +7,11 @@
 <head>
 <title>update profile</title>
 <link rel="stylesheet" href="css/updateprofile.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
    <jsp:include page="inc/base.jsp"></jsp:include>
-   
    <h1 class="text-center">UPDATE YOUR DATA</h1><br>
    <div class="container d-grid gap-2 col-6 mx-auto">
 
@@ -48,6 +48,7 @@
         <div class="col-12">
             <label for="inputPassword" class="form-label">PASSWORD</label>
             <input type="password" class="form-control" id="inputPassword" value="<% out.print(views.get("password")); %>" name="password" >
+            <span class="eye"><i class="fa fa-eye fa-2x" id="showHide" aria-hidden="true"></i></span>
           </div>
         <br>
           <div class="d-grid gap-2 col-6 mx-auto">
@@ -58,6 +59,7 @@
 
    </div>
    <br>
-   <jsp:include page="inc/footer.jsp"></jsp:include>
+   <script src="js/eye_button.js"></script>
 </body>
+<jsp:include page="inc/footer.jsp"></jsp:include>
 </html>

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
     body {
-      background-image: url('https://static.storyweaver.org.in/illustrations/58827/large/14.jpg');
+      background-image: url('https://www.designcap.com/media/pages/images/home/clipart.svg?v=1602654254');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
@@ -9,9 +9,9 @@
     
     .eye {
     	position: absolute;
-    	right: 10%;
+    	right: 26.5%;
     	transform: translate(0,-50%);
-    	top: 30%;
+    	top: 35.5%;
     	cursor: pointer;
     }
     

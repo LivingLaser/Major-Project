@@ -1,11 +1,7 @@
 package com.main.server;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
+import java.sql.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,14 +12,13 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class Adminlogin
  */
-@WebServlet("/adminlogin")
-public class Adminlogin extends HttpServlet {
+@WebServlet("/admin_login")
+public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String name = request.getParameter("username");
 		String password = request.getParameter("password");
 		
@@ -51,7 +46,7 @@ public class Adminlogin extends HttpServlet {
 				}
 				else {
 					String color = "danger";
-					String msg = "Wrong Username or Password";
+					String msg = "Wrong Admin ID or Password";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
@@ -68,9 +63,7 @@ public class Adminlogin extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

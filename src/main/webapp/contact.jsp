@@ -1,16 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
     <title>contact us</title>
-<style>
-    body {
-      background-image: url('https://img.pikbest.com/backgrounds/20191028/abstract-white-background-can-be-used-in-cover-design--book-design--website-background-v_1582398jpg!bwr800');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-</style>
-<jsp:include page="inc/base.jsp"></jsp:include>
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
 <body>
+<jsp:include page="inc/base.jsp"></jsp:include>
 <jsp:include page="inc/contactheading.jsp"></jsp:include>
       <br>
     <div class="container">
@@ -33,4 +32,6 @@
       </form>
     </div>
 
-</body><jsp:include page="inc/footer.jsp"></jsp:include>
+</body>
+<jsp:include page="inc/footer.jsp"></jsp:include>
+</html>

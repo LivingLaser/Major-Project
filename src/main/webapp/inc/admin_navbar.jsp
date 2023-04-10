@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap.bundle.min.js"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
@@ -16,7 +15,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-            <form action="adminlogout" method="post">
+            <form action="admin_logout" method="post">
             <button class="btn btn-outline-light mx-2" type="submit" >Logout</button>
             </form>
         </li>
@@ -27,6 +26,8 @@
     </div>
   </div>
 </nav>
+
+
 <%-- Check hobe session a msg ta ache kina --%>
 <% if (session.getAttribute("message") != null) { %>
   <div class="alert alert-<%= session.getAttribute("color") %> alert-dismissible fade show" role="alert">
