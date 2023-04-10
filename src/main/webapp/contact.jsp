@@ -32,6 +32,6 @@
       </form>
     </div>
 
-</body>
+</body><br><br>
 <jsp:include page="inc/footer.jsp"></jsp:include>
 </html>

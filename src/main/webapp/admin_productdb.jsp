@@ -25,7 +25,7 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link me-2 btn btn-secondary btn-lg" href="#">ADD NEW PRODUCT</a>
+          <a class="nav-link me-2 btn btn-secondary btn-lg" href="admin_addproduct.jsp">ADD NEW PRODUCT</a>
         </li>
         <li class="nav-item">
           <button onclick="window.print()" class="btn btn-secondary btn-lg">PRINT PRODUCT LIST</button>
