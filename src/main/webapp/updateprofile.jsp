@@ -45,13 +45,14 @@
           <input type="text" class="form-control" id="inputpincode" value="<% out.print(views.get("pincode")); %>" name="pincode" >
         </div>
         <hr>
-        <div class="col-12">
+        <div class="col-md-12">
             <label for="inputPassword" class="form-label">PASSWORD</label>
             <input type="password" class="form-control" id="inputPassword" value="<% out.print(views.get("password")); %>" name="password" >
             <span class="eye"><i class="fa fa-eye fa-2x" id="showHide" aria-hidden="true"></i></span>
-          </div>
+        </div>
+
         <br>
-          <div class="d-grid gap-2 col-6 mx-auto">
+          <div class="d-grid gap-2 col-5 mx-auto">
             <input type="hidden" name="id" value="<% out.print(views.get("id")); %>">
             <button class="btn btn-secondary" type="submit" name="" >UPDATE</button>
           </div>

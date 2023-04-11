@@ -24,39 +24,38 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
     %>
         <div class="col-12">
             <label for="inputName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="inputName"  value="<% out.print(views.get("name")); %>" name="name">
+            <input type="text" class="form-control" id="inputName" required value="<% out.print(views.get("name")); %>" name="name">
           </div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" class="form-control" id="inputEmail4" value="<% out.print(views.get("email")); %>" name="email" >
+          <input type="email" class="form-control" id="inputEmail4" required value="<% out.print(views.get("email")); %>" name="email" >
         </div>
         <div class="col-md-6">
           <label for="inputPhone" class="form-label">Phone No</label>
-          <input type="number" class="form-control" id="inputPhone" value="<% out.print(views.get("phone")); %>" name="phone" >
+          <input type="number" class="form-control" id="inputPhone" required value="<% out.print(views.get("phone")); %>" name="phone" >
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress" value="<% out.print(views.get("address")); %>" name="address" >
+          <input type="text" class="form-control" id="inputAddress" required value="<% out.print(views.get("address")); %>" name="address" >
         </div>
         <div class="col-md-6">
           <label for="inputCity" class="form-label">City</label>
-          <input type="text" class="form-control" id="inputCity" value="<% out.print(views.get("city")); %>" name="city" >
+          <input type="text" class="form-control" id="inputCity" required value="<% out.print(views.get("city")); %>" name="city" >
         </div>
         <div class="col-md-6">
           <label for="inputpincode" class="form-label">Pin code</label>
-          <input type="text" class="form-control" id="inputpincode" value="<% out.print(views.get("pincode")); %>" name="pincode" >
+          <input type="text" class="form-control" id="inputpincode" required value="<% out.print(views.get("pincode")); %>" name="pincode" >
         </div>
         <hr>
         <div class="col-md-6">
           <label for="inputpassword" class="form-label">PASSWORD</label>
-          <input type="text" class="form-control" id="inputpassword" value="<% out.print(views.get("password")); %>" disabled >
+          <input type="text" class="form-control" id="inputpassword" required value="<% out.print(views.get("password")); %>" disabled >
         </div>
         <div class="col-md-6">
           <label for="inputid" class="form-label">USER ID</label>
           <input type="text" class="form-control" id="inputid" value="<% out.print(views.get("id")); %>" disabled >
           <input type="hidden" class="form-control" id="inputid" value="<% out.print(views.get("id")); %>" name="id" >
         </div>
-
         <br>
           <div class="d-grid gap-2 col-6 mx-auto">
             <button type="submit" class="btn btn-primary">UPDATE</button>

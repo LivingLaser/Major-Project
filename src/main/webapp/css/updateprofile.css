@@ -7,15 +7,3 @@
       background-size: cover;
     }
     
-    .eye {
-    	position: absolute;
-    	float: right;
-    	top: 85.8%;
-    	transform: translate(0,-50%);
-    	right: 26.5%;
-    	cursor: pointer;
-    }
-    
-    .fa-eye {
-    	color: black;
-    }
