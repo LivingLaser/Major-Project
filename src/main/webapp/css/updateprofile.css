@@ -9,9 +9,10 @@
     
     .eye {
     	position: absolute;
-    	right: 10%;
+    	float: right;
+    	top: 85.8%;
     	transform: translate(0,-50%);
-    	top: 30%;
+    	right: 26.5%;
     	cursor: pointer;
     }
     

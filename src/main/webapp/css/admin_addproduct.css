@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+    body {
+      background-image: url('https://img.freepik.com/premium-vector/background-white-elegant-texture_23-2148438404.jpg?w=360');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }

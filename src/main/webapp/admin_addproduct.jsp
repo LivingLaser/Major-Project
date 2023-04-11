@@ -9,19 +9,7 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
 <head>
 <meta charset="UTF-8">
 <title>insert product</title>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-<style>
- 
-    body {
-      background-image: url('https://img.freepik.com/premium-vector/background-white-elegant-texture_23-2148438404.jpg?w=360');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-</style>
+<link rel="stylesheet" href="css/admin_addproduct.css">
 </head>
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
