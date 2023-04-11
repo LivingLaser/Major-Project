@@ -15,12 +15,12 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-            <form action="admin_logout" method="post">
-            <button class="btn btn-outline-light mx-2" type="submit" >Logout</button>
-            </form>
+          <a class="btn btn-outline-light mx-2" href="admin_dashboard.jsp" role="button">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-outline-light mx-2" href="admin_dashboard.jsp" role="button">Dash board</a>
+           <form action="admin_logout" method="post">
+            <button class="btn btn-outline-light mx-2" type="submit" >Logout</button>
+           </form>
         </li>
       </ul>
     </div>

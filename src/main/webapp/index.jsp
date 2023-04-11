@@ -64,7 +64,7 @@
 </div>
 
 <!-- popular product ekhan theke -->
-<div class="container"><br>
+<div class="container"><hr><br>
     <h2 class="text-center mb-5">Our Popular Products</h2>
     <div class="row">
       <div class="col-md-3 mb-4">

@@ -11,15 +11,27 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
-    <link rel="stylesheet" href="css/admin_dashboard.css">
+<style>
+          body {
+          background-image: url('https://c4.wallpaperflare.com/wallpaper/904/1022/350/hud-1-wallpaper-preview.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+
+        .card {
+          opacity: 0.7;
+        }
+</style>
+    
 </head>
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
 <div class="container">
-    <div class="container">
+
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Users message</h5>
@@ -30,7 +42,7 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
               </div>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="card ">
               <div class="card-body">
                 <h5 class="card-title">Users Data</h5>
@@ -40,8 +52,8 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
                 </form>
               </div>
             </div>
-          </div>
-          <div class="col-md-3">
+          </div><br><hr><br><br><br>
+          <div class="col-md-6">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Product Details</h5>
@@ -50,7 +62,7 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
               </div>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">Cart details</h5>
@@ -60,7 +72,7 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
             </div>
           </div>
         </div>
-      </div>
+
       
 </div>
 
