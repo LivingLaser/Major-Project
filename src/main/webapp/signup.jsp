@@ -5,7 +5,6 @@
 <head>
 <title>signup</title>
 <link rel="stylesheet" href="css/signup.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -42,8 +41,7 @@
         <hr>Create a new password
         <div class="row g-3">
             <div class="col">
-              <input type="password" class="form-control" id="inputPassword" placeholder="password" required aria-label="password" name="password" >
-              <span class="eye"><i class="fa fa-eye fa-2x" id="showHide" aria-hidden="true"></i></span>
+              <input type="password" class="form-control" placeholder="password" required aria-label="password" name="password" >
             </div>
             <div class="col">
               <input type="password" class="form-control" placeholder="confirm password" required aria-label="password" name="confirm_password" >

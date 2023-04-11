@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>login</title>
 <link rel="stylesheet" href="css/login.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -25,7 +25,6 @@
     <label for="inputPassword" class="col-sm-2 col-form-label">Password:</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword"  required placeholder="Enter your password" name="password">
-      <span class="eye"><i class="fa fa-eye fa-2x" id="showHide" aria-hidden="true"></i></span>
     </div>
   </div>
   <div class="d-grid gap-2 col-6 mx-auto"><br>

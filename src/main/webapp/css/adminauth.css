@@ -6,15 +6,3 @@
        background-attachment: fixed;
        background-size: cover;
      }
-     
-     .eye {
-    	position: absolute;
-    	right: 26.5%;
-    	transform: translate(0,-50%);
-    	top: 40%;
-    	cursor: pointer;
-    }
-    
-    .fa-eye {
-    	color: black;
-    }

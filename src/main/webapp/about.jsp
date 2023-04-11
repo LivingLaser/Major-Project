@@ -1,20 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>About us</title>
-<style>
- 
-    body {
-      background-image: url('https://www.beaverrun.com/sites/default/files/styles/secondary_hero_2018/public/website/AdobeStock_335745675.jpeg?itok=sRkJ0sDA&c=fbb3c7248215e7118b6a231322c6186f');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-</style>
+<link rel="stylesheet" href="css/about.css">
 </head>
+
 <body>
 <jsp:include page="inc/base.jsp"></jsp:include>
 <section id="about-us">
