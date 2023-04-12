@@ -55,8 +55,8 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
                     <td>data</td>
                     <td>data</td>
                     <td>data</td>
-                    <td><button class="btn btn-info"><a href="">View</button></td>
-                    <td><button class="btn btn-warning"><a href="">Update</button></td>
+                    <td><button class="btn btn-info"><a href="admin_product_view.jsp">View</button></td>
+                    <td><button class="btn btn-warning"><a href="admin_product_update.jsp">Update</button></td>
                     <td><button class="btn btn-danger"><a href="">Delete</button></td>
                 </tr>   
             </tbody>

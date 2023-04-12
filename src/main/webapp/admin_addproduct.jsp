@@ -42,9 +42,9 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
     <label class="mr-sm-2" for="inlineFormCustomSelect"><b>SELECT PRODUCT CATEGORY:</b>&nbsp;&nbsp;</label>
       <select class="custom-select mr-sm-2" required id="inlineFormCustomSelect"  name="">
         <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option value="vegetablesfruits">Vegetables & Fruits</option>
+        <option value="foograinsmasalas">Foodgrains & Masalas</option>
+        <option value="eggsmeatsfish">Eggs,Meats & Fish</option>
       </select>
     </div>
     </div>
