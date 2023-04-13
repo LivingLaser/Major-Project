@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+          body {
+          background-image: url('https://c4.wallpaperflare.com/wallpaper/904/1022/350/hud-1-wallpaper-preview.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+        }
+
+        .card {
+          opacity: 0.7;
+        }

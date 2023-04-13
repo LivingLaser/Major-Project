@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+    body {
+      background-image: url('https://st.depositphotos.com/1755195/3391/i/600/depositphotos_33916385-stock-photo-blue-dark-abstract-background.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    .card-img-top {
+     width: 527px;
+     height: 280px;
+     object-fit: cover;
+}

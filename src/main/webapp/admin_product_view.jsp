@@ -1,6 +1,7 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
+<%
 if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute("loggedAdmin")) {
 %>
     
@@ -9,34 +10,27 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
 <head>
 <meta charset="UTF-8">
 <title>product view</title>
+<link rel="stylesheet" href="css/admin_product_view.css">
 </head>
- <style>
-    body {
-      background-image: url('https://st.depositphotos.com/1755195/3391/i/600/depositphotos_33916385-stock-photo-blue-dark-abstract-background.jpg');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-    .card-img-top {
-     width: 527px;
-     height: 280px;
-     object-fit: cover;
-}
-</style>
+
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <br>
   <div class="container">
+  <%
+  @SuppressWarnings("unchecked")
+  HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
+  %>
   <div class="card mx-auto" style="width: 33rem;">
-    <img src="https://img.freepik.com/free-photo/colorful-fruits-tasty-fresh-ripe-juicy-white-desk_179666-169.jpg" class="card-img-top" alt="...">
+    <img src="img/<% out.print(views.get("image")); %>" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Product Name</h5>
-      <h6 class="card-title">Product ID</h6>
-      <p class="card-text">Product Description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam explicabo, fugiat esse assumenda commodi atque!</p>
+      <h5 class="card-title">Product Name: <% out.print(views.get("name")); %></h5>
+      <h6 class="card-title">Product ID: <% out.print(views.get("id")); %></h6>
+      <p class="card-text">Product Description: <% out.print(views.get("description")); %></p>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Category: </li>
-        <li class="list-group-item">Quantity: 10</li>
-        <li class="list-group-item">Price: $9.99</li>
+        <li class="list-group-item">Category: <% out.print(views.get("category")); %></li>
+        <li class="list-group-item">Quantity: <% out.print(views.get("quantity")); %></li>
+        <li class="list-group-item">Price: $<% out.print(views.get("price")); %></li>
       </ul>
       <div class="text-center"> <button onclick="window.print()" class="btn btn-outline-dark">Print Page</button> </div>
     </div>

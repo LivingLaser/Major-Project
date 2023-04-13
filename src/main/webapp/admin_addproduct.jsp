@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
+<%
 if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute("loggedAdmin")) {
 %>
     
@@ -17,46 +17,46 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
 <h2 class="text-center">ADD NEW PRODUCT</h2>
 <br>
 <div class="container">
-<form class="row g-3">
+<form action="add_product" method="post" enctype="multipart/form-data" class="row g-3">
   <div class="form-group">
     <label for="exampleInputName">Product Name</label>
-    <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" required name="">
+    <input type="text" class="form-control" id="exampleInputName" aria-describedby="emailHelp" required name="name">
   </div>
     <div class="form-group">
     <label for="exampleFormControlTextarea1">Product Description</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  required name=""></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  required name="description"></textarea>
   </div><hr>
 <br>
     <div class="col-md-6">
-    <label for="exampleInputName">Product Quantity </label>
-    <input type="text" class="form-control"  required name="">
+    <label for="exampleInputName">Product Quantity</label>
+    <input type="text" class="form-control"  required name="quantity">
     </div>
     <div class="col-md-6">
-    <label for="exampleInputName text-bold">Product Price </label>
-    <input type="number" class="form-control"  required name="">
+    <label for="exampleInputName text-bold">Product Price</label>
+    <input type="number" class="form-control"  required name="price">
     </div>
 
 <hr>
     <div class="col-md-6">
     <div class="d-flex justify-content-center">
     <label class="mr-sm-2" for="inlineFormCustomSelect"><b>SELECT PRODUCT CATEGORY:</b>&nbsp;&nbsp;</label>
-      <select class="custom-select mr-sm-2" required id="inlineFormCustomSelect"  name="">
+      <select class="custom-select mr-sm-2" required id="inlineFormCustomSelect"  name="category">
         <option selected>Choose...</option>
         <option value="vegetablesfruits">Vegetables & Fruits</option>
         <option value="foograinsmasalas">Foodgrains & Masalas</option>
-        <option value="eggsmeatsfish">Eggs,Meats & Fish</option>
+        <option value="eggsmeatsfish">Eggs, Meats & Fish</option>
       </select>
     </div>
     </div>
     <div class="col-md-6">
      <div class="d-flex justify-content-center">
      <label for="exampleFormControlFile1"><b>UPLOAD PRODUCT IMAGE:</b>&nbsp;&nbsp;</label>
-     <input type="file" class="form-control-file" id="exampleFormControlFile1" required name="">
+     <input type="file" class="form-control-file" id="exampleFormControlFile1" required name="image">
     </div>
     </div><br><hr><br><br>
 
   <div class="d-flex justify-content-center">
-   <input type="submit" value="Add Product" name="" class="btn btn-outline-dark">
+   <input type="submit" value="Add Product" class="btn btn-outline-dark">
   </div>
   
 </form>

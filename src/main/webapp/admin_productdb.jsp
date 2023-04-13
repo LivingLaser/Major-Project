@@ -1,3 +1,4 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -39,26 +40,45 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
     <table class="table table-dark">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">SL. NO.</th>
                     <th scope="col">NAME</th>
-                    <th scope="col">PRODUCT DETAILS</th>
+                    <th scope="col">QUANTITY</th>
                     <th scope="col">PRICE</th>
-                    <th scope="col">Image</th>
                     <th colspan="3" scope="col">ADMIN ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
-<!-- loop cholbe -->
+            <%
+            @SuppressWarnings({"unchecked", "rawtypes"})
+            ArrayList<HashMap> products = (ArrayList<HashMap>)request.getAttribute("product");
+            
+            for(int i=0;i<products.size();i++) {
+            %>
                 <tr>
-                    <td><b>data</b></td>
-                    <td>data</td>
-                    <td>data</td>
-                    <td>data</td>
-                    <td>data</td>
-                    <td><button class="btn btn-info"><a href="admin_product_view.jsp">View</button></td>
-                    <td><button class="btn btn-warning"><a href="admin_product_update.jsp">Update</button></td>
-                    <td><button class="btn btn-danger"><a href="">Delete</button></td>
+                    <td><b><% out.print(i+1); %></b></td>
+                    <td><% out.print(products.get(i).get("name")); %></td>
+                    <td><% out.print(products.get(i).get("quantity")); %></td>
+                    <td><% out.print(products.get(i).get("price")); %></td>
+                    <td>
+                    <form action="view_product" method="post">
+                    <input type="hidden" name="id" value="<% out.print(products.get(i).get("id")); %>">
+                    <button type="submit" class="btn btn-info">View</button>
+                    </form>
+                    </td>
+                    <td>
+                    <form action="update_product" method="post">
+                    <input type="hidden" name="id" value="<% out.print(products.get(i).get("id")); %>">
+                    <button type="submit" class="btn btn-warning">Update</button>
+                    </form>
+                    </td>
+                    <td>
+                    <form action="delete_product" method="post">
+                    <input type="hidden" name="id" value="<% out.print(products.get(i).get("id")); %>">
+                    <button onclick="return confirm('Are you sure ?')" type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    </td>
                 </tr>   
+            <% } %>
             </tbody>
         </table>
 </body>
