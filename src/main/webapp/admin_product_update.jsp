@@ -11,6 +11,13 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+	<style>
+		.vertical-line {
+			border-left: 2px solid black;
+			height: 70px;
+			margin-left: 2px;
+		}
+	</style>
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <br>
@@ -41,7 +48,7 @@ HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("v
     </div>
 
 <hr>
-    <div class="col-md-6">
+    <div class="col-md-5">
     <div class="d-flex justify-content-center">
     <label class="mr-sm-2" for="inlineFormCustomSelect"><b>SELECT PRODUCT CATEGORY:</b>&nbsp;&nbsp;</label>
       <select class="custom-select mr-sm-2" required id="inlineFormCustomSelect"  name="category">
@@ -52,10 +59,13 @@ HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("v
       </select>
     </div>
     </div>
+    <div class="col-md-1"><div class="vertical-line"></div></div>
     <div class="col-md-6">
      <div class="d-flex justify-content-center">
-     <label for="exampleFormControlFile1"><b>UPLOAD PRODUCT IMAGE:</b>&nbsp;&nbsp;</label>
-     <input type="file" class="form-control-file" id="exampleFormControlFile1" required value="<% out.print(views.get("image")); %>" name="image">
+     <label for="exampleInputName"><i>Previous Image:</i></label>&nbsp;
+     <img src="img/<% out.print(views.get("image")); %>" alt="Sample Image" width="80" height="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <label for="exampleInputName"><b>Click here to change image:</b></label>&nbsp;
+     <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
     </div>
     </div><br><hr><br><br>
 
