@@ -10,21 +10,16 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="css/admin_product_update.css">
 </head>
-	<style>
-		.vertical-line {
-			border-left: 2px solid black;
-			height: 70px;
-			margin-left: 2px;
-		}
-	</style>
+
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <br>
 <h2 class="text-center">UPDATE PRODUCT</h2>
 <br>
 <div class="container">
-<form class="row g-3">
+<form action="update_product_db" method="post" enctype="multipart/form-data" class="row g-3">
 <%
 @SuppressWarnings("unchecked")
 HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
@@ -53,9 +48,9 @@ HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("v
     <label class="mr-sm-2" for="inlineFormCustomSelect"><b>SELECT PRODUCT CATEGORY:</b>&nbsp;&nbsp;</label>
       <select class="custom-select mr-sm-2" required id="inlineFormCustomSelect"  name="category">
         <option selected>Choose...</option>
-        <option <% if(views.get("category").equals("vegetablesfruits")) { out.print("selected"); } %> value="vegetablesfruits">Vegetables & Fruits</option>
-        <option <% if(views.get("category").equals("foograinsmasalas")) { out.print("selected"); } %> value="foograinsmasalas">Foodgrains & Masalas</option>
-        <option <% if(views.get("category").equals("eggsmeatsfish")) { out.print("selected"); } %> value="eggsmeatsfish">Eggs,Meats & Fish</option>
+        <option <% if(views.get("category").equals("vegetablesfruits")) { out.print("selected"); } %> value="vegetablesfruits">Vegetables &amp; Fruits</option>
+        <option <% if(views.get("category").equals("foograinsmasalas")) { out.print("selected"); } %> value="foograinsmasalas">Foodgrains &amp; Masalas</option>
+        <option <% if(views.get("category").equals("eggsmeatsfish")) { out.print("selected"); } %> value="eggsmeatsfish">Eggs, Meats &amp; Fish</option>
       </select>
     </div>
     </div>
@@ -70,7 +65,7 @@ HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("v
     </div><br><hr><br><br>
 
   <div class="d-flex justify-content-center">
-   <input type="hidden" value="<% out.print(views.get("price")); %>">
+   <input type="hidden" value="<% out.print(views.get("id")); %>" name="id">
    <input type="submit" value="Update Product" class="btn btn-outline-dark">
   </div>
   

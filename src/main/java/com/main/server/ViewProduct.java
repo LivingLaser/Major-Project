@@ -39,7 +39,15 @@ public class ViewProduct extends HttpServlet {
 					hm.put("description", rs.getString("description"));
 					hm.put("quantity", rs.getString("quantity"));
 					hm.put("price", rs.getString("price"));
-					hm.put("category", rs.getString("category"));
+					if(rs.getString("category").equals("vegetablesfruits")) {
+						hm.put("category", "Vegetables & Fruits");
+					}
+					if(rs.getString("category").equals("foograinsmasalas")) {
+						hm.put("category", "Foodgrains & Masalas");
+					}
+					if(rs.getString("category").equals("eggsmeatsfish")) {
+						hm.put("category", "Eggs, Meats & Fish");
+					}
 					hm.put("image", rs.getString("image"));
 				}
 				

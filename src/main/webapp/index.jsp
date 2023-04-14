@@ -35,7 +35,7 @@
       <div class="card">
         <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHFdCN1V3DgbdtT_ci9UDf0WYgUpdENufE7w&usqp=CAU" alt="Vegetables">
         <div class="card-body">
-          <h5 class="card-title">Vegetables & Fruits</h5>
+          <h5 class="card-title">Vegetables &amp; Fruits</h5>
           <p class="card-text">Fresh and healthy vegetables.</p>
           <div class="ab text-center"><a href="shop1.jsp" class="btn btn-primary">Shop Now</a></div>
         </div>
@@ -45,7 +45,7 @@
       <div class="card">
         <img class="card-img-top" src="https://img.freepik.com/premium-photo/natural-super-foods-cereals-selection-bowls_788160-735.jpg?w=360" alt="Fruits">
         <div class="card-body">
-          <h5 class="card-title">Foodgrains & Masalas</h5>
+          <h5 class="card-title">Foodgrains &amp; Masalas</h5>
           <p class="card-text">Enjoy all type of masalas and ingredients.</p>
           <div class="ab text-center"><a href="shop2.jsp" class="btn btn-primary">Shop Now</a></div>
         </div>
@@ -55,7 +55,7 @@
       <div class="card">
         <img class="card-img-top" src="https://www.licious.in/blog/wp-content/uploads/2022/12/Shutterstock_1503436736-360x240.jpg" alt="Bakery">
         <div class="card-body">
-          <h5 class="card-title">Eggs,Meats & Fish</h5>
+          <h5 class="card-title">Eggs, Meats &amp; Fish</h5>
           <p class="card-text">Fresh Meat and eggs at Discount</p>
           <div class="ab text-center"><a href="shop3.jsp" class="btn btn-primary">Shop Now</a></div>
         </div>

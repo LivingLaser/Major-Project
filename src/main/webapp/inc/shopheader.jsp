@@ -25,7 +25,7 @@
             <div class="col-md-4">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <a class="nav-link text-dark" href="shop1.jsp">Fruits & Vegitables</a>
+                      <a class="nav-link text-dark" href="shop1.jsp">Fruits &amp; Vegitables</a>
                     </li>
                 </ul>
             </div>
@@ -33,7 +33,7 @@
             <div class="col-md-4">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link text-dark" href="shop2.jsp">Foodgrains & Masalas</a>
+                      <a class="nav-link text-dark" href="shop2.jsp">Foodgrains &amp; Masalas</a>
                     </li>
                 </ul>
             </div>
@@ -41,7 +41,7 @@
             <div class="col-md-4">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link text-dark" href="shop3.jsp">Eggs,Meats & Fish</a>
+                      <a class="nav-link text-dark" href="shop3.jsp">Eggs, Meats &amp; Fish</a>
                     </li>
                 </ul>
             </div>
