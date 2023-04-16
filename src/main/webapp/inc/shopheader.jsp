@@ -16,39 +16,35 @@
 </style>
 <body>
     <nav class="navbar navbar-expand-lg navbar- bg-transparent">
-        <div class="container-fluid">
-          <div class="col-md-2">
-            <a class="navbar-brand text-dark" href="#"></a>
-          </div>
-          <div class="col-md-8">
+        <div class="container">
+
+          <div class="col-md-12">
             <!-- catagory1 -->
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <a class="nav-link text-dark" href="shop1.jsp">Fruits &amp; Vegitables</a>
+                      <button class="nav-link text-dark btn btn-outline-secondary" >Fruits &amp; Vegitables</button>
                     </li>
                 </ul>
             </div>
               <!-- catagory2 -->
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link text-dark" href="shop2.jsp">Foodgrains &amp; Masalas</a>
+                      <button class="nav-link text-dark btn btn-outline-secondary">Foodgrains &amp; Masalas</button>
                     </li>
                 </ul>
             </div>
               <!-- catagory3 -->
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <a class="nav-link text-dark" href="shop3.jsp">Eggs, Meats &amp; Fish</a>
+                      <button class="nav-link text-dark btn btn-outline-secondary">Eggs, Meats &amp; Fish</button>
                     </li>
                 </ul>
             </div>
           </div>
-          <div class="col-md-2 text-end">
-            <button class="btn btn-outline-warning">Button</button>
-          </div>
+
         </div>
-      </nav>
+      </nav><br>
       
