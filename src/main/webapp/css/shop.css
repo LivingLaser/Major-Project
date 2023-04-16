@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.left-quantity{
+  float:left;
+}
+.right-price{
+  float:right;
+}
+.card-img-top {
+  width: auto;
+  height: 155px;
+  object-fit: cover;
+}
