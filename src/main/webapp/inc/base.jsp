@@ -25,7 +25,10 @@
           <a class="nav-link" href="contact.jsp">Contact us</a>
         </li>
         <li class="nav-item">
+          <form action="shop" method="post">
+          <input type="hidden" value="vegetablesfruits" name="category">
           <button type="submit" class="btn btn-dark mx-2">Shop</button>
+          </form>
         </li>
         <%
         if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("loggedIn")) {
