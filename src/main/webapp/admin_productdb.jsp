@@ -19,7 +19,7 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
   <div class="container-fluid">
-    <a class="navbar-brand mx-auto text-dark"><h2><b>PRODUCT LIST</b></h2></a>
+    <a class="navbar-brand mx-auto text-dark" style="font-size: 30px"><b>PRODUCT LIST</b></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
