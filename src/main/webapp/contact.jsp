@@ -6,14 +6,8 @@
 <head>
     <title>contact us</title>
     <link rel="stylesheet" href="css/contact.css">
-    <style>
-        body {
-      background-image: url('https://img.freepik.com/free-vector/network-mesh-wire-digital-technology-background_1017-27428.jpg?w=2000');
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-    }
-    </style>
+ 
+
 </head>
 
 <body>
