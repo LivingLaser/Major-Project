@@ -1,4 +1,4 @@
-package com.main.server;
+package com.server.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DeleteUser
+ * Servlet implementation class DeleteMessage
  */
-@WebServlet("/delete_user")
-public class DeleteUser extends HttpServlet {
+@WebServlet("/delete_message")
+public class DeleteMessage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -25,12 +25,12 @@ public class DeleteUser extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "delete from user where id=?";
+				String sql = "delete from contact_us where id=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				pstm.setString(1, id);
 				pstm.executeUpdate();
 				
-				response.sendRedirect("users_data");
+				response.sendRedirect("contact_us_admin");
 			}
 			finally {
 				con.close();

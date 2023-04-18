@@ -65,7 +65,7 @@ HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("v
     </div><br><hr><br><br>
 
   <div class="d-flex justify-content-center">
-   <input type="hidden" value="<% out.print(views.get("id")); %>" name="id">
+   <input type="hidden" value="<% out.print(views.get("pid")); %>" name="pid">
    <input type="submit" value="Update Product" class="btn btn-outline-dark">
   </div>
   

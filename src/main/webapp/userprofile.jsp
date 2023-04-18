@@ -1,6 +1,9 @@
 <%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("loggedIn")) {
+%>
 
 <!DOCTYPE html>
 <html>
@@ -32,7 +35,7 @@
                   <li class="list-group-item"><strong>Pin Code:</strong> <% out.print(views.get("pincode")); %></li>
                   <li class="list-group-item"><br><div class="d-flex justify-content-center">
                     <form action="update_profile" method="post">
-                    <input type="hidden" name="id" value="<% out.print(views.get("id")); %>">
+                    <input type="hidden" name="uid" value="<% out.print(views.get("uid")); %>">
                     <button type="submit" class="btn btn-outline-dark">UPDATE PROFILE</button>
                     </form>
                 </div></li>
@@ -46,3 +49,12 @@
 
 <jsp:include page="inc/footer.jsp"></jsp:include>
 </html>
+
+<% 
+}
+else {
+%>
+
+<jsp:include page="login.jsp"></jsp:include>
+
+<% } %>

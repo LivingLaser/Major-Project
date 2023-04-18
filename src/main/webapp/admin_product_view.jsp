@@ -25,7 +25,7 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
     <img src="img/<% out.print(views.get("image")); %>" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Product Name: <% out.print(views.get("name")); %></h5>
-      <h6 class="card-title">Product ID: <% out.print(views.get("id")); %></h6>
+      <h6 class="card-title">Product ID: <% out.print(views.get("pid")); %></h6>
       <p class="card-text">Product Description: <% out.print(views.get("description")); %></p>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Category: <% out.print(views.get("category")); %></li>

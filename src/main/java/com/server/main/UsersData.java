@@ -1,4 +1,4 @@
-package com.main.server;
+package com.server.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ProductList
+ * Servlet implementation class UsersData
  */
-@WebServlet("/product_list")
-public class ProductList extends HttpServlet {
+@WebServlet("/users_data")
+public class UsersData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -24,7 +24,7 @@ public class ProductList extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select id, name, quantity, price from product";
+				String sql = "select uid, name, email, phone_number from user";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				ResultSet rs = pstm.executeQuery();
 				
@@ -34,23 +34,23 @@ public class ProductList extends HttpServlet {
 				while(rs.next()) {
 					HashMap<String, String> hm = new HashMap<>();
 					
-					hm.put("id", rs.getString("id"));
+					hm.put("uid", rs.getString("uid"));
 					hm.put("name", rs.getString("name"));
-					hm.put("quantity", rs.getString("quantity"));
-					hm.put("price", rs.getString("price"));
+					hm.put("email", rs.getString("email"));
+					hm.put("phone", rs.getString("phone_number"));
 					
 					arr.add(hm);
 				}
 				
-				request.setAttribute("product", arr);
-				request.getRequestDispatcher("admin_productdb.jsp").forward(request, response);
+				request.setAttribute("user", arr);
+				request.getRequestDispatcher("admin_userdb.jsp").forward(request, response);
 			}
 			finally {
 				con.close();
 			}
 		}
 		catch(Exception e) {
-			System.out.println("Exception" + e);
+			System.out.println("Exception: " + e);
 		}
 	}
 

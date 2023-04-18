@@ -1,6 +1,9 @@
 <%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("loggedIn")) {
+%>
     
 <!DOCTYPE html>
 <html>
@@ -53,8 +56,8 @@
 
         <br>
           <div class="d-grid gap-2 col-5 mx-auto">
-            <input type="hidden" name="id" value="<% out.print(views.get("id")); %>">
-            <button class="btn btn-secondary" type="submit" name="" >UPDATE</button>
+            <input type="hidden" name="uid" value="<% out.print(views.get("uid")); %>">
+            <button type="submit" class="btn btn-secondary">UPDATE</button>
           </div>
       </form>
 
@@ -64,3 +67,12 @@
 </body>
 <jsp:include page="inc/footer.jsp"></jsp:include>
 </html>
+
+<% 
+}
+else {
+%>
+
+<jsp:include page="login.jsp"></jsp:include>
+
+<% } %>

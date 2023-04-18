@@ -1,4 +1,4 @@
-package com.main.server;
+package com.server.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -25,7 +25,7 @@ public class UpdateProductDB extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
+		String pid = request.getParameter("pid");
 		String name = request.getParameter("name");
 		String description = request.getParameter("description");
 		String quantity = request.getParameter("quantity");
@@ -47,7 +47,7 @@ public class UpdateProductDB extends HttpServlet {
 						//fpart.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
 					}
 					
-					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, image=? where id=?";
+					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, image=? where pid=?";
 					PreparedStatement pstm = con.prepareStatement(sql);
 					pstm.setString(1, name);
 					pstm.setString(2, description);
@@ -55,18 +55,18 @@ public class UpdateProductDB extends HttpServlet {
 					pstm.setString(4, price);
 					pstm.setString(5, category);
 					pstm.setString(6, image);
-					pstm.setString(7, id);
+					pstm.setString(7, pid);
 					pstm.executeUpdate();
 				}
 				else {
-					String sql = "update product set name=?, description=?, quantity=?, price=?, category=? where id=?";
+					String sql = "update product set name=?, description=?, quantity=?, price=?, category=? where pid=?";
 					PreparedStatement pstm = con.prepareStatement(sql);
 					pstm.setString(1, name);
 					pstm.setString(2, description);
 					pstm.setString(3, quantity);
 					pstm.setString(4, price);
 					pstm.setString(5, category);
-					pstm.setString(6, id);
+					pstm.setString(6, pid);
 					pstm.executeUpdate();
 					response.sendRedirect("product_list");
 				}

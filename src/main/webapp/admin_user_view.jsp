@@ -55,7 +55,7 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
 						</div>
 						<div class="col">
 							<label for="inputid" class="form-label">User's ID</label>
-						  <input type="text" class="form-control" value="<% out.print(views.get("id")); %>" aria-label="password" disabled>
+						  <input type="text" class="form-control" value="<% out.print(views.get("uid")); %>" aria-label="password" disabled>
 						</div>
 					  </div>
 					<br>

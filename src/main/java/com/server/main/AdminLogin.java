@@ -1,4 +1,4 @@
-package com.main.client;
+package com.server.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,46 +10,48 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ContactUs
+ * Servlet implementation class Adminlogin
  */
-@WebServlet("/contact_us")
-public class ContactUs extends HttpServlet {
+@WebServlet("/admin_login")
+public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String message = request.getParameter("message");
+		String name = request.getParameter("username");
+		String password = request.getParameter("password");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "insert into contact_us set name=?, email=?, message=?";
+				String sql = "select * from admin where username=? and password=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				pstm.setString(1, name);
-				pstm.setString(2, email);
-				pstm.setString(3, message);
-				int rows = pstm.executeUpdate();
+				pstm.setString(2, password);
+				ResultSet rs = pstm.executeQuery();
 				
-				if(rows>0) {
+				if(rs.next()) {
 					String color = "success";
-					String msg = "We have received your message";
+					String msg = "Welcome " + rs.getString("username");
+					String id = rs.getString("id");
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
-					response.sendRedirect("index.jsp");
+					request.getSession().setAttribute("loggedAdmin", true);
+					request.getSession().setAttribute("id", id);
+					response.sendRedirect("admin_dashboard.jsp");
 				}
 				else {
 					String color = "danger";
-					String msg = "error";
+					String msg = "Wrong Admin ID or Password";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
-					response.sendRedirect("contact.jsp");
+					request.getSession().removeAttribute("loggedAdmin");
+					response.sendRedirect("adminauth.jsp");
 				}
 			}
 			finally {

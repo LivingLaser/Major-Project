@@ -1,4 +1,4 @@
-package com.main.server;
+package com.server.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -19,22 +19,22 @@ public class UpdateProduct extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
+		String pid = request.getParameter("pid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from product where id=?";
+				String sql = "select * from product where pid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, id);
+				pstm.setString(1, pid);
 				ResultSet rs = pstm.executeQuery();
 				
 				HashMap<String, String> hm = new HashMap<>();
 				
 				if(rs.next()) {
-					hm.put("id", rs.getString("id"));
+					hm.put("pid", rs.getString("pid"));
 					hm.put("name", rs.getString("name"));
 					hm.put("description", rs.getString("description"));
 					hm.put("quantity", rs.getString("quantity"));

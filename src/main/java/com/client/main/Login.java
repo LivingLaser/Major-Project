@@ -1,4 +1,4 @@
-package com.main.client;
+package com.client.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,22 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class UpdateProfileDB
+ * Servlet implementation class Login
  */
-@WebServlet("/update_profile_db")
-public class UpdateProfileDB extends HttpServlet {
+@WebServlet("/login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
-		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
-		String address = request.getParameter("address");
-		String city = request.getParameter("city");
-		String pincode = request.getParameter("pincode");
 		String password = request.getParameter("password");
 		
 		try {
@@ -33,33 +27,31 @@ public class UpdateProfileDB extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "update user set name=?, email=?, phone_number=?, address=?, city=?, pincode=?, password=? where id=?";
+				String sql = "select uid, name from user where email=? and password=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, name);
-				pstm.setString(2, email);
-				pstm.setString(3, phone);
-				pstm.setString(4, address);
-				pstm.setString(5, city);
-				pstm.setString(6, pincode);
-				pstm.setString(7, password);
-				pstm.setString(8, id);
-				int rows = pstm.executeUpdate();
+				pstm.setString(1, email);
+				pstm.setString(2, password);
+				ResultSet rs = pstm.executeQuery();
 				
-				if(rows>0) {
+				if(rs.next()) {
 					String color = "success";
-					String msg = "Your Profile has been updated";
+					String msg = "Welcome " + rs.getString("name");
+					String uid = rs.getString("uid");
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
+					request.getSession().setAttribute("loggedIn", true);
+					request.getSession().setAttribute("uid", uid);
 					response.sendRedirect("index.jsp");
 				}
 				else {
 					String color = "danger";
-					String msg = "Failed to update your profile";
+					String msg = "Wrong Email or Password";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
-					response.sendRedirect("contact.jsp");
+					request.getSession().removeAttribute("loggedIn");
+					response.sendRedirect("login.jsp");
 				}
 			}
 			finally {

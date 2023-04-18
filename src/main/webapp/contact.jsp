@@ -6,8 +6,6 @@
 <head>
     <title>contact us</title>
     <link rel="stylesheet" href="css/contact.css">
- 
-
 </head>
 
 <body>

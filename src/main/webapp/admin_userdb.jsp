@@ -44,19 +44,19 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
             <td><% out.print(users.get(i).get("phone")); %></td>
             <td>
             <form action="view_user" method="post">
-            <input type="hidden" name="id" value="<% out.print(users.get(i).get("id")); %>">
+            <input type="hidden" name="uid" value="<% out.print(users.get(i).get("uid")); %>">
             <button type="submit" class="btn btn-primary">View</button>
             </form>
             </td>
             <td>
             <form action="update_user" method="post">
-            <input type="hidden" name="id" value="<% out.print(users.get(i).get("id")); %>">
+            <input type="hidden" name="uid" value="<% out.print(users.get(i).get("uid")); %>">
             <button type="submit" class="btn btn-warning">Edit</button>
             </form>
             </td>
             <td>
             <form action="delete_user" method="post">
-            <input type="hidden" name="id" value="<% out.print(users.get(i).get("id")); %>">
+            <input type="hidden" name="uid" value="<% out.print(users.get(i).get("uid")); %>">
             <button onclick="return confirm('Are you sure ?')" type="submit" class="btn btn-danger">Delete</button>
             </form>
             </td>

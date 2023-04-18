@@ -1,4 +1,4 @@
-package com.main.client;
+package com.server.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Profile
+ * Servlet implementation class ViewMessage
  */
-@WebServlet("/profile")
-public class Profile extends HttpServlet {
+@WebServlet("/view_message")
+public class ViewMessage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -26,7 +26,7 @@ public class Profile extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from user where id=?";
+				String sql = "select * from contact_us where id=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				pstm.setString(1, id);
 				ResultSet rs = pstm.executeQuery();
@@ -37,14 +37,11 @@ public class Profile extends HttpServlet {
 					hm.put("id", rs.getString("id"));
 					hm.put("name", rs.getString("name"));
 					hm.put("email", rs.getString("email"));
-					hm.put("phone", rs.getString("phone_number"));
-					hm.put("address", rs.getString("address"));
-					hm.put("city", rs.getString("city"));
-					hm.put("pincode", rs.getString("pincode"));
+					hm.put("message", rs.getString("message"));
 				}
 				
 				request.setAttribute("view", hm);
-				request.getRequestDispatcher("userprofile.jsp").forward(request, response);
+				request.getRequestDispatcher("admin_msg_view.jsp").forward(request, response);
 			}
 			finally {
 				con.close();

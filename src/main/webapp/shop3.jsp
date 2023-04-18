@@ -17,20 +17,20 @@
 <div class="row">
 <%
 @SuppressWarnings({"unchecked", "rawtypes"})
-ArrayList<HashMap> product = (ArrayList<HashMap>)request.getAttribute("products");
+ArrayList<HashMap> products = (ArrayList<HashMap>)request.getAttribute("product");
     
-for(int i=0;i<product.size();i++) {
+for(int i=0;i<products.size();i++) {
 %>
 <div class="col-12 col-md-3 col-sm-3 col-lg-3 mx-auto">
 <div class="card mb-5" style="width: 16rem;">
-  <img class="card-img-top" src="img/<% out.print(product.get(i).get("image")); %>" alt="Card image cap">
+  <img class="card-img-top" src="img/<% out.print(products.get(i).get("image")); %>" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title text-center"><% out.print(product.get(i).get("name")); %></h5>
-    <p class="card-text"><% out.print(product.get(i).get("description")); %></p>
+    <h5 class="card-title text-center"><% out.print(products.get(i).get("name")); %></h5>
+    <p class="card-text"><% out.print(products.get(i).get("description")); %></p>
    <ul class="list-group list-group-flush">
     <li class="list-group-item">
-    	<div class="left-quantity">Quantity: <% out.print(product.get(i).get("quantity")); %></div>
-    	<div class="right-price">Price: ₹<% out.print(product.get(i).get("price")); %></div>
+    	<div class="left-quantity">Quantity: <% out.print(products.get(i).get("quantity")); %></div>
+    	<div class="right-price">Price: ₹<% out.print(products.get(i).get("price")); %></div>
     </li>
   </ul>
  </div>

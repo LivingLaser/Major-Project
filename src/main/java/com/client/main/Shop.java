@@ -1,4 +1,4 @@
-package com.main.server;
+package com.client.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,22 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ContactUsAdmin
+ * Servlet implementation class Shop
  */
-@WebServlet("/contact_us_admin")
-public class ContactUsAdmin extends HttpServlet {
+@WebServlet("/shop")
+public class Shop extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String category = request.getParameter("category");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select id, name, email from contact_us";
+				String sql = "select * from product where category=? order by rand()";
 				PreparedStatement pstm = con.prepareStatement(sql);
+				pstm.setString(1, category);
 				ResultSet rs = pstm.executeQuery();
 				
 				@SuppressWarnings("rawtypes")
@@ -34,15 +37,27 @@ public class ContactUsAdmin extends HttpServlet {
 				while(rs.next()) {
 					HashMap<String, String> hm = new HashMap<>();
 					
-					hm.put("id", rs.getString("id"));
+					hm.put("pid", rs.getString("pid"));
 					hm.put("name", rs.getString("name"));
-					hm.put("email", rs.getString("email"));
+					hm.put("description", rs.getString("description"));
+					hm.put("quantity", rs.getString("quantity"));
+					hm.put("price", rs.getString("price"));
+					hm.put("image", rs.getString("image"));
 					
 					arr.add(hm);
 				}
 				
-				request.setAttribute("contact", arr);
-				request.getRequestDispatcher("admin_msgdb.jsp").forward(request, response);
+				request.setAttribute("product", arr);
+				
+				if(category.equals("vegetablesfruits")) {
+					request.getRequestDispatcher("shop1.jsp").forward(request, response);
+				}
+				if(category.equals("foograinsmasalas")) {
+					request.getRequestDispatcher("shop2.jsp").forward(request, response);
+				}
+				if(category.equals("eggsmeatsfish")) {
+					request.getRequestDispatcher("shop3.jsp").forward(request, response);
+				}
 			}
 			finally {
 				con.close();

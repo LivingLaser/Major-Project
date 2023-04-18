@@ -11,10 +11,9 @@
 <!-- navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-    <img src="img/logo icon.png" width="35" height="33" alt="">
-  </a>
-    <a class="navbar-brand" href="index.jsp">Grocery Store</a>
+    <a class="navbar-brand" href="index.jsp">
+    <img src="img/logo icon.png" width="35" height="33" alt="Logo">&nbsp;&nbsp;Grocery Store
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,10 +21,10 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link" href="about.jsp">About us</a>
+          <a class="nav-link" href="about.jsp"><b>About us</b></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contact.jsp">Contact us</a>
+          <a class="nav-link" href="contact.jsp"><b>Contact us</b></a>
         </li>
         <li class="nav-item">
           <form action="shop" method="post">
@@ -35,11 +34,11 @@
         </li>
         <%
         if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("loggedIn")) {
-        	String id = (String)session.getAttribute("id");
+        	String uid = (String)session.getAttribute("uid");
         %>
           <li class="nav-item">
           <form action="profile" method="post">
-          <input type="hidden" name="id" value="<% out.print(id); %>">
+          <input type="hidden" name="uid" value="<% out.print(uid); %>">
           <button type="submit" class="btn btn-primary mx-2">Profile</button>
           </form>
           </li>
@@ -53,18 +52,18 @@
       <ul class="d-flex navbar-nav">
               <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Login/Logout
+            <b>Login/Logout</b>
           </a>
           <ul class="dropdown-menu nav-item" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="signup.jsp">Signup</a></li>
-            <li><a class="dropdown-item" href="login.jsp">Login</a></li>
+            <li><a class="dropdown-item text-primary" href="signup.jsp">Signup</a></li>
+            <li><a class="dropdown-item text-primary" href="login.jsp">Login</a></li>
             <li>
             <form action="logout" method="post">
-            <button class="dropdown-item" type="submit" >Logout</button>
+            <button class="dropdown-item text-danger" type="submit" >Logout</button>
             </form>
             </li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="adminauth.jsp">ADMIN</a></li>
+            <li><a class="dropdown-item" href="adminauth.jsp"><b>ADMIN</b></a></li>
           </ul>
         </li>
         </ul>

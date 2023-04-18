@@ -1,4 +1,4 @@
-package com.main.server;
+package com.server.main;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,56 +10,47 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewProduct
+ * Servlet implementation class ProductList
  */
-@WebServlet("/view_product")
-public class ViewProduct extends HttpServlet {
+@WebServlet("/product_list")
+public class ProductList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String id = request.getParameter("id");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from product where id=?";
+				String sql = "select pid, name, quantity, price from product";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, id);
 				ResultSet rs = pstm.executeQuery();
 				
-				HashMap<String, String> hm = new HashMap<>();
+				@SuppressWarnings("rawtypes")
+				ArrayList<HashMap> arr = new ArrayList<>();
 				
-				if(rs.next()) {
-					hm.put("id", rs.getString("id"));
+				while(rs.next()) {
+					HashMap<String, String> hm = new HashMap<>();
+					
+					hm.put("pid", rs.getString("pid"));
 					hm.put("name", rs.getString("name"));
-					hm.put("description", rs.getString("description"));
 					hm.put("quantity", rs.getString("quantity"));
 					hm.put("price", rs.getString("price"));
-					if(rs.getString("category").equals("vegetablesfruits")) {
-						hm.put("category", "Vegetables & Fruits");
-					}
-					if(rs.getString("category").equals("foograinsmasalas")) {
-						hm.put("category", "Foodgrains & Masalas");
-					}
-					if(rs.getString("category").equals("eggsmeatsfish")) {
-						hm.put("category", "Eggs, Meats & Fish");
-					}
-					hm.put("image", rs.getString("image"));
+					
+					arr.add(hm);
 				}
 				
-				request.setAttribute("view", hm);
-				request.getRequestDispatcher("admin_product_view.jsp").forward(request, response);
+				request.setAttribute("product", arr);
+				request.getRequestDispatcher("admin_productdb.jsp").forward(request, response);
 			}
 			finally {
 				con.close();
 			}
 		}
 		catch(Exception e) {
-			System.out.println("Exception: " + e);
+			System.out.println("Exception" + e);
 		}
 	}
 
