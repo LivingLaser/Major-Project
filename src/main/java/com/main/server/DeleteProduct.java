@@ -1,8 +1,7 @@
-package com.server.main;
+package com.main.server;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,42 +9,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class UpdateUser
+ * Servlet implementation class DeleteProduct
  */
-@WebServlet("/update_user")
-public class UpdateUser extends HttpServlet {
+@WebServlet("/delete_product")
+public class DeleteProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String uid = request.getParameter("uid");
+		String pid = request.getParameter("pid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from user where uid=?";
+				String sql = "delete from product where pid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, uid);
-				ResultSet rs = pstm.executeQuery();
+				pstm.setString(1, pid);
+				pstm.executeUpdate();
 				
-				HashMap<String, String> hm = new HashMap<>();
-				
-				if(rs.next()) {
-					hm.put("uid", rs.getString("uid"));
-					hm.put("name", rs.getString("name"));
-					hm.put("email", rs.getString("email"));
-					hm.put("phone", rs.getString("phone_number"));
-					hm.put("address", rs.getString("address"));
-					hm.put("city", rs.getString("city"));
-					hm.put("pincode", rs.getString("pincode"));
-					hm.put("password", rs.getString("password"));
-				}
-				
-				request.setAttribute("view", hm);
-				request.getRequestDispatcher("admin_user_update.jsp").forward(request, response);
+				response.sendRedirect("product_list");
 			}
 			finally {
 				con.close();

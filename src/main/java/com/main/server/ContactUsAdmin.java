@@ -1,4 +1,4 @@
-package com.server.main;
+package com.main.server;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,42 +10,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewUser
+ * Servlet implementation class ContactUsAdmin
  */
-@WebServlet("/view_user")
-public class ViewUser extends HttpServlet {
+@WebServlet("/contact_us_admin")
+public class ContactUsAdmin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String uid = request.getParameter("uid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from user where uid=?";
+				String sql = "select id, name, email from contact_us";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, uid);
 				ResultSet rs = pstm.executeQuery();
 				
-				HashMap<String, String> hm = new HashMap<>();
+				@SuppressWarnings("rawtypes")
+				ArrayList<HashMap> arr = new ArrayList<>();
 				
-				if(rs.next()) {
-					hm.put("uid", rs.getString("uid"));
+				while(rs.next()) {
+					HashMap<String, String> hm = new HashMap<>();
+					
+					hm.put("id", rs.getString("id"));
 					hm.put("name", rs.getString("name"));
 					hm.put("email", rs.getString("email"));
-					hm.put("phone", rs.getString("phone_number"));
-					hm.put("address", rs.getString("address"));
-					hm.put("city", rs.getString("city"));
-					hm.put("pincode", rs.getString("pincode"));
-					hm.put("password", rs.getString("password"));
+					
+					arr.add(hm);
 				}
 				
-				request.setAttribute("view", hm);
-				request.getRequestDispatcher("admin_user_view.jsp").forward(request, response);
+				request.setAttribute("contact", arr);
+				request.getRequestDispatcher("admin_msgdb.jsp").forward(request, response);
 			}
 			finally {
 				con.close();

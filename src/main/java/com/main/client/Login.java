@@ -1,4 +1,4 @@
-package com.client.main;
+package com.main.client;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,46 +10,48 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ContactUs
+ * Servlet implementation class Login
  */
-@WebServlet("/contact_us")
-public class ContactUs extends HttpServlet {
+@WebServlet("/login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String name = request.getParameter("name");
 		String email = request.getParameter("email");
-		String message = request.getParameter("message");
+		String password = request.getParameter("password");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "insert into contact_us set name=?, email=?, message=?";
+				String sql = "select uid, name from user where email=? and password=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, name);
-				pstm.setString(2, email);
-				pstm.setString(3, message);
-				int rows = pstm.executeUpdate();
+				pstm.setString(1, email);
+				pstm.setString(2, password);
+				ResultSet rs = pstm.executeQuery();
 				
-				if(rows>0) {
+				if(rs.next()) {
 					String color = "success";
-					String msg = "We have received your message";
+					String msg = "Welcome " + rs.getString("name");
+					String uid = rs.getString("uid");
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
+					request.getSession().setAttribute("loggedIn", true);
+					request.getSession().setAttribute("uid", uid);
 					response.sendRedirect("index.jsp");
 				}
 				else {
 					String color = "danger";
-					String msg = "error";
+					String msg = "Wrong Email or Password";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color",color);
-					response.sendRedirect("contact.jsp");
+					request.getSession().removeAttribute("loggedIn");
+					response.sendRedirect("login.jsp");
 				}
 			}
 			finally {

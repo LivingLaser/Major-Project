@@ -1,7 +1,8 @@
-package com.server.main;
+package com.main.client;
 
 import java.io.IOException;
 import java.sql.*;
+import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DeleteUser
+ * Servlet implementation class Profile
  */
-@WebServlet("/delete_user")
-public class DeleteUser extends HttpServlet {
+@WebServlet("/profile")
+public class Profile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -25,12 +26,25 @@ public class DeleteUser extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "delete from user where uid=?";
+				String sql = "select * from user where uid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				pstm.setString(1, uid);
-				pstm.executeUpdate();
+				ResultSet rs = pstm.executeQuery();
 				
-				response.sendRedirect("users_data");
+				HashMap<String, String> hm = new HashMap<>();
+				
+				if(rs.next()) {
+					hm.put("uid", rs.getString("uid"));
+					hm.put("name", rs.getString("name"));
+					hm.put("email", rs.getString("email"));
+					hm.put("phone", rs.getString("phone_number"));
+					hm.put("address", rs.getString("address"));
+					hm.put("city", rs.getString("city"));
+					hm.put("pincode", rs.getString("pincode"));
+				}
+				
+				request.setAttribute("view", hm);
+				request.getRequestDispatcher("userprofile.jsp").forward(request, response);
 			}
 			finally {
 				con.close();

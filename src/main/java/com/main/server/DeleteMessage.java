@@ -1,4 +1,4 @@
-package com.server.main;
+package com.main.server;
 
 import java.io.IOException;
 import java.sql.*;
@@ -9,28 +9,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class DeleteProduct
+ * Servlet implementation class DeleteMessage
  */
-@WebServlet("/delete_product")
-public class DeleteProduct extends HttpServlet {
+@WebServlet("/delete_message")
+public class DeleteMessage extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String pid = request.getParameter("pid");
+		String id = request.getParameter("id");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "delete from product where pid=?";
+				String sql = "delete from contact_us where id=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, pid);
+				pstm.setString(1, id);
 				pstm.executeUpdate();
 				
-				response.sendRedirect("product_list");
+				response.sendRedirect("contact_us_admin");
 			}
 			finally {
 				con.close();

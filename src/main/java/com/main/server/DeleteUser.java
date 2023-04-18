@@ -1,8 +1,7 @@
-package com.server.main;
+package com.main.server;
 
 import java.io.IOException;
 import java.sql.*;
-import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,39 +9,28 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ContactUsAdmin
+ * Servlet implementation class DeleteUser
  */
-@WebServlet("/contact_us_admin")
-public class ContactUsAdmin extends HttpServlet {
+@WebServlet("/delete_user")
+public class DeleteUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String uid = request.getParameter("uid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select id, name, email from contact_us";
+				String sql = "delete from user where uid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				ResultSet rs = pstm.executeQuery();
+				pstm.setString(1, uid);
+				pstm.executeUpdate();
 				
-				@SuppressWarnings("rawtypes")
-				ArrayList<HashMap> arr = new ArrayList<>();
-				
-				while(rs.next()) {
-					HashMap<String, String> hm = new HashMap<>();
-					
-					hm.put("id", rs.getString("id"));
-					hm.put("name", rs.getString("name"));
-					hm.put("email", rs.getString("email"));
-					
-					arr.add(hm);
-				}
-				
-				request.setAttribute("contact", arr);
-				request.getRequestDispatcher("admin_msgdb.jsp").forward(request, response);
+				response.sendRedirect("users_data");
 			}
 			finally {
 				con.close();
