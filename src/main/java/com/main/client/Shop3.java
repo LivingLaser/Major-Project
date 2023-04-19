@@ -10,25 +10,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Shop
+ * Servlet implementation class Shop3
  */
-@WebServlet("/shop")
-public class Shop extends HttpServlet {
+@WebServlet("/shop3")
+public class Shop3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String category = request.getParameter("category");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from product where category=? order by rand()";
+				String sql = "select * from product where category='eggsmeatsfish' order by rand()";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, category);
 				ResultSet rs = pstm.executeQuery();
 				
 				@SuppressWarnings("rawtypes")
@@ -48,16 +45,7 @@ public class Shop extends HttpServlet {
 				}
 				
 				request.setAttribute("product", arr);
-				
-				if(category.equals("vegetablesfruits")) {
-					request.getRequestDispatcher("shop1.jsp").forward(request, response);
-				}
-				if(category.equals("foograinsmasalas")) {
-					request.getRequestDispatcher("shop2.jsp").forward(request, response);
-				}
-				if(category.equals("eggsmeatsfish")) {
-					request.getRequestDispatcher("shop3.jsp").forward(request, response);
-				}
+				request.getRequestDispatcher("shop3.jsp").forward(request, response);
 			}
 			finally {
 				con.close();

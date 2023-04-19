@@ -10,46 +10,42 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class ContactUs
+ * Servlet implementation class EmptyCart
  */
-@WebServlet("/contact_us")
-public class ContactUs extends HttpServlet {
+@WebServlet("/empty_cart")
+public class EmptyCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String message = request.getParameter("message");
+		String uid = request.getParameter("uid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "insert into contact_us set name=?, email=?, message=?";
+				String sql = "delete from cart where uid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, name);
-				pstm.setString(2, email);
-				pstm.setString(3, message);
+				pstm.setString(1, uid);
 				int rows = pstm.executeUpdate();
 				
 				if(rows>0) {
 					String color = "success";
-					String msg = "We have received your message";
+					String msg = "Your cart is emptied";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color", color);
 					response.sendRedirect("index.jsp");
 				}
 				else {
-					String color = "danger";
-					String msg = "error";
+					String color = "warning";
+					String msg = "Your cart is already empty";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color", color);
-					response.sendRedirect("contact.jsp");
+					response.sendRedirect("view_cart");
 				}
 			}
 			finally {

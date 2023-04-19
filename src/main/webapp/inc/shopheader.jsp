@@ -23,8 +23,7 @@
             <div class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                      <form action="shop" method="post">
-                      <input type="hidden" value="vegetablesfruits" name="category">
+                      <form action="shop1" method="post">
                       <button type="submit" class="nav-link text-dark btn btn-outline-secondary">Fruits &amp; Vegitables</button>
                       </form>
                     </li>
@@ -34,8 +33,7 @@
             <div class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <form action="shop" method="post">
-                      <input type="hidden" value="foograinsmasalas" name="category">
+                      <form action="shop2" method="post">
                       <button type="submit" class="nav-link text-dark btn btn-outline-secondary">Foodgrains &amp; Masalas</button>
                       </form>
                     </li>
@@ -45,8 +43,7 @@
             <div class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                      <form action="shop" method="post">
-                      <input type="hidden" value="eggsmeatsfish" name="category">
+                      <form action="shop3" method="post">
                       <button type="submit" class="nav-link text-dark btn btn-outline-secondary">Eggs, Meats &amp; Fish</button>
                       </form>
                     </li>

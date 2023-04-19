@@ -27,8 +27,7 @@
           <a class="nav-link" href="contact.jsp"><b>Contact us</b></a>
         </li>
         <li class="nav-item">
-          <form action="shop" method="post">
-          <input type="hidden" value="vegetablesfruits" name="category">
+          <form action="shop1" method="post">
           <button type="submit" class="btn btn-dark mx-2">Shop</button>
           </form>
         </li>
@@ -44,8 +43,10 @@
           </li>
          <!-- cart button only if user is logged in-->
         <li class="nav-item">
-        
+          <form action="view_cart" method="post">
+          <input type="hidden" name="uid" value="<% out.print(uid); %>">
           <button type="submit" class="btn btn-warning mx-2">Cart</button>
+          </form>
         </li>
         <% } %>
       </ul>

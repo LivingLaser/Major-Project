@@ -39,7 +39,7 @@ public class Login extends HttpServlet {
 					String uid = rs.getString("uid");
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
-					session.setAttribute("color",color);
+					session.setAttribute("color", color);
 					request.getSession().setAttribute("loggedIn", true);
 					request.getSession().setAttribute("uid", uid);
 					response.sendRedirect("index.jsp");
@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
 					String msg = "Wrong Email or Password";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
-					session.setAttribute("color",color);
+					session.setAttribute("color", color);
 					request.getSession().removeAttribute("loggedIn");
 					response.sendRedirect("login.jsp");
 				}

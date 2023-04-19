@@ -38,8 +38,7 @@
           <h5 class="card-title">Vegetables &amp; Fruits</h5>
           <p class="card-text">Fresh and healthy vegetables.</p>
           <div class="ab text-center">
-          <form action="shop" method="post">
-          <input type="hidden" value="vegetablesfruits" name="category">
+          <form action="shop1" method="post">
           <button class="btn btn-primary">Shop Now</button>
           </form>
           </div>
@@ -53,8 +52,7 @@
           <h5 class="card-title">Foodgrains &amp; Masalas</h5>
           <p class="card-text">Enjoy all type of masalas and ingredients.</p>
           <div class="ab text-center">
-          <form action="shop" method="post">
-          <input type="hidden" value="foograinsmasalas" name="category">
+          <form action="shop2" method="post">
           <button class="btn btn-primary">Shop Now</button>
           </form>
           </div>
@@ -68,8 +66,7 @@
           <h5 class="card-title">Eggs, Meats &amp; Fish</h5>
           <p class="card-text">Fresh Meat and eggs at Discount</p>
           <div class="ab text-center">
-          <form action="shop" method="post">
-          <input type="hidden" value="eggsmeatsfish" name="category">
+          <form action="shop3" method="post">
           <button class="btn btn-primary">Shop Now</button>
           </form>
           </div>

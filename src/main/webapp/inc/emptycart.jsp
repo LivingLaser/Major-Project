@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-  <div class="container my-4">
+  <div class="container">
     <div class="jumbotron text-center">
-      <h1 class="display-4">:( not found!</h1>
-      <p class="lead">Looks like what you're looking for is not available.</p>
+      <h1 class="display-4">Empty cart!</h1>
+      <p class="lead">Looks like there is nothing in your wish list.</p>
       <hr class="my-4">
-      <p>You can check out to our Shop section for the latest and newly added products.</p>
+      <p>You can add your essentials in cart from our Shop section.</p>
       <form action="shop1" method="post">
       	<button type="submit" class="btn btn-primary btn-lg">Go to Shop</button>
       </form>
