@@ -36,8 +36,8 @@ if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("lo
             <button onclick="return confirm('Empty cart ?')" type="submit" class="btn btn-danger btn-lg mx-2">Empty Cart</button>
             </form>
         </li>
-        <li class="nav-item">
-            <button class="btn btn-warning btn-lg mx-2">Check Out</button>
+        <li class="nav-item"> <!-- onclick ta soria nis jokun form lagabi -->
+            <button class="btn btn-warning btn-lg mx-2" onclick="window.location.href='checkout.jsp'">Check Out</button>
         </li>
       </ul>
     </div>
