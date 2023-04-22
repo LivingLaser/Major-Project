@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-md-6">
                 <h2>Customer Information</h2>
-                <form action="" method="">
+                <form action="" method="post">
                     <div class="form-group">
                         <label for="customerName">Name</label>
                         <input type="text" class="form-control" id="customerName" placeholder="Enter your name" name="">

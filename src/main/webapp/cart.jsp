@@ -73,13 +73,8 @@ if(!products.isEmpty()) {
     </div>
   <hr></div>
 </div>
-<% } %>
-
-<div class="container">
-  <h2>Total: $<% out.print(total); %></h2>
-</div>
-<br>
 <%
+}
 }
 else {
 %>
