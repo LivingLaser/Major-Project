@@ -33,7 +33,7 @@
           </form>
         </li>
         <%
-        if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("loggedIn")) {
+        if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("loggedIn")) {
         	String uid = (String)session.getAttribute("uid");
         %>
           <li class="nav-item">
@@ -57,20 +57,26 @@
             <b>Login/Logout</b>
           </a>
           <ul class="dropdown-menu nav-item" aria-labelledby="navbarDropdown">
+          <% if(session.getAttribute("loggedIn") == null) { %>
             <li><a class="dropdown-item text-primary" href="signup.jsp">Signup</a></li>
             <li><a class="dropdown-item text-primary" href="login.jsp">Login</a></li>
+          <%
+          }
+          else {
+          %>
             <li>
             <form action="logout" method="post">
             <button class="dropdown-item text-danger" type="submit" >Logout</button>
             </form>
             </li>
+          <% } %>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="adminauth.jsp"><b>ADMIN</b></a></li>
           </ul>
         </li>
         </ul>
       <form action="search" method="post" class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" required name="search">
         <button type="submit" class="btn btn-outline-dark" ><i class="fa fa-search" aria-hidden="true"></i></button>
       </form>
     </div>
@@ -90,7 +96,3 @@
   <%-- session close hochhe --%>
   <% session.removeAttribute("message"); %>
 <% } %>
-
-		
-	
-		

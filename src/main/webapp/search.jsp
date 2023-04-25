@@ -18,6 +18,7 @@
 <%
 @SuppressWarnings({"unchecked", "rawtypes"})
 ArrayList<HashMap> products = (ArrayList<HashMap>)request.getAttribute("product");
+String uid = (String)session.getAttribute("uid");
 
 if(!products.isEmpty()) {
 	for(int i=0;i<products.size();i++) {
@@ -36,7 +37,13 @@ if(!products.isEmpty()) {
   </ul>
  </div>
 
-    <div class="card-footer text-center"><a href="#" class="btn btn-warning">Add to Cart</a></div>
+    <div class="card-footer text-center">
+    	<form action="add_cart" method="post">
+    	<input type="hidden" name="uid" value="<% out.print(uid); %>">
+    	<input type="hidden" name="pid" value="<% out.print(products.get(i).get("pid")); %>">
+    	<button type="submit" class="btn btn-warning">Add to Cart</button>
+    	</form>
+    </div>
     
 </div>
 </div>

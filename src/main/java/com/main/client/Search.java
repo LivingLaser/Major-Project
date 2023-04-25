@@ -21,40 +21,45 @@ public class Search extends HttpServlet {
 		
 		String search = request.getParameter("search");
 		
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
-			
+		if(search!=null) {
 			try {
-				String sql = "select * from product where name like '%"+search+"%'";
-				PreparedStatement pstm = con.prepareStatement(sql);
-				ResultSet rs = pstm.executeQuery();
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 				
-				@SuppressWarnings("rawtypes")
-				ArrayList<HashMap> arr = new ArrayList<>();
-				
-				while(rs.next()) {
-					HashMap<String, String> hm = new HashMap<>();
+				try {
+					String sql = "select * from product where name like '%"+search+"%'";
+					PreparedStatement pstm = con.prepareStatement(sql);
+					ResultSet rs = pstm.executeQuery();
 					
-					hm.put("pid", rs.getString("pid"));
-					hm.put("name", rs.getString("name"));
-					hm.put("description", rs.getString("description"));
-					hm.put("quantity", rs.getString("quantity"));
-					hm.put("price", rs.getString("price"));
-					hm.put("image", rs.getString("image"));
+					@SuppressWarnings("rawtypes")
+					ArrayList<HashMap> arr = new ArrayList<>();
 					
-					arr.add(hm);
+					while(rs.next()) {
+						HashMap<String, String> hm = new HashMap<>();
+						
+						hm.put("pid", rs.getString("pid"));
+						hm.put("name", rs.getString("name"));
+						hm.put("description", rs.getString("description"));
+						hm.put("quantity", rs.getString("quantity"));
+						hm.put("price", rs.getString("price"));
+						hm.put("image", rs.getString("image"));
+						
+						arr.add(hm);
+					}
+					
+					request.setAttribute("product", arr);
+					request.getRequestDispatcher("search.jsp").forward(request, response);
 				}
-				
-				request.setAttribute("product", arr);
-				request.getRequestDispatcher("search.jsp").forward(request, response);
+				finally {
+					con.close();
+				}
 			}
-			finally {
-				con.close();
+			catch(Exception e) {
+				System.out.println("Exception: " + e);
 			}
 		}
-		catch(Exception e) {
-			System.out.println("Exception: " + e);
+		else {
+			response.sendRedirect("index.jsp");
 		}
 	}
 

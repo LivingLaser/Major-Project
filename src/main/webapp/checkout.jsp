@@ -74,7 +74,7 @@
             </div>
         </div><br>
         <%
-        if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("loggedIn")) {
+        if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("loggedIn")) {
         	String uid = (String)session.getAttribute("uid");
         %>  <hr>      
             <div class="row justify-content-center">
