@@ -29,19 +29,47 @@ public class AddCart extends HttpServlet {
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 				
 				try {
-					String sql = "insert into cart set uid=?, pid=?";
-					PreparedStatement pstm = con.prepareStatement(sql);
-					pstm.setString(1, uid);
-					pstm.setString(2, pid);
-					int rows = pstm.executeUpdate();
+					String csql = "select cid, qty from cart where uid=? and pid=?";
+					PreparedStatement cpstm = con.prepareStatement(csql);
+					cpstm.setString(1, uid);
+					cpstm.setString(2, pid);
+					ResultSet rs = cpstm.executeQuery();
 					
-					if(rows>0) {
-						String color = "success";
-						String msg = "Product has been added to your cart";
-						HttpSession session = request.getSession();
-						session.setAttribute("message", msg);
-						session.setAttribute("color", color);
-						response.sendRedirect(referer);
+					if(rs.next()) {
+						String cid = rs.getString("cid");
+						int qty = rs.getInt("qty");
+						qty += 1;
+						
+						String sql = "update cart set qty=? where cid=?";
+						PreparedStatement pstm = con.prepareStatement(sql);
+						pstm.setInt(1, qty);
+						pstm.setString(2, cid);
+						int rows = pstm.executeUpdate();
+						
+						if(rows>0) {
+							String color = "success";
+							String msg = "Product has been added to your cart";
+							HttpSession session = request.getSession();
+							session.setAttribute("message", msg);
+							session.setAttribute("color", color);
+							response.sendRedirect(referer);
+						}
+					}
+					else {
+						String sql = "insert into cart set uid=?, pid=?, qty=1";
+						PreparedStatement pstm = con.prepareStatement(sql);
+						pstm.setString(1, uid);
+						pstm.setString(2, pid);
+						int rows = pstm.executeUpdate();
+						
+						if(rows>0) {
+							String color = "success";
+							String msg = "Product has been added to your cart";
+							HttpSession session = request.getSession();
+							session.setAttribute("message", msg);
+							session.setAttribute("color", color);
+							response.sendRedirect(referer);
+						}
 					}
 				}
 				finally {

@@ -20,16 +20,23 @@ public class ViewCart extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String uid = request.getParameter("uid");
-		double total = 0;
+		String auid = (String)request.getAttribute("uid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select cid, image, product.name, description, quantity, price from user, product, cart where user.uid=? and user.uid=cart.uid and product.pid=cart.pid";
+				String sql = "select cid, cart.uid, image, product.name, description, quantity, price, qty from user, product, cart where user.uid=? and user.uid=cart.uid and product.pid=cart.pid";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, uid);
+				
+				if(uid.equals("null")) {
+					pstm.setString(1, auid);
+				}
+				else {
+					pstm.setString(1, uid);
+				}
+				
 				ResultSet rs = pstm.executeQuery();
 				
 				@SuppressWarnings("rawtypes")
@@ -39,18 +46,21 @@ public class ViewCart extends HttpServlet {
 					HashMap<String, String> hm = new HashMap<>();
 					
 					hm.put("cid", rs.getString("cid"));
+					hm.put("uid", rs.getString("cart.uid"));
 					hm.put("image", rs.getString("image"));
 					hm.put("name", rs.getString("product.name"));
 					hm.put("description", rs.getString("description"));
 					hm.put("quantity", rs.getString("quantity"));
-					hm.put("price", rs.getString("price"));
-					total += Double.parseDouble(rs.getString("price"));
+					
+					int price = rs.getInt("price");
+					price *= rs.getInt("qty");
+					hm.put("price", String.valueOf(price));
+					hm.put("qty", rs.getString("qty"));
 					
 					arr.add(hm);
 				}
 				
 				request.setAttribute("product", arr);
-				request.setAttribute("total", total);
 				request.getRequestDispatcher("cart.jsp").forward(request, response);
 			}
 			finally {

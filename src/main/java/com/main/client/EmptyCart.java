@@ -33,11 +33,12 @@ public class EmptyCart extends HttpServlet {
 				
 				if(rows>0) {
 					String color = "success";
-					String msg = "Your cart is emptied";
+					String msg = "Your cart has been emptied";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color", color);
-					response.sendRedirect("index.jsp");
+					request.setAttribute("uid", uid);
+					request.getRequestDispatcher("view_cart").forward(request, response);
 				}
 				else {
 					String color = "warning";
@@ -45,7 +46,8 @@ public class EmptyCart extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color", color);
-					response.sendRedirect("view_cart");
+					request.setAttribute("uid", uid);
+					request.getRequestDispatcher("view_cart").forward(request, response);
 				}
 			}
 			finally {

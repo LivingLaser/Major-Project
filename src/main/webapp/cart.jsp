@@ -46,7 +46,6 @@ if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("lo
 <%
 @SuppressWarnings({"unchecked", "rawtypes"})
 ArrayList<HashMap> products = (ArrayList<HashMap>)request.getAttribute("product");
-String total = (String)String.valueOf(request.getAttribute("total"));
 
 if(!products.isEmpty()) {
 	for(int i=0;i<products.size();i++) {
@@ -63,10 +62,12 @@ if(!products.isEmpty()) {
         <p><% out.print(products.get(i).get("description")); %></p>
         <p>Quantity: <% out.print(products.get(i).get("quantity")); %></p>
         <p>Price: $<% out.print(products.get(i).get("price")); %></p>
+        <p>Qty: <% out.print(products.get(i).get("qty")); %></p>
       </div>
       <div class="col-md-1 mt-auto mb-auto">
        <form action="delete_cart_item" method="post">
        <input type="hidden" name="cid" value="<% out.print(products.get(i).get("cid")); %>">
+       <input type="hidden" name="uid" value="<% out.print(products.get(i).get("uid")); %>">
        <button type="submit" class="btn btn-danger mx-auto">Delete</button>
        </form>
       </div>
@@ -74,7 +75,7 @@ if(!products.isEmpty()) {
   <hr></div>
 </div>
 <%
-}
+	}
 }
 else {
 %>

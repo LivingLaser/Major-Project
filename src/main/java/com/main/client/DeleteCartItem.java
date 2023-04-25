@@ -19,6 +19,7 @@ public class DeleteCartItem extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String cid = request.getParameter("cid");
+		String uid = request.getParameter("uid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -30,7 +31,8 @@ public class DeleteCartItem extends HttpServlet {
 				pstm.setString(1, cid);
 				pstm.executeUpdate();
 				
-				response.sendRedirect("view_cart");
+				request.setAttribute("uid", uid);
+				request.getRequestDispatcher("view_cart").forward(request, response);
 			}
 			finally {
 				con.close();

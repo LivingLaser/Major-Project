@@ -88,8 +88,16 @@
                   </select>
                 </div>
               </div>
-            </div>
-        <% }else{ %>
+            </div><br>
+                <div class="row justify-content-center">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                 <button type="button" id="paymentbtn" class="btn btn-primary mx-auto">Proceed  to checkout</button>
+                 </div>
+                </div>
+        <%
+        }
+        else {
+        %>
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="jumbotron text-center">
