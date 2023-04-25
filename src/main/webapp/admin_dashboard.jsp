@@ -55,9 +55,9 @@ if(session.getAttribute("loggedAdmin") != null && (Boolean)session.getAttribute(
           <div class="col-md-6">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Cart details</h5>
+                <h5 class="card-title">Order details</h5>
                 <p class="card-text">Data related to users cart items stored here</p>
-                <div class="ab text-center"><a href="admin_cartdb.jsp" class="btn btn-primary">Visit</a></div>
+                <div class="ab text-center"><a href="admin_orderdb.jsp" class="btn btn-primary">Visit</a></div>
               </div>
             </div>
           </div>

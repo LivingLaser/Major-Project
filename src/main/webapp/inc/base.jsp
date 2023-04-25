@@ -3,6 +3,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
 
@@ -28,7 +29,7 @@
         </li>
         <li class="nav-item">
           <form action="shop1" method="post">
-          <button type="submit" class="btn btn-dark mx-2">Shop</button>
+          <button type="submit" class="btn btn-dark pl-4 pr-4 mx-2" style="padding-left: 22px; padding-right: 22px;"><i class="fa fa-shopping-bag " aria-hidden="true"></i></button>
           </form>
         </li>
         <%
@@ -38,14 +39,14 @@
           <li class="nav-item">
           <form action="profile" method="post">
           <input type="hidden" name="uid" value="<% out.print(uid); %>">
-          <button type="submit" class="btn btn-primary mx-2">Profile</button>
+          <button type="submit" class="btn btn-primary mx-2" style="padding-left: 23px; padding-right: 23px;"><i class="fa fa-user" aria-hidden="true"></i></button>
           </form>
           </li>
          <!-- cart button only if user is logged in-->
         <li class="nav-item">
           <form action="view_cart" method="post">
           <input type="hidden" name="uid" value="<% out.print(uid); %>">
-          <button type="submit" class="btn btn-warning mx-2">Cart</button>
+          <button type="submit" class="btn btn-warning mx-2" style="padding-left: 22px; padding-right: 22px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
           </form>
         </li>
         <% } %>
@@ -70,7 +71,7 @@
         </ul>
       <form action="search" method="post" class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search">
-        <button type="submit" class="btn btn-outline-dark">Search</button>
+        <button type="submit" class="btn btn-outline-dark" ><i class="fa fa-search" aria-hidden="true"></i></button>
       </form>
     </div>
   </div>

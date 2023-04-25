@@ -23,26 +23,26 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <label for="customerName">Name</label>
-                        <input type="text" class="form-control" id="customerName" placeholder="Enter your name" name="">
+                        <input type="text" class="form-control" id="customerName" value="Enter your name" name="">
                     </div>
                     <div class="form-group">
                         <label for="customerEmail">Email</label>
-                        <input type="email" class="form-control" id="customerEmail" placeholder="Enter your email"  name="">
+                        <input type="email" class="form-control" id="customerEmail" value="Enter your email"  name="">
                     </div>
                     <div class="form-group">
                         <label for="customerAddress">Address</label>
                         <input type="text" class="form-control" id="customerAddress"
-                            placeholder="Enter your address" name="">
+                            value="Enter your address" name="">
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="customerCity">City</label>
-                            <input type="text" class="form-control" id="customerCity" placeholder="Enter your city" name="">
+                            <input type="text" class="form-control" id="customerCity" value="Enter your city" name="">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="customerPincode">Pincode</label>
                             <input type="text" class="form-control" id="customerPincode"
-                                placeholder="Enter your pincode" name="">
+                                value="Enter your pincode" name="">
                         </div>
                     </div>
                 </form>
@@ -76,13 +76,12 @@
         <%
         if(session.getAttribute("loggedIn") != null && (Boolean)session.getAttribute("loggedIn")) {
         	String uid = (String)session.getAttribute("uid");
-        %>        
+        %>  <hr>      
             <div class="row justify-content-center">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label for="paymentMethod">Select Payment Method</label>
                   <select class="form-control" id="paymentMethod">
-                    <option selected>Open this select menu</option>
+                    <option selected>Select Payment Method</option>
                     <option value="cod">Cash on delivery</option>
                     <option value="card">Debit/Credit Card</option>
                   </select>
