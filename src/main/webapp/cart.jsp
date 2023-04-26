@@ -33,11 +33,11 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
             <% String uid = (String)session.getAttribute("uid"); %>
             <form action="empty_cart" method="post">
             <input type="hidden" name="uid" value="<% out.print(uid); %>">
-            <button onclick="return confirm('Empty cart ?')" type="submit" class="btn btn-danger btn-lg mx-2">Empty Cart</button>
+            <button onclick="return confirm('Empty cart ?')" type="submit" class="btn btn-danger btn-lg mx-2">Empty Cart  <i class="fa fa-trash-o" aria-hidden="true"></i></button>
             </form>
         </li>
         <li class="nav-item"> <!-- onclick ta soria nis jokun form lagabi -->
-            <button class="btn btn-warning btn-lg mx-2" onclick="window.location.href='checkout.jsp'">Check Out</button>
+            <button class="btn btn-warning btn-lg mx-2" onclick="window.location.href='checkout.jsp'">Checkout</button>
         </li>
       </ul>
     </div>
@@ -68,7 +68,7 @@ if(!products.isEmpty()) {
        <form action="delete_cart_item" method="post">
        <input type="hidden" name="cid" value="<% out.print(products.get(i).get("cid")); %>">
        <input type="hidden" name="uid" value="<% out.print(products.get(i).get("uid")); %>">
-       <button type="submit" class="btn btn-danger mx-auto">Delete</button>
+       <button type="submit" style="padding-left: 17px; padding-right: 17px;" class="btn btn-danger mx-auto"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
        </form>
       </div>
     </div>

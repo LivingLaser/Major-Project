@@ -5,15 +5,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <h5>About Us</h5><i class="fa fa-info" aria-hidden="true"></i>
+         <h5>About Us</h5>
           <p>We are a grocery management website that provides you all the daily need of grocery at your door step.</p>
         </div>
         <div class="col-md-4">
           <h5>Contact Us</h5>
           <ul class="list-unstyled">
             <li><i class="fa fa-map-marker" aria-hidden="true"></i>  123 Main St, kolkata INDIA</li>
-            <li><i class="fa fa-phone" aria-hidden="true"></i>  (+91)1234567890</li>
-            <li><i class="fa fa-envelope" aria-hidden="true"></i>  info@groceryapp.com</li>
+            <li><a href="tel:+911234567890" style="text-decoration: none; color: black;"><i class="fa fa-phone" aria-hidden="true"></i>  (+91)1234567890 </a></li>
+            <li><a href="mailto:info@groceryapp.com" style="text-decoration: none; color: black;"><i class="fa fa-envelope" aria-hidden="true"></i>  info@groceryapp.com</a></li>
           </ul>
         </div>
         <div class="col-md-4">

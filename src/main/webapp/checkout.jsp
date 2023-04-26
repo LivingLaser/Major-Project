@@ -6,49 +6,76 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <style>
     .card-img-top {
      width: 65px;
      height: 50px;
      object-fit: cover;
 }
+    .details table {
+      margin-bottom: 30px;
+    }
+    .details table th,
+    .details table td {
+      padding: 12px 15px;
+      text-align: left;
+    }
+    .details table th {
+      background-color: #f1f1f1;
+    }
 </style>
+<link rel="stylesheet" href ="css/checkout.css">
 <body>
-<jsp:include page="inc/base.jsp"></jsp:include>
+<jsp:include page="inc/base.jsp"></jsp:include><br>
+           <div class="container">
+            <div class="row d-flex align-items-baseline">
+              <div class="col-md-11">
+                <p style="color: #7e8d9f;font-size: 26px;"><strong>Invoice </strong></p>
+              </div>
+              <div class="col-md-1 float-end">
+               <a class="btn btn-outline-dark text-capitalize" onclick="window.print()" data-mdb-ripple-color="dark">Print <i class="fa fa-print" aria-hidden="true"></i></a>
+              </div>
+              <hr>
+            </div></div>
 
    <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
-                <h2>Customer Information</h2>
-                <form action="" method="post">
-                    <div class="form-group">
-                        <label for="customerName">Name</label>
-                        <input type="text" class="form-control" id="customerName" value="Enter your name" name="">
-                    </div>
-                    <div class="form-group">
-                        <label for="customerEmail">Email</label>
-                        <input type="email" class="form-control" id="customerEmail" value="Enter your email"  name="">
-                    </div>
-                    <div class="form-group">
-                        <label for="customerAddress">Address</label>
-                        <input type="text" class="form-control" id="customerAddress"
-                            value="Enter your address" name="">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="customerCity">City</label>
-                            <input type="text" class="form-control" id="customerCity" value="Enter your city" name="">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="customerPincode">Pincode</label>
-                            <input type="text" class="form-control" id="customerPincode"
-                                value="Enter your pincode" name="">
-                        </div>
-                    </div>
-                </form>
+            <h4>Customer Details</h4>
+          <div class="details">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>Name:</th>
+                <td>demo name</td>
+              </tr>
+              <tr>
+                <th>Email:</th>
+                <td>demo@mail.com</td>
+              </tr>
+              <tr>
+                <th>Phone Number:</th>
+                <td>+91 1234567890</td>
+              </tr>
+              <tr>
+                <th>Address:</th>
+                <td>123 Street</td>
+              </tr>
+              <tr>
+                <th>City:</th>
+                <td>Kolkata</td>
+              </tr>
+              <tr>
+                <th>Pincode:</th>
+                <td>700061</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
             </div>
             <div class="col-md-6">
-                <h2>Product Details</h2>
+                <h4>Product Details</h4>
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -69,8 +96,13 @@
 
                     </tbody>
                 </table>
-                <h3>Total: $XXX.XX</h3>
+                <h3>Total: ₹ AMOUNT</h3>
                 <!-- Add necessary designs or buttons for payment options -->
+                      <div class="row">
+        <div class="col-md-12">
+          <p class="text-muted">© 2023 Grocery Management. All rights reserved.</p>
+        </div>
+      </div>
             </div>
         </div><br>
         <%
