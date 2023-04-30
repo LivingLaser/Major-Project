@@ -22,7 +22,7 @@ String uid = (String)session.getAttribute("uid");
 
 for(int i=0;i<products.size();i++) {
 %>
-<div class="col-12 col-md-3 col-sm-3 col-lg-3 mx-auto">
+<div class="col-sm-12 col-md-6 col-lg-3 mx-auto">
 <div class="card mb-5" style="width: 16rem;">
   <img class="card-img-top" src="img/<% out.print(products.get(i).get("image")); %>" alt="Card image cap">
   <div class="card-body">

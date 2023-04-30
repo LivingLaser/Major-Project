@@ -37,7 +37,8 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     </div>
 
 <hr>
-    <div class="col-md-6">
+   <div class="row">
+    <div class="col-md-4">
     <div class="d-flex justify-content-center">
     <label class="mr-sm-2" for="inlineFormCustomSelect"><b>SELECT PRODUCT CATEGORY:</b>&nbsp;&nbsp;</label>
       <select class="custom-select mr-sm-2" required id="inlineFormCustomSelect"  name="category">
@@ -48,11 +49,16 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
       </select>
     </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
      <div class="d-flex justify-content-center">
      <label for="exampleFormControlFile1"><b>UPLOAD PRODUCT IMAGE:</b>&nbsp;&nbsp;</label>
      <input type="file" class="form-control-file" id="exampleFormControlFile1" required name="image">
     </div>
+   </div>
+   <div class="col-md-4">
+     <label for="exampleFormControlFile1"><b>STOCK QTY:</b>&nbsp;&nbsp;</label> 
+     <input type="number" class="form-control-file"  required name="stock">   
+   </div>
     </div><br><hr><br><br>
 
   <div class="d-flex justify-content-center">

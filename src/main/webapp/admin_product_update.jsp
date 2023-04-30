@@ -33,15 +33,21 @@ HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("v
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  required name="description"><% out.print(views.get("description")); %></textarea>
   </div><hr>
 <br>
-    <div class="col-md-6">
+   <div class="row">
+    <div class="col-md-4">
     <label for="exampleInputName">Product Quantity </label>
     <input type="text" class="form-control"  required value="<% out.print(views.get("quantity")); %>" name="quantity">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
     <label for="exampleInputName text-bold">Product Price </label>
     <input type="number" class="form-control"  required value="<% out.print(views.get("price")); %>" name="price">
     </div>
-
+    <div class="col-md-4">
+    <label for="exampleInputName text-bold">Product Stock </label>
+    <input type="number" class="form-control"  required value="<% out.print(views.get("stock")); %>" name="stock"> <%-- new field --%>
+    
+    </div>
+   </div>
 <hr>
     <div class="col-md-5">
     <div class="d-flex justify-content-center">

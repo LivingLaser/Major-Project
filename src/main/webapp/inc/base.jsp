@@ -6,7 +6,29 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <script src="js/bootstrap.min.js"></script>
+<style>
+.card:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,.3);
+  border-radius: 10px;
+  transform: scale(1.05);
+  border: 2px solid #ccc;
+  background-color: #f8f9fa;
+  box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+.card-title {
 
+}
+.card-footer {
+  background-color: #f8f9fa;
+}
+@media (max-width: 576px) {
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+</style>
 
 
 <!-- navbar -->

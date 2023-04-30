@@ -119,9 +119,10 @@
     
     for(int i=0;i<products.size();i++) {
     %>
-		<div class="col-12 col-md-3 col-sm-3 col-lg-3 mx-auto">
+        
+		<div class="col-sm-12 col-md-6 col-lg-3 mx-auto">
 		<div class="card mb-5" style="width: 16rem;">
-  		<img class="card-img-top" src="img/<% out.print(products.get(i).get("image")); %>" alt="Card image cap">
+  		<img class="card-img-top" style="height: 160px; width: 255px;" src="img/<% out.print(products.get(i).get("image")); %>" alt="Card image cap">
   		<div class="card-body">
     		<h5 class="card-title text-center"><% out.print(products.get(i).get("name")); %></h5>
     		<p class="card-text"><% out.print(products.get(i).get("description")); %></p>
@@ -141,6 +142,7 @@
     
 </div>
 </div>
+
 <% } %>
     </div>
   </div>
