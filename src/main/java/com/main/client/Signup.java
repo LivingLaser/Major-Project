@@ -45,7 +45,7 @@ public class Signup extends HttpServlet {
 					pstm.setString(7, password);
 					int rows = pstm.executeUpdate();
 					
-					if(rows>0) {
+					if(rows==1) {
 						String color = "success";
 						String msg = "Account created successfully!";
 						HttpSession session = request.getSession();
@@ -53,14 +53,14 @@ public class Signup extends HttpServlet {
 						session.setAttribute("color",color);
 						response.sendRedirect("login.jsp");
 					}
-					else {
-						String color = "danger";
-						String msg = "Failed to create an account";
-						HttpSession session = request.getSession();
-						session.setAttribute("message", msg);
-						session.setAttribute("color",color);
-						response.sendRedirect("signup.jsp");
-					}
+				}
+				catch(Exception e) {
+					String color = "danger";
+					String msg = "Failed to create an account, this e-mail id is already in use";
+					HttpSession session = request.getSession();
+					session.setAttribute("message", msg);
+					session.setAttribute("color",color);
+					response.sendRedirect("signup.jsp");
 				}
 				finally {
 					con.close();

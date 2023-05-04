@@ -35,7 +35,7 @@ public class ContactUs extends HttpServlet {
 				pstm.setString(3, message);
 				int rows = pstm.executeUpdate();
 				
-				if(rows>0) {
+				if(rows==1) {
 					String color = "success";
 					String msg = "We have received your message";
 					HttpSession session = request.getSession();
@@ -43,14 +43,14 @@ public class ContactUs extends HttpServlet {
 					session.setAttribute("color", color);
 					response.sendRedirect("index.jsp");
 				}
-				else {
-					String color = "danger";
-					String msg = "error";
-					HttpSession session = request.getSession();
-					session.setAttribute("message", msg);
-					session.setAttribute("color", color);
-					response.sendRedirect("contact.jsp");
-				}
+			}
+			catch(Exception e) {
+				String color = "danger";
+				String msg = "This e-mail id is already in use";
+				HttpSession session = request.getSession();
+				session.setAttribute("message", msg);
+				session.setAttribute("color", color);
+				response.sendRedirect("contact.jsp");
 			}
 			finally {
 				con.close();

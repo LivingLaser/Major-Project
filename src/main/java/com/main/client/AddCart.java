@@ -46,7 +46,7 @@ public class AddCart extends HttpServlet {
 						pstm.setString(2, cid);
 						int rows = pstm.executeUpdate();
 						
-						if(rows>0) {
+						if(rows==1) {
 							String color = "success";
 							String msg = "Product has been added to your cart";
 							HttpSession session = request.getSession();
@@ -62,7 +62,7 @@ public class AddCart extends HttpServlet {
 						pstm.setString(2, pid);
 						int rows = pstm.executeUpdate();
 						
-						if(rows>0) {
+						if(rows==1) {
 							String color = "success";
 							String msg = "Product has been added to your cart";
 							HttpSession session = request.getSession();

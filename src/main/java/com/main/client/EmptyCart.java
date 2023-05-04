@@ -31,7 +31,7 @@ public class EmptyCart extends HttpServlet {
 				pstm.setString(1, uid);
 				int rows = pstm.executeUpdate();
 				
-				if(rows>0) {
+				if(rows==1) {
 					String color = "success";
 					String msg = "Your cart has been emptied";
 					HttpSession session = request.getSession();

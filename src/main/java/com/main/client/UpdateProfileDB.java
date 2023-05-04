@@ -45,7 +45,7 @@ public class UpdateProfileDB extends HttpServlet {
 				pstm.setString(8, uid);
 				int rows = pstm.executeUpdate();
 				
-				if(rows>0) {
+				if(rows==1) {
 					String color = "success";
 					String msg = "Your Profile has been updated";
 					HttpSession session = request.getSession();
@@ -53,14 +53,14 @@ public class UpdateProfileDB extends HttpServlet {
 					session.setAttribute("color",color);
 					response.sendRedirect("index.jsp");
 				}
-				else {
-					String color = "danger";
-					String msg = "Failed to update your profile";
-					HttpSession session = request.getSession();
-					session.setAttribute("message", msg);
-					session.setAttribute("color",color);
-					response.sendRedirect("contact.jsp");
-				}
+			}
+			catch(Exception e) {
+				String color = "danger";
+				String msg = "Failed to update your profile, this e-mail is already in use";
+				HttpSession session = request.getSession();
+				session.setAttribute("message", msg);
+				session.setAttribute("color",color);
+				response.sendRedirect("contact.jsp");
 			}
 			finally {
 				con.close();

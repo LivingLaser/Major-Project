@@ -40,7 +40,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
                             </div>
                             <div class="form-group">
                                 <label for="email">Email address</label>
-                                <input type="email" class="form-control" id="email" value="<% out.print(views.get("name")); %>" disabled>
+                                <input type="email" class="form-control" id="email" value="<% out.print(views.get("email")); %>" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
