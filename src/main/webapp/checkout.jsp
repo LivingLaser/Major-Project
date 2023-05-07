@@ -6,25 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<style>
-    .card-img-top {
-     width: 65px;
-     height: 50px;
-     object-fit: cover;
-}
-    .details table {
-      margin-bottom: 30px;
-    }
-    .details table th,
-    .details table td {
-      padding: 12px 15px;
-      text-align: left;
-    }
-    .details table th {
-      background-color: #f1f1f1;
-    }
-</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href ="css/checkout.css">
 <body>
 <jsp:include page="inc/base.jsp"></jsp:include><br>

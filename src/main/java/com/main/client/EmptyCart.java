@@ -26,12 +26,29 @@ public class EmptyCart extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
+				String csql = "select product.pid, stock, qty from user, product, cart where user.uid=? and user.uid=cart.uid and product.pid=cart.pid";
+				PreparedStatement cpstm = con.prepareStatement(csql);
+				cpstm.setString(1, uid);
+				ResultSet crs = cpstm.executeQuery();
+				
+				while(crs.next()) {
+					String pid = crs.getString("product.pid");
+					int stock = crs.getInt("stock"), qty = crs.getInt("qty");
+					stock += qty;
+					
+					String vsql = "update product set stock=? where pid=?";
+					PreparedStatement vpstm = con.prepareStatement(vsql);
+					vpstm.setInt(1, stock);
+					vpstm.setString(2, pid);
+					vpstm.executeUpdate();
+				}
+				
 				String sql = "delete from cart where uid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				pstm.setString(1, uid);
 				int rows = pstm.executeUpdate();
 				
-				if(rows==1) {
+				if(rows>0) {
 					String color = "success";
 					String msg = "Your cart has been emptied";
 					HttpSession session = request.getSession();

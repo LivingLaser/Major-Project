@@ -9,18 +9,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
 <html>
 <head>
 <title>Cart</title>
-<style>
- .img-cart {
-  width: 330px;
-  height: 200px;
-  object-fit: cover;
-}
- .vertical-line {
-  border-left: 2px solid black;
-  height: 200px;
-  margin-left: 2px;
-		}
-</style>
+<link rel="stylesheet" href="css/cart.css">
 </head>
 <body>
 <jsp:include page="inc/base.jsp"></jsp:include>
@@ -68,6 +57,8 @@ if(!products.isEmpty()) {
        <form action="delete_cart_item" method="post">
        <input type="hidden" name="cid" value="<% out.print(products.get(i).get("cid")); %>">
        <input type="hidden" name="uid" value="<% out.print(products.get(i).get("uid")); %>">
+       <input type="hidden" name="pid" value="<% out.print(products.get(i).get("pid")); %>">
+       <input type="hidden" name="qty" value="<% out.print(products.get(i).get("qty")); %>">
        <button type="submit" style="padding-left: 17px; padding-right: 17px;" class="btn btn-danger mx-auto"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
        </form>
       </div>

@@ -24,7 +24,7 @@ public class ProductList extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select pid, name, quantity, price from product";
+				String sql = "select pid, name, quantity, stock from product";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				ResultSet rs = pstm.executeQuery();
 				
@@ -37,7 +37,7 @@ public class ProductList extends HttpServlet {
 					hm.put("pid", rs.getString("pid"));
 					hm.put("name", rs.getString("name"));
 					hm.put("quantity", rs.getString("quantity"));
-					hm.put("price", rs.getString("price"));
+					hm.put("stock", rs.getString("stock"));
 					
 					arr.add(hm);
 				}

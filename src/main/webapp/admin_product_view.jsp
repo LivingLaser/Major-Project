@@ -30,7 +30,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Category: <% out.print(views.get("category")); %></li>
         <li class="list-group-item">Quantity: <% out.print(views.get("quantity")); %></li>
-        <li class="list-group-item">In Stock: <% out.print(views.get("stock")); %></li>
+        <li class="list-group-item">In Stock: <% out.print(views.get("stock")); %> units</li>
         <li class="list-group-item">Price: $<% out.print(views.get("price")); %></li>
       </ul>
       <div class="text-center"> <button onclick="window.print()" class="btn btn-outline-dark">Print Page</button> </div>

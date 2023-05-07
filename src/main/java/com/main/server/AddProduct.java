@@ -30,6 +30,7 @@ public class AddProduct extends HttpServlet {
 		String quantity = request.getParameter("quantity");
 		String price = request.getParameter("price");
 		String category = request.getParameter("category");
+		String stock = request.getParameter("stock");
 		
 		Part pt = request.getPart("image");
 		String image = pt.getSubmittedFileName();
@@ -44,7 +45,7 @@ public class AddProduct extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "insert into product set name=?, description=?, quantity=?, price=?, category=?, image=?";
+				String sql = "insert into product set name=?, description=?, quantity=?, price=?, category=?, image=?, stock=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				pstm.setString(1, name);
 				pstm.setString(2, description);
@@ -52,6 +53,7 @@ public class AddProduct extends HttpServlet {
 				pstm.setString(4, price);
 				pstm.setString(5, category);
 				pstm.setString(6, image);
+				pstm.setString(7, stock);
 				pstm.executeUpdate();
 				
 				response.sendRedirect("product_list");

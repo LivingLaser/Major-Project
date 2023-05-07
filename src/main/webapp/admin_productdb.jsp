@@ -41,7 +41,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                     <th scope="col">SL. NO.</th>
                     <th scope="col">NAME</th>
                     <th scope="col">QUANTITY</th>
-                    <th scope="col">PRICE</th>
+                    <th scope="col">STOCK (units)</th>
                     <th colspan="3" scope="col">ADMIN ACTIONS</th>
                 </tr>
             </thead>
@@ -56,7 +56,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                     <td><b><% out.print(i+1); %></b></td>
                     <td><% out.print(products.get(i).get("name")); %></td>
                     <td><% out.print(products.get(i).get("quantity")); %></td>
-                    <td><% out.print(products.get(i).get("price")); %></td>
+                    <td><% out.print(products.get(i).get("stock")); %></td>
                     <td>
                     <form action="view_product" method="post">
                     <input type="hidden" name="pid" value="<% out.print(products.get(i).get("pid")); %>">

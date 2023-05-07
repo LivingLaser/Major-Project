@@ -31,6 +31,7 @@ public class UpdateProductDB extends HttpServlet {
 		String quantity = request.getParameter("quantity");
 		String price = request.getParameter("price");
 		String category = request.getParameter("category");
+		String stock = request.getParameter("stock");
 		
 		Part pt = request.getPart("image");
 		
@@ -47,7 +48,7 @@ public class UpdateProductDB extends HttpServlet {
 						//fpart.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
 					}
 					
-					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, image=? where pid=?";
+					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, image=?, stock=? where pid=?";
 					PreparedStatement pstm = con.prepareStatement(sql);
 					pstm.setString(1, name);
 					pstm.setString(2, description);
@@ -55,18 +56,20 @@ public class UpdateProductDB extends HttpServlet {
 					pstm.setString(4, price);
 					pstm.setString(5, category);
 					pstm.setString(6, image);
-					pstm.setString(7, pid);
+					pstm.setString(7, stock);
+					pstm.setString(8, pid);
 					pstm.executeUpdate();
 				}
 				else {
-					String sql = "update product set name=?, description=?, quantity=?, price=?, category=? where pid=?";
+					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, stock=? where pid=?";
 					PreparedStatement pstm = con.prepareStatement(sql);
 					pstm.setString(1, name);
 					pstm.setString(2, description);
 					pstm.setString(3, quantity);
 					pstm.setString(4, price);
 					pstm.setString(5, category);
-					pstm.setString(6, pid);
+					pstm.setString(6, stock);
+					pstm.setString(7, pid);
 					pstm.executeUpdate();
 					response.sendRedirect("product_list");
 				}

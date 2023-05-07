@@ -29,46 +29,79 @@ public class AddCart extends HttpServlet {
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 				
 				try {
-					String csql = "select cid, qty from cart where uid=? and pid=?";
-					PreparedStatement cpstm = con.prepareStatement(csql);
-					cpstm.setString(1, uid);
-					cpstm.setString(2, pid);
-					ResultSet rs = cpstm.executeQuery();
+					String vsql = "select stock from product where pid=?";
+					PreparedStatement vpstm = con.prepareStatement(vsql);
+					vpstm.setNString(1, pid);
+					ResultSet vrs = vpstm.executeQuery();
 					
-					if(rs.next()) {
-						String cid = rs.getString("cid");
-						int qty = rs.getInt("qty");
-						qty += 1;
+					if(vrs.next()) {
+						int stock = vrs.getInt("stock");
 						
-						String sql = "update cart set qty=? where cid=?";
-						PreparedStatement pstm = con.prepareStatement(sql);
-						pstm.setInt(1, qty);
-						pstm.setString(2, cid);
-						int rows = pstm.executeUpdate();
-						
-						if(rows==1) {
-							String color = "success";
-							String msg = "Product has been added to your cart";
+						if(stock==0) {
+							String color = "warning";
+							String msg = "This product is currently out of stock, you can add it to your cart when it's available again";
 							HttpSession session = request.getSession();
 							session.setAttribute("message", msg);
 							session.setAttribute("color", color);
 							response.sendRedirect(referer);
 						}
-					}
-					else {
-						String sql = "insert into cart set uid=?, pid=?, qty=1";
-						PreparedStatement pstm = con.prepareStatement(sql);
-						pstm.setString(1, uid);
-						pstm.setString(2, pid);
-						int rows = pstm.executeUpdate();
-						
-						if(rows==1) {
-							String color = "success";
-							String msg = "Product has been added to your cart";
-							HttpSession session = request.getSession();
-							session.setAttribute("message", msg);
-							session.setAttribute("color", color);
-							response.sendRedirect(referer);
+						else {
+							String csql = "select cid, qty from cart where uid=? and pid=?";
+							PreparedStatement cpstm = con.prepareStatement(csql);
+							cpstm.setString(1, uid);
+							cpstm.setString(2, pid);
+							ResultSet rs = cpstm.executeQuery();
+							
+							if(rs.next()) {
+								String cid = rs.getString("cid");
+								int qty = rs.getInt("qty");
+								qty += 1;
+								
+								String sql = "update cart set qty=? where cid=?";
+								PreparedStatement pstm = con.prepareStatement(sql);
+								pstm.setInt(1, qty);
+								pstm.setString(2, cid);
+								int rows = pstm.executeUpdate();
+								
+								if(rows==1) {
+									stock -= 1;
+									String bsql = "update product set stock=? where pid=?";
+									PreparedStatement bpstm = con.prepareStatement(bsql);
+									bpstm.setInt(1, stock);
+									bpstm.setString(2, pid);
+									bpstm.executeUpdate();
+									
+									String color = "success";
+									String msg = "Product has been added to your cart";
+									HttpSession session = request.getSession();
+									session.setAttribute("message", msg);
+									session.setAttribute("color", color);
+									response.sendRedirect(referer);
+								}
+							}
+							else {
+								String sql = "insert into cart set uid=?, pid=?, qty=1";
+								PreparedStatement pstm = con.prepareStatement(sql);
+								pstm.setString(1, uid);
+								pstm.setString(2, pid);
+								int rows = pstm.executeUpdate();
+								
+								if(rows==1) {
+									stock -= 1;
+									String bsql = "update product set stock=? where pid=?";
+									PreparedStatement bpstm = con.prepareStatement(bsql);
+									bpstm.setInt(1, stock);
+									bpstm.setString(2, pid);
+									bpstm.executeUpdate();
+									
+									String color = "success";
+									String msg = "Product has been added to your cart";
+									HttpSession session = request.getSession();
+									session.setAttribute("message", msg);
+									session.setAttribute("color", color);
+									response.sendRedirect(referer);
+								}
+							}
 						}
 					}
 				}

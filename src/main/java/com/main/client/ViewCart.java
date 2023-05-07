@@ -27,7 +27,7 @@ public class ViewCart extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select cid, cart.uid, image, product.name, description, quantity, price, qty from user, product, cart where user.uid=? and user.uid=cart.uid and product.pid=cart.pid";
+				String sql = "select cid, cart.uid, image, product.pid, product.name, description, quantity, price, qty from user, product, cart where user.uid=? and user.uid=cart.uid and product.pid=cart.pid";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				
 				if(uid.equals("null")) {
@@ -48,6 +48,7 @@ public class ViewCart extends HttpServlet {
 					hm.put("cid", rs.getString("cid"));
 					hm.put("uid", rs.getString("cart.uid"));
 					hm.put("image", rs.getString("image"));
+					hm.put("pid", rs.getString("product.pid"));
 					hm.put("name", rs.getString("product.name"));
 					hm.put("description", rs.getString("description"));
 					hm.put("quantity", rs.getString("quantity"));

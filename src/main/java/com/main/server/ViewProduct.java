@@ -49,6 +49,7 @@ public class ViewProduct extends HttpServlet {
 						hm.put("category", "Eggs, Meats & Fish");
 					}
 					hm.put("image", rs.getString("image"));
+					hm.put("stock", rs.getString("stock"));
 				}
 				
 				request.setAttribute("view", hm);

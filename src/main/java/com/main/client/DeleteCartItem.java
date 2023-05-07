@@ -20,6 +20,8 @@ public class DeleteCartItem extends HttpServlet {
 		
 		String cid = request.getParameter("cid");
 		String uid = request.getParameter("uid");
+		String pid = request.getParameter("pid");
+		String qty = request.getParameter("qty");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -29,10 +31,30 @@ public class DeleteCartItem extends HttpServlet {
 				String sql = "delete from cart where cid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				pstm.setString(1, cid);
-				pstm.executeUpdate();
+				int rows = pstm.executeUpdate();
 				
-				request.setAttribute("uid", uid);
-				request.getRequestDispatcher("view_cart").forward(request, response);
+				if(rows==1) {
+					String vsql = "select stock from product where pid=?";
+					PreparedStatement vpstm = con.prepareStatement(vsql);
+					vpstm.setString(1, pid);
+					ResultSet vrs = vpstm.executeQuery();
+					
+					if(vrs.next()) {
+						int stock = vrs.getInt("stock");
+						stock += Integer.parseInt(qty);
+						
+						String bsql = "update product set stock=? where pid=?";
+						PreparedStatement bpstm = con.prepareStatement(bsql);
+						bpstm.setInt(1, stock);
+						bpstm.setString(2, pid);
+						int row = bpstm.executeUpdate();
+						
+						if(row==1) {
+							request.setAttribute("uid", uid);
+							request.getRequestDispatcher("view_cart").forward(request, response);
+						}
+					}
+				}
 			}
 			finally {
 				con.close();

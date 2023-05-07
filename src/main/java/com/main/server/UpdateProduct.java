@@ -41,6 +41,7 @@ public class UpdateProduct extends HttpServlet {
 					hm.put("price", rs.getString("price"));
 					hm.put("category", rs.getString("category"));
 					hm.put("image", rs.getString("image"));
+					hm.put("stock", rs.getString("stock"));
 				}
 				
 				request.setAttribute("view", hm);

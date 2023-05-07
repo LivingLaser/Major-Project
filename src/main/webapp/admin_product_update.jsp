@@ -36,15 +36,15 @@ HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("v
    <div class="row">
     <div class="col-md-4">
     <label for="exampleInputName">Product Quantity </label>
-    <input type="text" class="form-control"  required value="<% out.print(views.get("quantity")); %>" name="quantity">
+    <input type="text" class="form-control" required value="<% out.print(views.get("quantity")); %>" name="quantity">
     </div>
     <div class="col-md-4">
     <label for="exampleInputName text-bold">Product Price </label>
-    <input type="number" class="form-control"  required value="<% out.print(views.get("price")); %>" name="price">
+    <input type="number" class="form-control" required value="<% out.print(views.get("price")); %>" name="price">
     </div>
     <div class="col-md-4">
     <label for="exampleInputName text-bold">Product Stock </label>
-    <input type="number" class="form-control"  required value="<% out.print(views.get("stock")); %>" name="stock"> <%-- new field --%>
+    <input type="number" class="form-control" required value="<% out.print(views.get("stock")); %>" name="stock">
     
     </div>
    </div>

@@ -57,7 +57,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
    </div>
    <div class="col-md-4">
      <label for="exampleFormControlFile1"><b>STOCK QTY:</b>&nbsp;&nbsp;</label> 
-     <input type="number" class="form-control-file"  required name="stock">   
+     <input type="number" class="form-control-file" required name="stock">
    </div>
     </div><br><hr><br><br>
 
