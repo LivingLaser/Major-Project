@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
     
     <style>
-    .col-md-4{
+    #headerofshop{
 			float: left;
 		}
-    .col-md-4 ul li a:hover{
+    #headerofshop ul li a:hover{
       color: white;
 	    font-size: 17px;
     	text-decoration: none;
@@ -20,7 +20,7 @@
 
           <div class="col-md-12">
             <!-- catagory1 -->
-            <div class="col-md-4 d-flex justify-content-center">
+            <div id="headerofshop" class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                       <form action="shop1" method="post">
@@ -30,7 +30,7 @@
                 </ul>
             </div>
               <!-- catagory2 -->
-            <div class="col-md-4 d-flex justify-content-center">
+            <div id="headerofshop" class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                       <form action="shop2" method="post">
@@ -40,7 +40,7 @@
                 </ul>
             </div>
               <!-- catagory3 -->
-            <div class="col-md-4 d-flex justify-content-center">
+            <div id="headerofshop" class="col-md-4 d-flex justify-content-center">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                       <form action="shop3" method="post">

@@ -26,7 +26,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
             </form>
         </li>
         <li class="nav-item"> <!-- onclick ta soria nis jokun form lagabi -->
-            <button class="btn btn-warning btn-lg mx-2" onclick="window.location.href='checkout.jsp'">Checkout</button>
+            <button class="btn btn-warning btn-lg mx-2" onclick="window.location.href='checkout.jsp'">Checkout  <i class="fa fa-credit-card-alt" aria-hidden="true"></i></button>
         </li>
       </ul>
     </div>
