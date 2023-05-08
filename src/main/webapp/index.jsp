@@ -80,6 +80,19 @@
 
 <!-- popular product ekhan theke -->
 <div class="container"><hr><br>
+
+ <div class="container text-center">
+    <span id="discount-text" class="text-danger d-inline-block h2 "></span>
+  </div>
+  
+  <script>
+    // Get the span element
+    const discountText = document.getElementById("discount-text");
+    
+    // Set the text content
+    discountText.textContent = "DISCOUNTS AVAILABLE ON FEATURED PRODUCTS. Upto 30% off...";
+  </script>
+
     <h2 class="text-center mb-5">Our Popular Products</h2>
     <div class="row">
     <%
