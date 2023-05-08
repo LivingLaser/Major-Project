@@ -27,18 +27,23 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  required name="description"></textarea>
   </div><hr>
 <br>
-    <div class="col-md-6">
+    <div class="col-md-4">
     <label for="exampleInputName">Product Quantity</label>
     <input type="text" class="form-control"  required name="quantity">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
     <label for="exampleInputName text-bold">Product Price</label>
     <input type="number" class="form-control"  required name="price">
     </div>
+    <div class="col-md-4">
+    <label for="exampleInputName text-bold">Stock Qty</label>
+    <input type="number" class="form-control"  required name="stock">
+    </div>
+    
 
 <hr>
    <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
     <div class="d-flex justify-content-center">
     <label class="mr-sm-2" for="inlineFormCustomSelect"><b>SELECT PRODUCT CATEGORY:</b>&nbsp;&nbsp;</label>
       <select class="custom-select mr-sm-2" required id="inlineFormCustomSelect"  name="category">
@@ -49,15 +54,11 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
       </select>
     </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
      <div class="d-flex justify-content-center">
      <label for="exampleFormControlFile1"><b>UPLOAD PRODUCT IMAGE:</b>&nbsp;&nbsp;</label>
      <input type="file" class="form-control-file" id="exampleFormControlFile1" required name="image">
     </div>
-   </div>
-   <div class="col-md-4">
-     <label for="exampleFormControlFile1"><b>STOCK QTY:</b>&nbsp;&nbsp;</label> 
-     <input type="number" class="form-control-file" required name="stock">
    </div>
     </div><br><hr><br><br>
 
