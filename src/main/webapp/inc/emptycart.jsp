@@ -3,7 +3,7 @@
 
   <div class="container">
     <div class="jumbotron text-center">
-      <h1 class="display-4">Empty cart!</h1>
+      <h1 class="display-4">Empty cart!  <i class="fa fa-cart-plus" aria-hidden="true"></i></h1>
       <p class="lead">Looks like there is nothing in your wish list.</p>
       <hr class="my-4">
       <p>You can add your essentials in cart from our Shop section.</p>
