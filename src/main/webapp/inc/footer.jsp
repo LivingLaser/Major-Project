@@ -19,7 +19,7 @@
         <div class="col-md-4">
           <h5>Follow Us</h5>
           <ul class="list-unstyled">
-            <li><a class="text-decoration-none text-dark" href="https://www.facebook.com/"><i class="fa fa-facebook-official" aria-hidden="true"> Facebook</i></a></li>
+            <li><a class="text-decoration-none text-dark" href="https://www.facebook.com/"><i class="fa fa-facebook-official" aria-hidden="true"></i> Facebook</a></li>
             <li><a class="text-decoration-none text-dark" href="https://www.twitter.com/"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
             <li><a class="text-decoration-none text-dark" href="https://www.instagram.com/"><i class="fa fa-instagram" aria-hidden="true"></i> Instagram</a></li>
           </ul>
