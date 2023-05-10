@@ -59,6 +59,7 @@ public class UpdateProductDB extends HttpServlet {
 					pstm.setString(7, stock);
 					pstm.setString(8, pid);
 					pstm.executeUpdate();
+					response.sendRedirect("product_list");
 				}
 				else {
 					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, stock=? where pid=?";
