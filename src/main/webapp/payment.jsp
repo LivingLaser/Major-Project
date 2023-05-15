@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%
-if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute("loggedAdmin")) {
+<%
+if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("loggedIn")) {
 %>
    
 <!DOCTYPE html>
@@ -26,7 +26,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                 <img src="https://img.icons8.com/color/48/000000/maestro.png"/>
             </div>
             <br><br>
-            <form class="g-3">
+            <form action="card" method="post" class="g-3">
                 <label for="exampleInputEmail1" class="form-label">Card holder's Name</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                  <br>
@@ -50,7 +50,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                 <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><br>
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                  <button class="btn btn-primary" type="submit" name="" >PAY</button>
+                  <button class="btn btn-primary" type="submit">PAY</button>
                 </div>
             </form>
             <br>

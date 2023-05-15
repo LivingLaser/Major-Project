@@ -29,13 +29,13 @@ public class AddCart extends HttpServlet {
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 				
 				try {
-					String vsql = "select stock from product where pid=?";
-					PreparedStatement vpstm = con.prepareStatement(vsql);
-					vpstm.setNString(1, pid);
-					ResultSet vrs = vpstm.executeQuery();
+					String csql = "select stock from product where pid=?";
+					PreparedStatement cpstm = con.prepareStatement(csql);
+					cpstm.setString(1, pid);
+					ResultSet crs = cpstm.executeQuery();
 					
-					if(vrs.next()) {
-						int stock = vrs.getInt("stock");
+					if(crs.next()) {
+						int stock = crs.getInt("stock");
 						
 						if(stock==0) {
 							String color = "warning";
@@ -46,15 +46,15 @@ public class AddCart extends HttpServlet {
 							response.sendRedirect(referer);
 						}
 						else {
-							String csql = "select cid, qty from cart where uid=? and pid=?";
-							PreparedStatement cpstm = con.prepareStatement(csql);
-							cpstm.setString(1, uid);
-							cpstm.setString(2, pid);
-							ResultSet rs = cpstm.executeQuery();
+							String vsql = "select cid, qty from cart where uid=? and pid=?";
+							PreparedStatement vpstm = con.prepareStatement(vsql);
+							vpstm.setString(1, uid);
+							vpstm.setString(2, pid);
+							ResultSet vrs = vpstm.executeQuery();
 							
-							if(rs.next()) {
-								String cid = rs.getString("cid");
-								int qty = rs.getInt("qty");
+							if(vrs.next()) {
+								String cid = vrs.getString("cid");
+								int qty = vrs.getInt("qty");
 								qty += 1;
 								
 								String sql = "update cart set qty=? where cid=?";
@@ -64,13 +64,6 @@ public class AddCart extends HttpServlet {
 								int rows = pstm.executeUpdate();
 								
 								if(rows==1) {
-									stock -= 1;
-									String bsql = "update product set stock=? where pid=?";
-									PreparedStatement bpstm = con.prepareStatement(bsql);
-									bpstm.setInt(1, stock);
-									bpstm.setString(2, pid);
-									bpstm.executeUpdate();
-									
 									String color = "success";
 									String msg = "Product has been added to your cart";
 									HttpSession session = request.getSession();
@@ -87,13 +80,6 @@ public class AddCart extends HttpServlet {
 								int rows = pstm.executeUpdate();
 								
 								if(rows==1) {
-									stock -= 1;
-									String bsql = "update product set stock=? where pid=?";
-									PreparedStatement bpstm = con.prepareStatement(bsql);
-									bpstm.setInt(1, stock);
-									bpstm.setString(2, pid);
-									bpstm.executeUpdate();
-									
 									String color = "success";
 									String msg = "Product has been added to your cart";
 									HttpSession session = request.getSession();

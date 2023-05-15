@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ProductList
+ * Servlet implementation class OrderData
  */
-@WebServlet("/product_list")
-public class ProductList extends HttpServlet {
+@WebServlet("/order_data")
+public class OrderData extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
@@ -24,7 +24,7 @@ public class ProductList extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select pid, name, quantity, stock from product";
+				String sql = "select distinct user.uid, name, email, order_date from user, orders where user.uid=orders.uid order by order_date desc";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				ResultSet rs = pstm.executeQuery();
 				
@@ -34,35 +34,23 @@ public class ProductList extends HttpServlet {
 				while(rs.next()) {
 					HashMap<String, String> hm = new HashMap<>();
 					
-					hm.put("pid", rs.getString("pid"));
+					hm.put("uid", rs.getString("user.uid"));
 					hm.put("name", rs.getString("name"));
-					hm.put("quantity", rs.getString("quantity"));
-					hm.put("stock", rs.getString("stock"));
-					
-					int stock = rs.getInt("stock");
-					
-					if(stock==0) {
-						hm.put("color", "danger");
-					}
-					else if(stock>0 && stock<=25) {
-						hm.put("color", "warning");
-					}
-					else {
-						hm.put("color", "success");
-					}
+					hm.put("email", rs.getString("email"));
+					hm.put("date", rs.getString("order_date"));
 					
 					arr.add(hm);
 				}
 				
-				request.setAttribute("product", arr);
-				request.getRequestDispatcher("admin_productdb.jsp").forward(request, response);
+				request.setAttribute("order", arr);
+				request.getRequestDispatcher("admin_orderdb.jsp").forward(request, response);
 			}
 			finally {
 				con.close();
 			}
 		}
 		catch(Exception e) {
-			System.out.println("Exception" + e);
+			System.out.println("Exception: " + e);
 		}
 	}
 

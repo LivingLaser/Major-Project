@@ -1,3 +1,4 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -48,25 +49,29 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
      <table class="table table-dark">
         <thead>
           <tr>
-            <th>Customer ID</th>
-            <th>Customer Order</th>
+            <th>Customer Name</th>
+            <th>Customer Email</th>
             <th>Date</th>
             <th colspan="2" scope="col">Admin Actions</th>
           </tr>
         </thead>
         <tbody>
+        <%
+        @SuppressWarnings({"unchecked", "rawtypes"})
+        ArrayList<HashMap> orders = (ArrayList<HashMap>)request.getAttribute("order");
+        
+        for(int i=0;i<orders.size();i++) {
+        %>
           <tr>
-            <td>1772</td>
-            <td>apples</td>
-            <td>12/10/2001</td>
+            <td><% out.print(orders.get(i).get("name")); %></td>
+            <td><% out.print(orders.get(i).get("email")); %></td>
+            <td><% out.print(orders.get(i).get("date")); %></td>
             <td><button class="btn btn-info"> <a href="admin_order_view.jsp">View</a></button></td>
             <td><button class="btn btn-danger">Delete</button></td>
           </tr>
+        <% } %>
         </tbody>
       </table>
-      
- 
-
 </div>
 </body>
 </html>

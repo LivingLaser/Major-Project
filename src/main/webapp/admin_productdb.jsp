@@ -42,6 +42,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                     <th scope="col">NAME</th>
                     <th scope="col">QUANTITY</th>
                     <th scope="col">STOCK (units)</th>
+                    <th scope="col">AVAILABILITY</th>
                     <th colspan="3" scope="col">ADMIN ACTIONS</th>
                 </tr>
             </thead>
@@ -57,6 +58,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                     <td><% out.print(products.get(i).get("name")); %></td>
                     <td><% out.print(products.get(i).get("quantity")); %></td>
                     <td><% out.print(products.get(i).get("stock")); %></td>
+                    <td><div class="col-md-4 py-2 mt-2 mx-auto bg-<% out.print(products.get(i).get("color")); %>"></div></td>
                     <td>
                     <form action="view_product" method="post">
                     <input type="hidden" name="pid" value="<% out.print(products.get(i).get("pid")); %>">

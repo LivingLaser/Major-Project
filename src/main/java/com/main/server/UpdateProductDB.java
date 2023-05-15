@@ -15,9 +15,9 @@ import javax.servlet.http.Part;
  */
 @WebServlet("/update_product_db")
 @MultipartConfig(
-		fileSizeThreshold = 1024 * 1024 * 2,  // 2 MB
-		maxFileSize = 1024 * 1024 * 10,       // 10 MB
-		maxRequestSize = 1024 * 1024 * 100    // 100 MB
+		fileSizeThreshold = 1024 * 1024 * 2,
+		maxFileSize = 1024 * 1024 * 20,
+		maxRequestSize = 1024 * 1024 * 200
 		)
 public class UpdateProductDB extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -39,15 +39,13 @@ public class UpdateProductDB extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
-			try {
-				if(request.getPart("image").getSize()>0) {
-					String image = pt.getSubmittedFileName();
-					
-					for(@SuppressWarnings("unused") Part fpart:request.getParts()) {
-						//fpart.write("C:\\Users\\User\\Desktop\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-						//fpart.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-					}
-					
+			if(pt.getSize()>0) {
+				String image = pt.getSubmittedFileName();
+				
+				//pt.write("C:\\Users\\User\\Desktop\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
+				//pt.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
+				
+				try {
 					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, image=?, stock=? where pid=?";
 					PreparedStatement pstm = con.prepareStatement(sql);
 					pstm.setString(1, name);
@@ -59,9 +57,13 @@ public class UpdateProductDB extends HttpServlet {
 					pstm.setString(7, stock);
 					pstm.setString(8, pid);
 					pstm.executeUpdate();
-					response.sendRedirect("product_list");
 				}
-				else {
+				finally {
+					con.close();
+				}
+			}
+			else {
+				try {
 					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, stock=? where pid=?";
 					PreparedStatement pstm = con.prepareStatement(sql);
 					pstm.setString(1, name);
@@ -72,12 +74,13 @@ public class UpdateProductDB extends HttpServlet {
 					pstm.setString(6, stock);
 					pstm.setString(7, pid);
 					pstm.executeUpdate();
-					response.sendRedirect("product_list");
+				}
+				finally {
+					con.close();
 				}
 			}
-			finally {
-				con.close();
-			}
+			
+			response.sendRedirect("product_list");
 		}
 		catch(Exception e) {
 			System.out.println("Exception: " + e);

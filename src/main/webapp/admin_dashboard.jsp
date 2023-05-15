@@ -57,7 +57,9 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
               <div class="card-body">
                 <h5 class="card-title">Order details</h5>
                 <p class="card-text">Data related to users cart items stored here</p>
-                <div class="ab text-center"><a href="admin_orderdb.jsp" class="btn btn-primary">Visit</a></div>
+                <form action="order_data" method="post">
+                <div class="ab text-center"><button type="submit" class="btn btn-primary">Visit</button></div>
+                </form>
               </div>
             </div>
           </div>

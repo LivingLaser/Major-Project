@@ -1,5 +1,7 @@
+<%@ page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -74,6 +76,29 @@
         <%
         if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("loggedIn")) {
         	String uid = (String)session.getAttribute("uid");
+        	int count = 0;
+        	
+        	try {
+        		Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
+				
+				try {
+					String sql = "select cid from cart where uid=?";
+					PreparedStatement pstm = con.prepareStatement(sql);
+					pstm.setString(1, uid);
+					ResultSet rs = pstm.executeQuery();
+					
+					while(rs.next()) {
+						count++;
+					}
+				}
+				finally {
+					con.close();
+				}
+        	}
+        	catch(Exception e) {
+        		System.out.println(e);
+        	}
         %>
           <li class="nav-item">
           <form action="profile" method="post">
@@ -85,14 +110,14 @@
         <li class="nav-item">
           <form action="view_cart" method="post">
           <input type="hidden" name="uid" value="<% out.print(uid); %>">
-          <button type="submit" class="btn btn-warning mx-2" style="padding-left: 22px; padding-right: 22px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-warning mx-2" style="padding-left: 22px; padding-right: 22px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> (<% out.print(count); %>)</button>
           </form>
         </li>
         <% } %>
       </ul>
       <ul class="d-flex navbar-nav">
-              <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle mx-2" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mx-2" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <b>Login/Logout</b>
           </a>
           <ul class="dropdown-menu nav-item" aria-labelledby="navbarDropdown">
@@ -123,15 +148,13 @@
 </nav>
 
 
-		
-<%-- Check hobe session a msg ta ache kina --%>
-<% if (session.getAttribute("message") != null) { %>
+<% if(session.getAttribute("message") != null) { %>
   <div class="alert alert-<%= session.getAttribute("color") %> alert-dismissible fade show" role="alert">
     <%= session.getAttribute("message") %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
   </div>
-  <%-- session close hochhe --%>
+  
   <% session.removeAttribute("message"); %>
 <% } %>
