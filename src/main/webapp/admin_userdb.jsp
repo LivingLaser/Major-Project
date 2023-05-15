@@ -20,7 +20,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <p class="text-center h2">USER'S DATA</p>
 
 <div class="container-fluid">
-    <table class="table table-dark">
+    <table class="table table-striped table-dark">
         <thead>
           <tr>
             <th scope="col">SL. NO.</th>

@@ -34,8 +34,8 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
   </div>
 </nav>
 
-
-    <table class="table table-dark">
+<div class="container-fluid">
+    <table class="table table-striped table-dark">
             <thead>
                 <tr>
                     <th scope="col">SL. NO.</th>
@@ -81,6 +81,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
             <% } %>
             </tbody>
         </table>
+</div>
 </body>
 </html>
 

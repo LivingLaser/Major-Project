@@ -21,8 +21,8 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <div class="heading"><h1>USER'S MESSAGES </h1></div>
 
         
-    <table class="table table-dark">
-            <thead>
+    <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th scope="col">SL. NO.</th>
                     <th scope="col">NAME</th>

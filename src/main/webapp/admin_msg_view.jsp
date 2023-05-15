@@ -18,28 +18,45 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 		<div class="row">
 			<div class="col-md-12">
 				<h1 class="text-center">User's Feedback Messages</h1>
-				<form>
-				<%
+<div class="jumbotron">
+    <h1 class="display-4">Customer's Message</h1>
+    <table class="table">
+      <tbody>
+        <!--ekhane logged in user er id er hrough te data gulo fetch hbe-->
+        <%
 				@SuppressWarnings("unchecked")
 				HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
 				%>
-				    <div class="form-group">
-						<label for="name"><b style="font-size: 25px">Customer's message ID</b></label>
-						<input type="text" class="form-control" id="name" value="<% out.print(views.get("id")); %>" disabled>
-					</div><br>
-					<div class="form-group">
-						<label for="name"><b style="font-size: 25px">Name:</b></label>
-						<input type="text" class="form-control" id="name" value="<% out.print(views.get("name")); %>" disabled>
-					</div><br>
-					<div class="form-group">
-						<label for="email"><b style="font-size: 25px">Email:</b></label>
-						<input type="email" class="form-control" id="email" value="<% out.print(views.get("email")); %>" disabled>
-					</div><br>
-					<div class="form-group">
-						<label for="message"><b style="font-size: 25px">Message:</b></label>
-						<textarea class="form-control" id="message" rows="5" disabled><% out.print(views.get("message")); %></textarea>
-					</div><br><br><div class="text-center"><button onclick="window.print()" class="btn btn-secondary btn-lg">Print</button></div>
-				</form>
+		
+        <tr>
+          <th>Customer's Message ID:</th>
+          <td><% out.print(views.get("id")); %></td>
+        </tr>
+
+        <tr>
+          <th>Customer's Name:</th>
+          <td><% out.print(views.get("name")); %></td>
+        </tr>
+
+        <tr>
+          <th>Customer Email:</th>
+          <td><% out.print(views.get("email")); %></td>
+        </tr>
+        
+        <tr>
+          <th>Customer's Message:</th>
+          <td><% out.print(views.get("message")); %></td>
+        </tr>
+
+      </tbody>
+    </table>
+  
+    <hr class="my-4">
+    <p>Any Records cannot be modified. Print a copy of this page ↓</p>
+    <p class="lead">
+      <button onclick="window.print()" class="btn btn-secondary btn-lg">Print Page</button>
+    </p>
+  </div>
 			</div>
 		</div>
 	</div>

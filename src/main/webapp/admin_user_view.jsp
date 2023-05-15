@@ -18,52 +18,65 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 		<div class="row">
 			<div class="col-md-12">
 				<h1 class="text-center"><b>User's Details</b></h1>
-				<form class="row g-3">
-				<%
-				@SuppressWarnings("unchecked")
-				HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
-				%>
-					<div class="col-12">
-						<label for="inputName" class="form-label">Name</label>
-						<input type="text" class="form-control" id="inputName" value="<% out.print(views.get("name")); %>" disabled>
-					  </div>
-					<div class="col-md-6">
-					  <label for="inputEmail4" class="form-label">Email</label>
-					  <input type="email" class="form-control" id="inputEmail4" value="<% out.print(views.get("email")); %>" disabled>
-					</div>
-					<div class="col-md-6">
-					  <label for="inputPhone" class="form-label">Phone No</label>
-					  <input type="number" class="form-control" id="inputPhone" value="<% out.print(views.get("phone")); %>" disabled>
-					</div>
-					<div class="col-12">
-					  <label for="inputAddress" class="form-label">Address</label>
-					  <input type="text" class="form-control" id="inputAddress" value="<% out.print(views.get("address")); %>" disabled>
-					</div>
-					<div class="col-md-6">
-					  <label for="inputCity" class="form-label">City</label>
-					  <input type="text" class="form-control" id="inputCity" value="<% out.print(views.get("city")); %>" disabled >
-					</div>
-					<div class="col-md-6">
-					  <label for="inputpincode" class="form-label">Pin code</label>
-					  <input type="text" class="form-control" id="inputpincode" value="<% out.print(views.get("pincode")); %>" disabled>
-					</div>
-					<hr>
-					<div class="row g-3">
-						<div class="col">
-							<label for="inputpassword" class="form-label">Password</label>
-						  <input type="text" class="form-control" value="<% out.print(views.get("password")); %>" aria-label="password" disabled>
-						</div>
-						<div class="col">
-							<label for="inputid" class="form-label">User's ID</label>
-						  <input type="text" class="form-control" value="<% out.print(views.get("uid")); %>" aria-label="password" disabled>
-						</div>
-					  </div>
-					<br>
-					  <div class="text-center">
-						<button onclick="window.print()" class="btn btn-secondary btn-lg">Print</button>
-					  </div>
-					 
-				  </form>
+<div class="jumbotron">
+  <%
+  @SuppressWarnings("unchecked")
+  HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
+  %>
+    <h1 class="display-4"><% out.print(views.get("name")); %>'s DATA</h1>
+    <table class="table">
+      <tbody>
+        <!--ekhane logged in user er id er hrough te data gulo fetch hbe-->
+
+        <tr>
+          <th>User's Name:</th>
+          <td><% out.print(views.get("name")); %></td>
+        </tr>
+
+        <tr>
+          <th>User's Email:</th>
+          <td><% out.print(views.get("email")); %></td>
+        </tr>
+
+        <tr>
+          <th>User's Phone No:</th>
+          <td><% out.print(views.get("phone")); %>></td>
+        </tr>
+        
+        <tr>
+          <th>User's Address:</th>
+          <td><% out.print(views.get("address")); %></td>
+        </tr>
+
+        <tr>
+          <th>User's City:</th>
+          <td><% out.print(views.get("city")); %></td>
+        </tr>
+
+        <tr>
+          <th>User's Area Pincode:</th>
+          <td><% out.print(views.get("pincode")); %></td>
+        </tr>
+
+        <tr>
+          <th>User's ID:</th>
+          <td><% out.print(views.get("uid")); %></td>
+        </tr>
+
+        <tr>
+          <th>User's Password:</th>
+          <td><% out.print(views.get("password")); %></td>
+        </tr>
+
+      </tbody>
+    </table>
+  
+    <hr class="my-4">
+    <p>Any Records cannot be modified. Print a copy of this page ↓</p>
+    <p class="lead">
+      <button onclick="window.print()" class="btn btn-secondary btn-lg">Print Page</button>
+    </p>
+  </div>
 			
 			   </div>
 			</div>

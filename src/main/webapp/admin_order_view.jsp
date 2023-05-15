@@ -50,30 +50,23 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
         </tr>
         
         <tr>
-          <th>Order Date:</th>
-          <td>12/10/2001</td>
+          <th>Order Date & Time:</th>
+          <td>12/10/2001&nbsp;&nbsp;12:10:20</td>
         </tr>
 
         <tr>
-          <th>Total Amount:</th>
-          <td>$ 2000</td>
+          <th>Amount:</th>
+          <td>₹ 2000</td>
         </tr>
         
         <tr>
-          <th>Items Ordered:</th>
-          <td>
-<!-- ekhane loop use kore cart er item gulo load krabi -->
-            <table>
-              <tbody>
-                <tr>
-                  <td>item1</td>
-                  <td>item2</td>
-                  <td>item3</td>
-                </tr>
-              </tbody>
-            </table>
-
-          </td>
+          <th>Mode of payment</th>
+          <td>COD/CARD</td>
+        </tr>
+        
+        <tr>
+          <th>Item Ordered:</th>
+          <td>item name</td>
         </tr>
       </tbody>
     </table>
