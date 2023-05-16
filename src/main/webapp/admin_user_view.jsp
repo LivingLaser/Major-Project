@@ -26,8 +26,6 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <h1 class="display-4"><% out.print(views.get("name")); %>'s DATA</h1>
     <table class="table">
       <tbody>
-        <!--ekhane logged in user er id er hrough te data gulo fetch hbe-->
-
         <tr>
           <th>User's Name:</th>
           <td><% out.print(views.get("name")); %></td>
@@ -40,7 +38,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 
         <tr>
           <th>User's Phone No:</th>
-          <td><% out.print(views.get("phone")); %>></td>
+          <td><% out.print(views.get("phone")); %></td>
         </tr>
         
         <tr>

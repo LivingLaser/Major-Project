@@ -1,4 +1,4 @@
-package com.main.client;
+package com.main.server;
 
 import java.io.IOException;
 import java.sql.*;
@@ -10,59 +10,50 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ViewCart
+ * Servlet implementation class ViewOrder
  */
-@WebServlet("/view_cart")
-public class ViewCart extends HttpServlet {
+@WebServlet("/view_order")
+public class ViewOrder extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String uid = request.getParameter("uid");
-		String auid = (String)request.getAttribute("uid");
+		String oid = request.getParameter("oid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from user, product, cart where user.uid=? and user.uid=cart.uid and product.pid=cart.pid";
+				String sql = "select * from user, product, orders where oid=? and user.uid=orders.uid and product.pid=orders.pid";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				
-				if(uid.equals("null")) {
-					pstm.setString(1, auid);
-				}
-				else {
-					pstm.setString(1, uid);
-				}
-				
+				pstm.setString(1, oid);
 				ResultSet rs = pstm.executeQuery();
 				
-				@SuppressWarnings("rawtypes")
-				ArrayList<HashMap> arr = new ArrayList<>();
+				HashMap<String, String> hm = new HashMap<>();
 				
-				while(rs.next()) {
-					HashMap<String, String> hm = new HashMap<>();
-					
-					hm.put("cid", rs.getString("cid"));
-					hm.put("uid", rs.getString("cart.uid"));
-					hm.put("image", rs.getString("image"));
-					hm.put("pid", rs.getString("product.pid"));
-					hm.put("name", rs.getString("product.name"));
-					hm.put("description", rs.getString("description"));
+				if(rs.next()) {
+					hm.put("uid", rs.getString("user.uid"));
+					hm.put("uname", rs.getString("user.name"));
+					hm.put("email", rs.getString("email"));
+					hm.put("phone", rs.getString("phone_number"));
+					hm.put("address", rs.getString("address"));
+					hm.put("pincode", rs.getString("pincode"));
+					hm.put("date", rs.getString("order_date"));
+					hm.put("time", rs.getString("order_time"));
+					hm.put("payment", rs.getString("payment"));
+					hm.put("pname", rs.getString("product.name"));
 					hm.put("quantity", rs.getString("quantity"));
+					hm.put("qty", rs.getString("qty"));
 					
 					int price = rs.getInt("price");
 					price *= rs.getInt("qty");
 					hm.put("price", String.valueOf(price));
-					hm.put("qty", rs.getString("qty"));
-					
-					arr.add(hm);
 				}
 				
-				request.setAttribute("product", arr);
-				request.getRequestDispatcher("cart.jsp").forward(request, response);
+				request.setAttribute("view", hm);
+				request.getRequestDispatcher("admin_order_view.jsp").forward(request, response);
 			}
 			finally {
 				con.close();

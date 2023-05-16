@@ -9,8 +9,18 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
 <html>
 <head>
 <title>update profile</title>
-<link rel="stylesheet" href="css/updateprofile.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+    background-image: url('https://static.storyweaver.org.in/illustrations/58827/large/14.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+    
+.fa-eye {
+	cursor: pointer;
+}
+</style>
 </head>
 <body>
 
@@ -48,10 +58,13 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
           <input type="text" class="form-control" id="inputpincode" value="<% out.print(views.get("pincode")); %>" name="pincode" >
         </div>
         <hr>
-        <div class="col-md-12">
+        <div class="col-md-11">
             <label for="inputPassword" class="form-label">PASSWORD</label>
             <input type="password" class="form-control" id="inputPassword" value="<% out.print(views.get("password")); %>" name="password" >
-            <span class="eye"><i class="fa fa-eye fa-2x" id="showHide" aria-hidden="true"></i></span>
+        </div>
+        <div class="col-md-1">
+        	<label class="form-label"></label>
+        	<span class="form-control border-0"><i class="fa fa-eye fa-2x mt-1" id="showHide" aria-hidden="true"></i></span>
         </div>
 
         <br>

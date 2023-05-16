@@ -10,8 +10,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
- <link rel="stylesheet" href ="css/bootstrap.min.css">
+
      <style>
         
      .table{
@@ -65,7 +64,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <div class="container-fluid">
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1"><h2>ORDER LIST</h2></span>
+    <span class="navbar-brand mb-0 h1"><b style="font-size: 30px">ORDER LIST</b></span>
     <span class="d-flex"><button onclick="printTable()" class="btn btn-secondary btn-lg">Print Page</button></span>
   </div>
 </nav>
@@ -75,7 +74,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
           <tr>
             <th>Customer Name</th>
             <th>Customer Email</th>
-            <th colspan="2" scope="col">Date & Time</th>
+            <th colspan="2" scope="col">Date &amp; Time</th>
             <th colspan="2" scope="col">Admin Actions</th>
           </tr>
         </thead>
@@ -91,8 +90,18 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
             <td><% out.print(orders.get(i).get("email")); %></td>
             <td><% out.print(orders.get(i).get("date")); %></td>
             <td><% out.print(orders.get(i).get("time")); %></td>
-            <td><button class="btn btn-info"> <a href="admin_order_view.jsp">View</a></button></td>
-            <td><button class="btn btn-danger">Delete</button></td>
+            <td>
+            	<form action="view_order" method="post">
+            	<input type="hidden" name="oid" value="<% out.print(orders.get(i).get("oid")); %>">
+            	<button type="submit" class="btn btn-info">View</button>
+            	</form>
+            </td>
+            <td>
+            	<form action="delete_order" method="post">
+            	<input type="hidden" name="oid" value="<% out.print(orders.get(i).get("oid")); %>">
+            	<button onclick="return confirm('Are you sure ?')" type="submit" class="btn btn-danger">Delete</button>
+            	</form>
+            </td>
           </tr>
         <% } %>
         </tbody>
