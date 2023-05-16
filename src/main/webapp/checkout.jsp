@@ -62,7 +62,7 @@
 </div>
    <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6">
             <h4>Customer Details</h4>
           <div class="details">
           <table class="table">
@@ -99,7 +99,7 @@
           </table>
         </div>
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-6">
             <h4>Product Details</h4>
             <div class="contaiiner-fluid"  id="scroll">
                 
@@ -143,7 +143,7 @@
             <div class="row justify-content-center">
               <div class="col-md-6">
                 <div class="form-group">
-                  <select class="form-control" id="paymentMethod" name="payment">
+                  <select class="form-control" id="paymentMethod" name="payment" >
                     <option value="">Select Payment Method</option>
                     <option value="COD">Cash on delivery</option>
                     <option value="CARD">Debit/Credit Card</option>
@@ -197,5 +197,4 @@ select.addEventListener('change', () => {
 });
 
 </script>
-
 </html>
