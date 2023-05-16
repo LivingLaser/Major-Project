@@ -100,7 +100,7 @@
             <div class="contaiiner-fluid"  id="scroll">
                 
                 <table class="table table-striped">
-                    <thead>
+                    <thead class="text-center">
                         <tr>
                             <th>Product Name</th>
                             <th>Quick view</th>
@@ -119,7 +119,7 @@
                             <td class="text-center"><% out.print(products.get(i).get("name")); %></td>
                             <td class="text-center"><img src="img/<% out.print(products.get(i).get("image")); %>" class="card-img-top mx-auto d-block" alt="..."></td>
                             <td class="text-center" class="text-center"><% out.print(products.get(i).get("qty")); %></td>
-                            <td class="text-center">$<% out.print(products.get(i).get("price")); %></td>                           
+                            <td class="text-center">₹<% out.print(products.get(i).get("price")); %></td>                           
                         </tr>
                     <% } %>
                     </tbody>

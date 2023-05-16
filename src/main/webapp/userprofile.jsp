@@ -50,12 +50,19 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
                          </table>
                               <hr class="my-4">
                                <p>You can change your account information here  <i class="fa fa-hand-o-down" aria-hidden="true"></i></p>
+                               <div class="row">
+                               
+                               <div class="col-md-1">
                                 <form action="update_profile" method="post">
                                 <input type="hidden" name="uid" value="<% out.print(views.get("uid")); %>">
-                                <button type="submit" class="btn btn-dark">UPDATE PROFILE</button>
+                                <button type="submit" class="btn btn-dark mr-2">UPDATE PROFILE</button>
                                 </form>
-                               
-   
+                                </div>
+                               <div class="col-md-1"></div>
+                               <div class="col-md-1">
+                                <a href="order.jsp"><button type="button"  class="btn btn-dark ml-3">My Orders</button></a>
+                               </div>
+                               </div>
   </div>
 
                  </div>

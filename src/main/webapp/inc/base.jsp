@@ -103,14 +103,14 @@
           <li class="nav-item">
           <form action="profile" method="post">
           <input type="hidden" name="uid" value="<% out.print(uid); %>">
-          <button type="submit" class="btn btn-primary mx-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="My Profile" style="padding-left: 23px; padding-right: 23px;"><i class="fa fa-user" aria-hidden="true"></i></button>
+          <button type="submit" class="btn btn-primary mx-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="My Profile" style="padding-left: 24px; padding-right: 24px;"><i class="fa fa-user" aria-hidden="true"></i></button>
           </form>
           </li>
          <!-- cart button only if user is logged in-->
         <li class="nav-item">
           <form action="view_cart" method="post">
           <input type="hidden" name="uid" value="<% out.print(uid); %>">
-          <button type="submit" class="btn btn-warning mx-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="My Shopping Cart"  style="padding-left: 22px; padding-right: 22px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> (<% out.print(count); %>)</button>
+          <button type="submit" class="btn btn-warning mx-2" data-bs-toggle="tooltip" data-bs-placement="bottom" title="My Shopping Cart"  style="padding-left: 13px; padding-right: 12px;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> (<% out.print(count); %>)</button>
           </form>
         </li>
         <% } %>
