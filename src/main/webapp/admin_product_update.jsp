@@ -9,7 +9,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Admin Product update</title>
 <link rel="stylesheet" href="css/admin_product_update.css">
 </head>
 

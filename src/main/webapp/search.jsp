@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>search results</title>
 <link rel="stylesheet" href="css/shop.css">
 </head>
 <body>

@@ -14,6 +14,7 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
+      background-position: center calc(50% + 200px);
     }
     .footer{
     color: white;

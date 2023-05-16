@@ -30,8 +30,8 @@
 
 
 <!-- Featured categories section -->
-<div class="container"><br>
-  <h2 class="text-center mb-5">Featured Categories</h2>
+<div class="container"><br><br>
+  <h2 class="text-center mb-3">Featured Categories</h2>
   <div class="row">
     <div class="col-md-4 mb-4">
       <div class="card">
@@ -79,7 +79,7 @@
 </div>
 
 <!-- popular product ekhan theke -->
-<div class="container"><hr><br>
+<div class="container"><hr><br><br>
 
  <div class="container text-center">
     <span id="discount-text" class="text-danger d-inline-block h2 "></span>
@@ -93,7 +93,7 @@
     discountText.textContent = "DISCOUNTS AVAILABLE ON FEATURED PRODUCTS. Upto 30% off...";
   </script>
 
-    <h2 class="text-center mb-5">Our Popular Products</h2>
+    <h2 class="text-center mb-3">Our Popular Products</h2>
     <div class="row">
     <%
     @SuppressWarnings("rawtypes")

@@ -17,7 +17,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <style>
 .scrollable-div {
   overflow-y: scroll; 
-  max-height: 520px; 
+  max-height: 560px; 
 }
 
 .scrollable-div thead {
@@ -126,17 +126,39 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 </div> 
 </div>
 </body>
-    <script>
-        function printTable() {
-            var printWindow = window.open('', '', 'width=800,height=600');
-            printWindow.document.write('<html><head><title>Print</title></head><body>');
-            printWindow.document.write('<h1>Products</h1>');
-            printWindow.document.write(document.getElementById('messageTable').outerHTML);
-            printWindow.document.write('</body></html>');
-            printWindow.document.close();
-            printWindow.print();
+<script>
+    function printTable() {
+        var printWindow = window.open('', '', 'width=800,height=600');
+        printWindow.document.write('<html><head><title>Print</title></head><body>');
+        printWindow.document.write('<h1 class="table-heading">Products</h1>');
+        printWindow.document.write('<table style="border-collapse: collapse; border: 2px solid black; width: 100%;">');
+        
+        
+        var messageTable = document.getElementById('messageTable');
+        var rows = messageTable.getElementsByTagName('tr');
+        
+    
+        for (var i = 0; i < rows.length; i++) {
+            printWindow.document.write('<tr>');
+            
+           
+            var columns = rows[i].getElementsByTagName('td');
+            
+           
+            for (var j = 0; j < columns.length; j++) {
+                printWindow.document.write('<td style="border: 1px solid black; padding: 5px;">' + columns[j].innerHTML + '</td>');
+            }
+            
+            printWindow.document.write('</tr>');
         }
-    </script>
+        
+        printWindow.document.write('</table>');
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+        printWindow.print();
+    }
+</script>
+
 
 </html>
 

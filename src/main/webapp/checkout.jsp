@@ -62,7 +62,7 @@
 </div>
    <div class="container mt-5">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
             <h4>Customer Details</h4>
           <div class="details">
           <table class="table">
@@ -99,7 +99,7 @@
           </table>
         </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-sm-12">
             <h4>Product Details</h4>
             <div class="contaiiner-fluid"  id="scroll">
                 
@@ -144,7 +144,7 @@
               <div class="col-md-6">
                 <div class="form-group">
                   <select class="form-control" id="paymentMethod" name="payment">
-                    <option selected>Select Payment Method</option>
+                    <option value="">Select Payment Method</option>
                     <option value="COD">Cash on delivery</option>
                     <option value="CARD">Debit/Credit Card</option>
                   </select>
@@ -154,7 +154,7 @@
                 <div class="row justify-content-center">
                 <div class="d-grid gap-2 col-6 mx-auto">
                  <input type="hidden" value="<% out.print(uid); %>" name="uid">
-                 <button type="submit" id="paymentbtn" class="btn btn-primary mx-auto">Proceed  to checkout</button><br>
+                 <button type="submit" id="paymentbtn" class="btn btn-primary mx-auto" disabled>Proceed  to checkout</button><br>
                  </div>
                 </div>
                 </form>
@@ -184,4 +184,18 @@
             <button onclick="window.print()" class="btn btn-secondary btn-lg btn-block">Download Invoice</button>
         </div> -->
 </body>
+<script>
+const select = document.getElementById('paymentMethod');
+const button = document.getElementById('paymentbtn');
+
+select.addEventListener('change', () => {
+  if (select.value !== '') {
+    button.removeAttribute('disabled');
+  } else {
+    button.setAttribute('disabled', '');
+  }
+});
+
+</script>
+
 </html>
