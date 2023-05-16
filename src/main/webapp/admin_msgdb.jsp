@@ -13,15 +13,34 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
     <link rel="stylesheet" href="css/admin_msgdb.css">
+    <style>
+.scrollable-div {
+  overflow-y: scroll; 
+  max-height: 550px;
+}
+
+.scrollable-div thead {
+   position: sticky; 
+  top: 0; 
+  z-index: 1; 
+
+}
+
+.scrollable-div tbody {
+  
+}
+ 
+    </style>
 </head>
+
 <body>
 
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <div class="container-fluid">
     <div class="heading"><h1>USER'S MESSAGES </h1></div>
-
-        
-    <table class="table table-striped">
+<!--  <button onclick="printTable()" class="btn btn-primary">Print Table</button> -->
+    <div class="scrollable-div">
+    <table class="table table-striped" id="messageTable">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">SL. NO.</th>
@@ -30,7 +49,8 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                     <th colspan="2" scope="col">ADMIN ACTIONS</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="scroll">
+            
             <%
             @SuppressWarnings({"unchecked", "rawtypes"})
             ArrayList<HashMap> contacts = (ArrayList<HashMap>)request.getAttribute("contact");
@@ -57,8 +77,21 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
             <% } %>
             </tbody>
 	 </table>
+	</div> 
 </div>
 </body>
+
+<!--   <script>
+        function printTable() {
+            var printWindow = window.open('', '', 'width=800,height=600');
+            printWindow.document.write('<html><head><title>Print</title></head><body>');
+            printWindow.document.write('<h1>USER\'S MESSAGES</h1>');
+            printWindow.document.write(document.getElementById('messageTable').outerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script> -->
 </html>
 
 <% 

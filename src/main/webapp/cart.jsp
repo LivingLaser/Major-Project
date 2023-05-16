@@ -42,8 +42,8 @@ ArrayList<HashMap> products = (ArrayList<HashMap>)request.getAttribute("product"
 if(!products.isEmpty()) {
 	for(int i=0;i<products.size();i++) {
 %>
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
+<div class="container">
+<div class="jumbotron" >
        <div class="row">
       <div class="col-md-4">
         <img src="img/<% out.print(products.get(i).get("image")); %>" alt="Your Item" class="img-cart">
@@ -66,9 +66,11 @@ if(!products.isEmpty()) {
     </div>
   <hr></div>
 </div>
+
 <%
 	}
 }
+
 else {
 %>
 	<jsp:include page="inc/emptycart.jsp"></jsp:include>

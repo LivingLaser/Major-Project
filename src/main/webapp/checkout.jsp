@@ -6,10 +6,36 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>checkout</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href ="css/checkout.css">
 </head>
+<style>
+#scroll{
+  overflow-y: scroll; /* Enable vertical scrolling */
+  max-height: 265px; /* Set the maximum height of the div */
+}
+.card-img-top {
+     width: 60px;
+     height: 50px;
+     
+}
+
+.details table {
+      margin-bottom: 30px;
+    }
+    
+.details table th,
+.details table td {
+      padding: 12px 15px;
+      text-align: left;
+}
+
+.details table th {
+      background-color: #f1f1f1;
+}
+
+</style>
 
 <body>
 <jsp:include page="inc/base.jsp"></jsp:include><br>
@@ -73,7 +99,9 @@
         </div>
             </div>
             <div class="col-md-6">
-                <h4>Product Details</h4>
+            <h4>Product Details</h4>
+            <div class="contaiiner-fluid"  id="scroll">
+                
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -91,21 +119,18 @@
                     for(int i=0;i<products.size();i++) {
                     %>
                         <tr>
-                            <td><% out.print(products.get(i).get("name")); %></td>
-                            <td><img src="img/<% out.print(products.get(i).get("image")); %>" class="card-img-top mx-auto d-block" alt="..."></td>
-                            <td><% out.print(products.get(i).get("qty")); %></td>
-                            <td>$<% out.print(products.get(i).get("price")); %></td>                           
+                            <td class="text-center"><% out.print(products.get(i).get("name")); %></td>
+                            <td class="text-center"><img src="img/<% out.print(products.get(i).get("image")); %>" class="card-img-top mx-auto d-block" alt="..."></td>
+                            <td class="text-center" class="text-center"><% out.print(products.get(i).get("qty")); %></td>
+                            <td class="text-center">$<% out.print(products.get(i).get("price")); %></td>                           
                         </tr>
                     <% } %>
                     </tbody>
                 </table>
+
+        </div><br>
                 <% String total = (String)request.getAttribute("total"); %>
                 <h3>Total: ₹<% out.print(total); %></h3>
-                <!-- Add necessary designs or buttons for payment options -->
-                      <div class="row">
-        <div class="col-md-12">
-          <p class="text-muted">© 2023 Grocery Management. All rights reserved.</p>
-        </div>
       </div>
             </div>
         </div><br>

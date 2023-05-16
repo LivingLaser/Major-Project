@@ -14,6 +14,33 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <title>admin</title>
     <link rel="stylesheet" href ="css/admin_productdb.css">
 </head>
+<style>
+.scrollable-div {
+  overflow-y: scroll; 
+  max-height: 520px; 
+}
+
+.scrollable-div thead {
+   position: sticky; 
+  top: 0; 
+  z-index: 1; 
+
+}
+
+.scrollable-div tbody {
+ 
+}
+#linkbtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+</style>
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 
@@ -27,22 +54,37 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
           <a class="nav-link me-2 btn btn-secondary btn-lg" href="admin_addproduct.jsp">ADD NEW PRODUCT</a>
         </li>
         <li class="nav-item">
-          <button onclick="window.print()" class="btn btn-secondary btn-lg">PRINT PRODUCT LIST</button>
+          <button onclick="printTable()" class="btn btn-secondary btn-lg">PRINT PRODUCT LIST</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
-<div class="container-fluid">
-    <table class="table table-striped table-dark">
+ <div class="container-fluid">
+<div class="scrollable-div">
+    <table class="table table-striped table-dark" id="messageTable">
             <thead>
                 <tr>
                     <th scope="col">SL. NO.</th>
                     <th scope="col">NAME</th>
                     <th scope="col">QUANTITY</th>
                     <th scope="col">STOCK (units)</th>
-                    <th scope="col">AVAILABILITY</th>
+                    <th scope="col">
+                      <button class="btn btn-primary" id="linkbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Availability</button>
+                       <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                         <div class="offcanvas-header">
+                              <h5 id="offcanvasTopLabel text-dark"></h5>
+                           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                         </div>
+                         <div class="offcanvas-body h3">
+                               <ul>
+                                  <li class="text-success">Green = Products Available</li>
+                                  <li class="text-warning"> Yellow = Limited Products Left</li>
+                                  <li class="text-danger">RED = Out Of Stock</li>
+                              </ul>
+                          </div>
+                        </div>         
+                    </th>
                     <th colspan="3" scope="col">ADMIN ACTIONS</th>
                 </tr>
             </thead>
@@ -81,8 +123,21 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
             <% } %>
             </tbody>
         </table>
+</div> 
 </div>
 </body>
+    <script>
+        function printTable() {
+            var printWindow = window.open('', '', 'width=800,height=600');
+            printWindow.document.write('<html><head><title>Print</title></head><body>');
+            printWindow.document.write('<h1>Products</h1>');
+            printWindow.document.write(document.getElementById('messageTable').outerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+
 </html>
 
 <% 

@@ -40,18 +40,37 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
         text-decoration:none;
         color:white;
     }
+
+.scrollable-div {
+  overflow-y: scroll; 
+  max-height: px; 
+}
+
+.scrollable-div thead {
+   position: sticky; 
+  top: 0; 
+  z-index: 1; 
+
+}
+
+.scrollable-div tbody {
+ 
+}
+ 
     </style>
 </head>
+
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <div class="container-fluid">
 <nav class="navbar navbar-light bg-light">
   <div class="container-fluid">
     <span class="navbar-brand mb-0 h1"><h2>ORDER LIST</h2></span>
-    <span class="d-flex"><button onclick="window.print()" class="btn btn-secondary btn-lg">Print Page</button></span>
+    <span class="d-flex"><button onclick="printTable()" class="btn btn-secondary btn-lg">Print Page</button></span>
   </div>
 </nav>
-     <table class="table table-striped table-dark">
+ <div class="scrollable-div">  
+     <table class="table table-striped table-dark" id="messageTable">
         <thead>
           <tr>
             <th>Customer Name</th>
@@ -78,8 +97,21 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
         <% } %>
         </tbody>
       </table>
+     </div>
 </div>
 </body>
+    <script>
+        function printTable() {
+            var printWindow = window.open('', '', 'width=800,height=600');
+            printWindow.document.write('<html><head><title>Print</title></head><body>');
+            printWindow.document.write('<h1 class=>Products</h1>');
+            printWindow.document.write(document.getElementById('messageTable').outerHTML);
+            printWindow.document.write('</body></html>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+    </script>
+
 </html>
 
 <% 

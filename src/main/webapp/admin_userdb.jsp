@@ -14,12 +14,30 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <title>Document</title>
     <link href="css/admin_userdb.css" rel="stylesheet">
 </head>
+<style>
+.scrollable-div {
+  overflow-y: scroll; 
+  max-height: 550px; 
+}
+
+.scrollable-div thead {
+   position: sticky; 
+  top: 0; 
+  z-index: 1; 
+
+}
+
+.scrollable-div tbody {
+ 
+}
+ 
+</style>
 <body>
 
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
     <p class="text-center h2">USER'S DATA</p>
-
 <div class="container-fluid">
+<div class="scrollable-div">
     <table class="table table-striped table-dark">
         <thead>
           <tr>
@@ -64,6 +82,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
         <% } %>
         </tbody>
       </table>
+</div>
 </div>
 </body>
 </html>
