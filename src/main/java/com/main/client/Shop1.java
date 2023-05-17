@@ -24,7 +24,7 @@ public class Shop1 extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from product where category='vegetablesfruits' order by rand()";
+				String sql = "select * from product where category='vegetablesfruits' order by name";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				ResultSet rs = pstm.executeQuery();
 				

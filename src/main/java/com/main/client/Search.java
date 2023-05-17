@@ -27,7 +27,7 @@ public class Search extends HttpServlet {
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 				
 				try {
-					String sql = "select * from product where name like '%"+search+"%'";
+					String sql = "select * from product where name like '%"+search+"%' order by name";
 					PreparedStatement pstm = con.prepareStatement(sql);
 					ResultSet rs = pstm.executeQuery();
 					

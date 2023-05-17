@@ -1,3 +1,4 @@
+<%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -19,7 +20,13 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
 </nav>
 
 <div class="container">
-<!-- loop -->
+<%
+@SuppressWarnings({"rawtypes", "unchecked"})
+ArrayList<HashMap> orders = (ArrayList<HashMap>)request.getAttribute("order");
+
+if(!orders.isEmpty()) {
+	for(int i=0;i<orders.size();i++) {
+%>
 <div class="jumbotron mt-3">
 <div class="row">
 <div class="col-md-6">
@@ -27,31 +34,31 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
   <tbody>
     <tr>
       <th>Date:</th>
-      <td>10/12/2004</td>
+      <td><% out.print(orders.get(i).get("date")); %></td>
     </tr>
     <tr>
       <th>Time:</th>
-      <td>10:30:33</td>
+      <td><% out.print(orders.get(i).get("time")); %></td>
     </tr>
     <tr>
       <th>Product:</th>
-      <td>ice cream</td>
+      <td><% out.print(orders.get(i).get("name")); %> - <% out.print(orders.get(i).get("quantity")); %></td>
     </tr>
     <tr>
       <th>Amount:</th>
-      <td>₹ 100</td>
+      <td>₹<% out.print(orders.get(i).get("price")); %> x <% out.print(orders.get(i).get("qty")); %> = ₹<% out.print(orders.get(i).get("total")); %></td>
     </tr>
     <tr>
       <th>Mode of payment:</th>
-      <td>CARD</td>
+      <td><% out.print(orders.get(i).get("payment")); %></td>
     </tr>
     <tr>
       <th>Phone Number</th>
-      <td>1010376274</td>
+      <td><% out.print(orders.get(i).get("phone")); %></td>
     </tr>
     <tr>
       <th>Address:</th>
-      <td>abcd road</td> <!--ekhane user theke user er addresss tar pore coma dia city ar tr por coma dia pincode print korabi-->
+      <td><% out.print(orders.get(i).get("address")); %>, <% out.print(orders.get(i).get("city")); %> - <% out.print(orders.get(i).get("pincode")); %></td>
     </tr>
   </tbody>
 </table> 
@@ -59,16 +66,20 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
 
 <div class="col-md-6">
   <div class="text-center"><h3>Product Image:</h3></div>
-  <div class="container d-flex justify-content-center align-items-center"><img src="https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg" class="imgproduct " alt="..." width="410" height="260"></div>
+  <div class="container d-flex justify-content-center align-items-center"><img src="img/<% out.print(orders.get(i).get("image")); %>" class="imgproduct " alt="..." width="410" height="260"></div>
   
 </div>
 
 </div>
 </div>
-<!-- loop end -->
+<%
+	}
+}
+else {
+%>
+	<jsp:include page="inc/emptyorder.jsp"></jsp:include>
+<% } %>
 </div>
-
-
 
 </body>
 <jsp:include page="inc/footer.jsp"></jsp:include>

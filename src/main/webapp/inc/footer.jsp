@@ -28,7 +28,7 @@
       <hr>
       <div class="row">
         <div class="col-md-12">
-          <p class="text-muted">© 2023 Grocery Management. All rights reserved.</p>
+          <p class="text-muted">© 2023 Fresh Basket Management. All rights reserved.</p>
         </div>
       </div>
     </div>

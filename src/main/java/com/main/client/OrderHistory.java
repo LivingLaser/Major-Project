@@ -10,22 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Shop3
+ * Servlet implementation class OrderHistory
  */
-@WebServlet("/shop3")
-public class Shop3 extends HttpServlet {
+@WebServlet("/order_history")
+public class OrderHistory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String uid = request.getParameter("uid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from product where category='eggsmeatsfish' order by name";
+				String sql = "select * from user, product, orders where user.uid=? and user.uid=orders.uid and product.pid=orders.pid order by order_date desc, order_time desc";
 				PreparedStatement pstm = con.prepareStatement(sql);
+				pstm.setString(1, uid);
 				ResultSet rs = pstm.executeQuery();
 				
 				@SuppressWarnings("rawtypes")
@@ -34,18 +37,27 @@ public class Shop3 extends HttpServlet {
 				while(rs.next()) {
 					HashMap<String, String> hm = new HashMap<>();
 					
-					hm.put("pid", rs.getString("pid"));
-					hm.put("name", rs.getString("name"));
-					hm.put("description", rs.getString("description"));
+					hm.put("date", rs.getString("order_date"));
+					hm.put("time", rs.getString("order_time"));
+					hm.put("name", rs.getString("product.name"));
 					hm.put("quantity", rs.getString("quantity"));
 					hm.put("price", rs.getString("price"));
+					hm.put("qty", rs.getString("qty"));
+					hm.put("payment", rs.getString("payment"));
+					hm.put("phone", rs.getString("phone_number"));
+					hm.put("address", rs.getString("address"));
+					hm.put("city", rs.getString("city"));
+					hm.put("pincode", rs.getString("pincode"));
 					hm.put("image", rs.getString("image"));
+					
+					double total = rs.getDouble("price") * rs.getInt("qty");
+					hm.put("total", String.valueOf(total));
 					
 					arr.add(hm);
 				}
 				
-				request.setAttribute("product", arr);
-				request.getRequestDispatcher("shop3.jsp").forward(request, response);
+				request.setAttribute("order", arr);
+				request.getRequestDispatcher("order.jsp").forward(request, response);
 			}
 			finally {
 				con.close();

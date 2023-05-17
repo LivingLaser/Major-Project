@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>About us</title>
-<link rel="stylesheet" href="css/about.css">
 <style>
  
     body {
@@ -126,7 +125,7 @@
       <hr>
       <div class="row">
         <div class="col-md-12">
-          <b class="text-white">© 2023 Grocery Management. All rights reserved.</b>
+          <b class="text-white">© 2023 Fresh Basket Management. All rights reserved.</b>
         </div>
       </div>
     </div>
