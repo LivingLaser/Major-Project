@@ -38,6 +38,7 @@ public class AddProduct extends HttpServlet {
 		for(@SuppressWarnings("unused") Part fpart:request.getParts()) {
 			//fpart.write("C:\\Users\\User\\Desktop\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
 			//fpart.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
+			//fpart.write("C:\\Users\\LENOVO\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
 		}
 		
 		try {

@@ -44,6 +44,7 @@ public class UpdateProductDB extends HttpServlet {
 				
 				//pt.write("C:\\Users\\User\\Desktop\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
 				//pt.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
+				//pt.write("C:\\Users\\LENOVO\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
 				
 				try {
 					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, image=?, stock=? where pid=?";
