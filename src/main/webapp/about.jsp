@@ -30,7 +30,7 @@
 <section id="about-us">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 offset-md-6">
+      <div class="col-md-6 offset-md-6"><br>
         <h2 class="section-title text-white mb-4">Who Are We?</h2>
         <p class="lead text-white mb-4">We are a grocery delivery service that is dedicated to making your life easier. Our mission is to provide fresh, high-quality groceries at affordable prices, delivered straight to your door.</p>
         <p class="text-white">Our team is made up of passionate individuals who are committed to ensuring that you have a hassle-free grocery shopping experience. We understand that your time is valuable, which is why we offer a wide selection of products that you can easily order online.</p>

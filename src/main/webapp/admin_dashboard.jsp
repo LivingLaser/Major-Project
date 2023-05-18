@@ -15,7 +15,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 </head>
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
-<br><br><br><br><br>
+<br><br><br><br>
 <div class="container">
 
         <div class="row">

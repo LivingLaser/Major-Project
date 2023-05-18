@@ -30,10 +30,13 @@
 
 
 <% if (session.getAttribute("message") != null) { %>
+
+  <div class="container mt-3">
   <div class="alert alert-<%= session.getAttribute("color") %> alert-dismissible fade show" role="alert">
     <%= session.getAttribute("message") %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
-  
+  </div>
+
   <% session.removeAttribute("message"); %>
 <% } %>

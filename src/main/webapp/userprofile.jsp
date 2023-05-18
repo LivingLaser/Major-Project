@@ -50,25 +50,19 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
                          </table>
                               <hr class="my-4">
                                <p>
-                               You can change your account information here <i class="fa fa-hand-o-down" aria-hidden="true"></i>
-                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                               Check your order information here <i class="fa fa-hand-o-down" aria-hidden="true"></i>
-                               </p>
+                               You can change your account information here and see your Orders. <i class="fa fa-hand-o-down" aria-hidden="true"></i>
                                <div class="row">
-                               
-                               <div class="col-md-3"></div>
                                <div class="col-md-2">
                                 <form action="update_profile" method="post">
                                 <input type="hidden" name="uid" value="<% out.print(views.get("uid")); %>">
-                                <button type="submit" class="btn btn-dark mr-2">UPDATE PROFILE</button>
+                                <button type="submit" class="btn btn-dark ml-3">Edit Profile</button>
                                 </form>
                                </div>
-                               <div class="col-md-2"></div>
+                             
                                <div class="col-md-2">
                                 <form action="order_history" method="post">
                                 <input type="hidden" name="uid" value="<% out.print(views.get("uid")); %>">
-                                <button type="submit" class="btn btn-dark ml-3">My Orders</button>
+                                <button type="submit" class="btn btn-dark">My Orders</button>
                                 </form>
                                </div>
                                </div>
