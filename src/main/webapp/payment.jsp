@@ -64,6 +64,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
             </div>
             <br>
              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;
                  <strong>Our Website is currently undergoing maintenance. We appreciate your patience and understanding.</strong>
                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
              </div>
