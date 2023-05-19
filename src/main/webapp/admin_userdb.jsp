@@ -13,8 +13,36 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link href="css/admin_userdb.css" rel="stylesheet">
-</head>
 <style>
+.table{
+        border:3px;
+        
+}
+
+.table tr th{
+        color:solid black;
+        text-align:center;
+        font-size:15px;
+        padding:4px 3px;
+        text-decoration:none;
+}
+
+.table tr td{
+        color:solid black;
+        text-align:center;
+        font-size:13px;
+}
+
+.heading{
+        text-align:center;
+        color:red;
+}
+
+.btn a{
+        text-decoration:none;
+        color:white;
+}
+
 .scrollable-div {
   overflow-y: scroll; 
   max-height: 560px; 
@@ -30,8 +58,9 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 .scrollable-div tbody {
  
 }
- 
 </style>
+</head>
+
 <body>
 
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>

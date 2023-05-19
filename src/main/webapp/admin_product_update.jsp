@@ -1,7 +1,7 @@
 <%@ page import="java.util.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-        <%
+<%
 if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute("loggedAdmin")) {
 %>
     
@@ -10,7 +10,13 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <head>
 <meta charset="UTF-8">
 <title>Admin Product update</title>
-<link rel="stylesheet" href="css/admin_product_update.css">
+<style>
+.vertical-line {
+			border-left: 2px solid black;
+			height: 70px;
+			margin-left: 2px;
+}
+</style>
 </head>
 
 <body>

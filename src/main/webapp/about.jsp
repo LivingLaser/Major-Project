@@ -7,21 +7,21 @@
 <meta charset="UTF-8">
 <title>About us</title>
 <style>
- 
-    body {
+body {
       background-image: url('img/aboutus.jpg');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
       background-position: center calc(50% + 200px);
-    }
-    .footer{
-    color: white;
-    }
-    a {
-     color: white;
-    }
+}
 
+.footer {
+    color: white;
+}
+
+a {
+     color: white;
+}
 </style>
 </head>
 

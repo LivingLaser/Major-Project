@@ -5,7 +5,14 @@
 <html>
 <head>
 <title>login</title>
-<link rel="stylesheet" href="css/login.css">
+<style>
+body {
+      background-image: url('https://www.designcap.com/media/pages/images/home/clipart.svg?v=1602654254');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+}
+</style>
 </head>
 
 <body>

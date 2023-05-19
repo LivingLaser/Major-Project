@@ -12,8 +12,36 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
-    <link rel="stylesheet" href="css/admin_msgdb.css">
-    <style>
+<style>
+.table{
+        border:3px;
+        
+}
+
+.table tr th{
+        color:solid black;
+        text-align:center;
+        font-size:15px;
+        padding:4px 3px;
+        text-decoration:none;
+}
+
+.table tr td{
+        color:solid black;
+        text-align:center;
+        font-size:13px;
+}
+
+.heading{
+        text-align:center;
+        color:black;
+}
+
+.btn a{
+        text-decoration:none;
+        color:white;
+}
+
 .scrollable-div {
   overflow-y: scroll; 
   max-height: 500px;
@@ -29,8 +57,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 .scrollable-div tbody {
   
 }
- 
-    </style>
+</style>
 </head>
 
 <body>

@@ -8,9 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin_login</title>
-    <link rel="stylesheet" href="css/adminauth.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+body {
+       background-image: url('https://i.pinimg.com/736x/d2/51/dc/d251dcc27cdd25b905d3c4845b2a7f01.jpg');
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: cover;
+}
+</style>
 </head>
 <body>
     <p class="h2 text-center text-light bg-dark">ADMINISTRATOR AUTHENTICATION</p>

@@ -1,7 +1,0 @@
-@charset "UTF-8";
-
-		.vertical-line {
-			border-left: 2px solid black;
-			height: 70px;
-			margin-left: 2px;
-		}

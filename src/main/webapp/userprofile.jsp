@@ -8,20 +8,19 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
 <!DOCTYPE html>
 <html>
 <head>
-<!--<link rel="stylesheet" href="css/userprofile.css">  -->
-<title>My profile</title> 
+<title>My profile</title>
 </head>
 <body>
     <jsp:include page="inc/base.jsp"></jsp:include>
      <div class="container mt-5">
      <div class="jumbotron">
      <h1 class="display-4">MY PROFILE</h1>
-                            <%
-                            @SuppressWarnings("unchecked")
-                            HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
-                            %>
                          <table class="table">
                          <tbody>
+                         <%
+                         @SuppressWarnings("unchecked")
+                         HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
+                         %>
                              <tr>
                                <th>Full Name</th>
                                <td><% out.print(views.get("name")); %></td>

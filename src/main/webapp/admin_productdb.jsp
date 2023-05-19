@@ -12,9 +12,36 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>admin</title>
-    <link rel="stylesheet" href ="css/admin_productdb.css">
-</head>
 <style>
+.table{
+        border:3px;
+        
+}
+
+.table tr th{
+        color:solid black;
+        text-align:center;
+        font-size:15px;
+        padding:4px 3px;
+        text-decoration:none;
+}
+
+.table tr td{
+        color:solid black;
+        text-align:center;
+        font-size:13px;
+}
+
+.heading{
+        text-align:center;
+        color:black;
+}
+
+.btn a{
+        text-decoration:none;
+        color:white;
+}
+
 .scrollable-div {
   overflow-y: scroll; 
   max-height: 560px; 
@@ -30,6 +57,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 .scrollable-div tbody {
  
 }
+
 #linkbtn {
   background: none;
   border: none;
@@ -41,6 +69,8 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
   font-size: 16px;
 }
 </style>
+</head>
+
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 

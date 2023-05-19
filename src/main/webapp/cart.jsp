@@ -9,7 +9,19 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
 <html>
 <head>
 <title>Cart</title>
-<link rel="stylesheet" href="css/cart.css">
+<style>
+.img-cart {
+  width: 330px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.vertical-line {
+  border-left: 2px solid black;
+  height: 200px;
+  margin-left: 2px;
+}
+</style>
 </head>
 <body>
 <jsp:include page="inc/base.jsp"></jsp:include>

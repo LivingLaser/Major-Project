@@ -9,7 +9,14 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <head>
 <meta charset="UTF-8">
 <title>insert product</title>
-<link rel="stylesheet" href="css/admin_addproduct.css">
+<style>
+body {
+      background-image: url('https://img.freepik.com/premium-vector/background-white-elegant-texture_23-2148438404.jpg?w=360');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+}
+</style>
 </head>
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
