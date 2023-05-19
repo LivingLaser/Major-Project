@@ -35,17 +35,28 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
                 <label for="exampleInputEmail1" class="form-label">Card Number</label>
                 <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="xxxx-xxxx-xxxx-xxxx">
                   <br>
-                <div class="col-md-3 float-left">
+                <div class="col-md-4 float-left">
                 <label for="exampleInputEmail1" class="form-label">Expiry Month</label>
-                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="05">   
+                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option selected>5</option>
+                  <option>6</option>
+                  <option>7</option>
+                  <option>8</option>
+                  <option>9</option>
+                  <option>10</option>
+                  <option>11</option>
+                  <option>12</option>
+                </select>
                 </div>
 
-                <div class="col-md-3 float-left">
+                <div class="col-md-4 float-left">
                 <label for="exampleInputEmail1" class="form-label">Expiry Year</label>
                 <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="2027">
                 </div>
-
-                <div class="col-md-2 float-left">&nbsp;</div>
 
                 <div class="col-md-4 float-left">
                 <label for="exampleInputEmail1" class="form-label">CVV</label>
@@ -66,6 +77,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
              <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;
                  <strong>Our Website is currently undergoing maintenance. We appreciate your patience and understanding.</strong>
+                 <a href="index.jsp" class="alert-link">Go to home page.</a>
                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
              </div>
             <br>
