@@ -18,10 +18,19 @@
         <img src="https://files.sysers.com/cp/upload/omega/gallery/full/front-door-deliver-groceries-right-to-my-front-door-grocery-delivery-bay-area-food-delivery.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://thumbs.dreamstime.com/b/people-grocery-store-line-cash-desk-supermarket-customers-vector-illustration-men-women-buying-groceries-shop-176542083.jpg" class="d-block w-100" alt="...">
+        <img src="https://osiamart.com/image/cache/catalog/cold-drinks/new%20banner/vege%20bannar%201200X300-3600x900.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://snmart.co.in/wp-content/uploads/2021/06/grocery.png" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
         <img src="https://www.stayinvermont.org/wp-content/uploads/2015/05/GROCERIES_headerA.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://miro.medium.com/v2/resize:fit:1200/1*sVeICYfxCyz-iH6F31rXAA.jpeg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://cdn.shopify.com/s/files/1/1797/4963/files/famousfood-b_b75a4f3a-55e7-46af-baee-cd989b86bcf4_1200x300.jpg?v=1662651132" class="d-block w-100" alt="...">
       </div>
     </div>
 </div>

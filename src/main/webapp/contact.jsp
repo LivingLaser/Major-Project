@@ -22,6 +22,13 @@
   letter-spacing: 1px;
   margin-bottom: 20px;
 }
+
+.transparent-input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #000; 
+}
+
     </style>
 </head>
 
@@ -37,7 +44,7 @@
       <form action="contact_us" method="post" class="row g-3">
         <div class="col-md-6">
             <label for="inputname" class="form-label text-dark"><b>Name</b></label>
-            <input type="text" class="form-control" id="inputname" placeholder="Enter your name..." required name="name" >
+            <input type="text" class="form-control transparent-input" id="inputname" placeholder="Enter your name..." required name="name" >
         </div>
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label text-dark"><b>Email</b></label>

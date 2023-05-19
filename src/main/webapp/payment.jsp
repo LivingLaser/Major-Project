@@ -73,14 +73,15 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
             <div class="text-center text-danger h2">
                 This feature is not available right now!
             </div>
-            <br>
-             <div class="alert alert-warning alert-dismissible fade show" role="alert">
+             <div class="alert alert-warning alert-dismissible fade show mt-2" role="alert">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp;
                  <strong>Our Website is currently undergoing maintenance. We appreciate your patience and understanding.</strong>
-                 <a href="index.jsp" class="alert-link">Go to home page.</a>
+                 
                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
              </div>
-            <br>
+             <div class="text-center">
+             <a href="index.jsp" class="h6 ml-4 text-decoration-none text-primary">Go to home page.</a>
+             </div>
         </div>
         <div class="col-md-2"></div>
     </div>
