@@ -48,6 +48,7 @@ for(int i=0;i<products.size();i++) {
 </div>
 <% } %>
 </div>
+<hr>
 </div>
 
 </body>

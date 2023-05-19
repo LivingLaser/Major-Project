@@ -23,11 +23,6 @@
   margin-bottom: 20px;
 }
 
-.transparent-input {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #000; 
-}
 
     </style>
 </head>
