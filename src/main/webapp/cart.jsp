@@ -21,6 +21,8 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
   height: 200px;
   margin-left: 2px;
 }
+
+
 </style>
 </head>
 <body>
@@ -28,6 +30,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
 
 <!-- checkout button -->
 <nav class="navbar navbar-expand-lg navbar- bg-transparent">
+<a class="navbar-brand" href="#"><b class="ml-4 h2">My Cart</b></a>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">

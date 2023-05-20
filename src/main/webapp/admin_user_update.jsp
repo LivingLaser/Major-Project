@@ -9,7 +9,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin User's details</title>
+<title>Admin User's details update</title>
 </head>
 <body>
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
