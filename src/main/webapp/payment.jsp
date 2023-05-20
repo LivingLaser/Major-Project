@@ -28,7 +28,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
                 <img src="https://img.icons8.com/color/48/000000/maestro.png"/>
             </div>
             <br><br>
-            <form action="card" method="post" class="g-3">
+            <form class="g-3">
                 <label for="exampleInputEmail1" class="form-label">Card holder's Name</label>
                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your name.">
                  <br>
@@ -37,20 +37,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
                   <br>
                 <div class="col-md-4 float-left">
                 <label for="exampleInputEmail1" class="form-label">Expiry Month</label>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option selected>5</option>
-                  <option>6</option>
-                  <option>7</option>
-                  <option>8</option>
-                  <option>9</option>
-                  <option>10</option>
-                  <option>11</option>
-                  <option>12</option>
-                </select>
+                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="05">
                 </div>
 
                 <div class="col-md-4 float-left">

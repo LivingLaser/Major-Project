@@ -42,12 +42,12 @@ public class UpdateProductDB extends HttpServlet {
 			if(pt.getSize()>0) {
 				String image = pt.getSubmittedFileName();
 				
-				//pt.write("C:\\Users\\User\\Desktop\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-				//pt.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-				//pt.write("C:\\Users\\LENOVO\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-				//pt.write("C:\\Users\\Admin\\Dropbox\\My PC (LAPTOP-KSDBGO4J)\\Desktop\\Major Proj\\Major-Project\\src\\main\\webapp\\img\\" + image);
-				//pt.write("I:\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-				//pt.write("C:\\Users\\NABANITA SAHA\\Desktop\\major project\\Major-Project\\src\\main\\webapp\\img" + image);
+				//pt.write("C:\\Users\\User\\Desktop\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Sayantan
+				//pt.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Shandro
+				//pt.write("C:\\Users\\LENOVO\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Pragya
+				//pt.write("C:\\Users\\Admin\\Dropbox\\My PC (LAPTOP-KSDBGO4J)\\Desktop\\Major Proj\\Major-Project\\src\\main\\webapp\\img\\" + image); // Payel
+				//pt.write("I:\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Sattwik
+				//pt.write("C:\\Users\\NABANITA SAHA\\Desktop\\major project\\Major-Project\\src\\main\\webapp\\img" + image); // Nabanita
 				
 				try {
 					String sql = "update product set name=?, description=?, quantity=?, price=?, category=?, image=?, stock=? where pid=?";

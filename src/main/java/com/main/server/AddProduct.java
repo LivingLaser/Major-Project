@@ -40,8 +40,8 @@ public class AddProduct extends HttpServlet {
 			//fpart.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Shandro
 			//fpart.write("C:\\Users\\LENOVO\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Pragya
 			//fpart.write("C:\\Users\\Admin\\Dropbox\\My PC (LAPTOP-KSDBGO4J)\\Desktop\\Major Proj\\Major-Project\\src\\main\\webapp\\img\\" + image); // Payel
-			//fpart.write("I:\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Sattwik doc
-			//fpart.write("C:\\Users\\NABANITA SAHA\\Desktop\\major project\\Major-Project\\src\\main\\webapp\\img\\" + image); // bati
+			//fpart.write("I:\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Sattwik
+			//fpart.write("C:\\Users\\NABANITA SAHA\\Desktop\\major project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Nabanita
 		}
 		
 		try {
