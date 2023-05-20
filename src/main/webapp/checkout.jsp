@@ -172,13 +172,7 @@
       </div>
     </div>
   </div>
-
-        
-        
-        <% } %>
-        <!-- <div class="d-grid gap-2 col-6 mx-auto">
-            <button onclick="window.print()" class="btn btn-secondary btn-lg btn-block">Download Invoice</button>
-        </div> -->
+<% } %>
 </body>
 <script>
 const select = document.getElementById('paymentMethod');

@@ -60,7 +60,9 @@ public class UpdateProfileDB extends HttpServlet {
 				HttpSession session = request.getSession();
 				session.setAttribute("message", msg);
 				session.setAttribute("color",color);
-				response.sendRedirect("contact.jsp");
+				
+				request.setAttribute("uid", uid);
+				request.getRequestDispatcher("profile").forward(request, response);
 			}
 			finally {
 				con.close();

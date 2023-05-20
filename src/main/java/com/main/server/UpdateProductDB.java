@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 /**
@@ -62,6 +63,13 @@ public class UpdateProductDB extends HttpServlet {
 					pstm.setString(8, pid);
 					pstm.executeUpdate();
 				}
+				catch(Exception e) {
+					String color = "danger";
+					String msg = "Failed to update. This product is already enlisted";
+					HttpSession session = request.getSession();
+					session.setAttribute("message", msg);
+					session.setAttribute("color",color);
+				}
 				finally {
 					con.close();
 				}
@@ -78,6 +86,13 @@ public class UpdateProductDB extends HttpServlet {
 					pstm.setString(6, stock);
 					pstm.setString(7, pid);
 					pstm.executeUpdate();
+				}
+				catch(Exception e) {
+					String color = "danger";
+					String msg = "Failed to update. This product is already enlisted";
+					HttpSession session = request.getSession();
+					session.setAttribute("message", msg);
+					session.setAttribute("color",color);
 				}
 				finally {
 					con.close();

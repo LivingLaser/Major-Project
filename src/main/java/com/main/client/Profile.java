@@ -20,6 +20,7 @@ public class Profile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String uid = request.getParameter("uid");
+		String auid = (String)request.getAttribute("uid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -28,7 +29,14 @@ public class Profile extends HttpServlet {
 			try {
 				String sql = "select * from user where uid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, uid);
+				
+				if(uid.equals("null")) {
+					pstm.setString(1, auid);
+				}
+				else {
+					pstm.setString(1, uid);
+				}
+				
 				ResultSet rs = pstm.executeQuery();
 				
 				HashMap<String, String> hm = new HashMap<>();

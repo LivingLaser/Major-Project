@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
 /**
@@ -60,6 +61,14 @@ public class AddProduct extends HttpServlet {
 				pstm.setString(7, stock);
 				pstm.executeUpdate();
 				
+				response.sendRedirect("product_list");
+			}
+			catch(Exception e) {
+				String color = "danger";
+				String msg = "This product is already enlisted";
+				HttpSession session = request.getSession();
+				session.setAttribute("message", msg);
+				session.setAttribute("color",color);
 				response.sendRedirect("product_list");
 			}
 			finally {
