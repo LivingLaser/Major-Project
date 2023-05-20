@@ -36,11 +36,12 @@ public class AddProduct extends HttpServlet {
 		String image = pt.getSubmittedFileName();
 		
 		for(@SuppressWarnings("unused") Part fpart:request.getParts()) {
-			//fpart.write("C:\\Users\\User\\Desktop\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-			//fpart.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-			//fpart.write("C:\\Users\\LENOVO\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
-			//fpart.write("C:\\Users\\Admin\\Dropbox\\My PC (LAPTOP-KSDBGO4J)\\Desktop\\Major Proj\\Major-Project\\src\\main\\webapp\\img\\" + image);
-			//fpart.write("I:\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
+			//fpart.write("C:\\Users\\User\\Desktop\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Sayantan
+			//fpart.write("C:\\Users\\rajmi\\OneDrive\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Shandro
+			//fpart.write("C:\\Users\\LENOVO\\Desktop\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Pragya
+			//fpart.write("C:\\Users\\Admin\\Dropbox\\My PC (LAPTOP-KSDBGO4J)\\Desktop\\Major Proj\\Major-Project\\src\\main\\webapp\\img\\" + image); // Payel
+			//fpart.write("I:\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image); // Sattwik doc
+			//fpart.write("C:\\Users\\NABANITA SAHA\\Desktop\\major project\\Major-Project\\src\\main\\webapp\\img\\" + image); // bati
 		}
 		
 		try {
