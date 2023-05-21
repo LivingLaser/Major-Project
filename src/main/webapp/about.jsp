@@ -22,10 +22,24 @@ body {
 a {
      color: white;
 }
+.scrollable-div {
+  overflow-y: scroll; 
+  max-height: 700px; 
+}
+
+.scrollable-div nav {
+   position: sticky; 
+  top: 0; 
+  z-index: 1; 
+
+}
+
 </style>
 </head>
 
+
 <body>
+<div class="scrollable-div">
 <jsp:include page="inc/base.jsp"></jsp:include>
 <section id="about-us">
   <div class="container">
@@ -96,8 +110,8 @@ a {
      </div>
     </div>
    </section>
-</body>
-
+   <!-- footer -->
+   
 <br><footer class="footer">
     <div class="container">
       <div class="row">
@@ -130,5 +144,11 @@ a {
       </div>
     </div>
   </footer>
-      
+  
+  
+ </div>
+</body>
+
+
+
 </html>
