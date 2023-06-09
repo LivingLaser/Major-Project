@@ -28,7 +28,7 @@ public class ContactUs extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "insert into contact_us set name=?, email=?, message=?";
+				String sql = "insert into contact set name=?, email=?, message=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				pstm.setString(1, name);
 				pstm.setString(2, email);

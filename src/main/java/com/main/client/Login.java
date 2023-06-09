@@ -40,8 +40,8 @@ public class Login extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color", color);
-					request.getSession().setAttribute("loggedIn", true);
-					request.getSession().setAttribute("uid", uid);
+					session.setAttribute("loggedIn", true);
+					session.setAttribute("uid", uid);
 					response.sendRedirect("index.jsp");
 				}
 				else {
@@ -50,7 +50,6 @@ public class Login extends HttpServlet {
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
 					session.setAttribute("color", color);
-					request.getSession().removeAttribute("loggedIn");
 					response.sendRedirect("login.jsp");
 				}
 			}

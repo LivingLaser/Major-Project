@@ -19,22 +19,22 @@ public class ViewMessage extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
+		String mid = request.getParameter("mid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from contact_us where id=?";
+				String sql = "select * from contact where mid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, id);
+				pstm.setString(1, mid);
 				ResultSet rs = pstm.executeQuery();
 				
 				HashMap<String, String> hm = new HashMap<>();
 				
 				if(rs.next()) {
-					hm.put("id", rs.getString("id"));
+					hm.put("mid", rs.getString("mid"));
 					hm.put("name", rs.getString("name"));
 					hm.put("email", rs.getString("email"));
 					hm.put("message", rs.getString("message"));

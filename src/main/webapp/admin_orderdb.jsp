@@ -42,7 +42,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 
 .scrollable-div {
   overflow-y: scroll; 
-  max-height: 560px; 
+  max-height: 500px; 
 }
 
 .scrollable-div thead {

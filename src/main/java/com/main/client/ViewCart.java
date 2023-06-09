@@ -45,10 +45,9 @@ public class ViewCart extends HttpServlet {
 				while(rs.next()) {
 					HashMap<String, String> hm = new HashMap<>();
 					
-					hm.put("cid", rs.getString("cid"));
 					hm.put("uid", rs.getString("cart.uid"));
+					hm.put("pid", rs.getString("cart.pid"));
 					hm.put("image", rs.getString("image"));
-					hm.put("pid", rs.getString("product.pid"));
 					hm.put("name", rs.getString("product.name"));
 					hm.put("description", rs.getString("description"));
 					hm.put("quantity", rs.getString("quantity"));

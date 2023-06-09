@@ -15,7 +15,6 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <style>
 .table{
         border:3px;
-        
 }
 
 .table tr th{
@@ -48,10 +47,9 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 }
 
 .scrollable-div thead {
-   position: sticky; 
+  position: sticky; 
   top: 0; 
-  z-index: 1; 
-
+  z-index: 1;
 }
 
 .scrollable-div tbody {
@@ -65,7 +63,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 <jsp:include page="inc/admin_navbar.jsp"></jsp:include>
 <div class="container-fluid">
     <div class="heading"><h1>USER'S MESSAGES </h1></div>
-<!--  <button onclick="printTable()" class="btn btn-primary">Print Table</button> -->
+
     <div class="scrollable-div">
     <table class="table table-striped" id="messageTable">
             <thead class="thead-dark">
@@ -90,13 +88,13 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                     <td><% out.print(contacts.get(i).get("email")); %></td>
                     <td>
                     <form action="view_message" method="post">
-                    <input type="hidden" name="id" value="<% out.print(contacts.get(i).get("id")); %>">
+                    <input type="hidden" name="mid" value="<% out.print(contacts.get(i).get("mid")); %>">
                     <button type="submit" class="btn btn-info">View</button>
                     </form>
                     </td>
                     <td>
                     <form action="delete_message" method="post">
-                    <input type="hidden" name="id" value="<% out.print(contacts.get(i).get("id")); %>">
+                    <input type="hidden" name="mid" value="<% out.print(contacts.get(i).get("mid")); %>">
                     <button onclick="return confirm('Are you sure ?')" type="submit" class="btn btn-danger">Delete</button>
                     </form>
                     </td>
@@ -108,17 +106,6 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 </div>
 </body>
 
-<!--   <script>
-        function printTable() {
-            var printWindow = window.open('', '', 'width=800,height=600');
-            printWindow.document.write('<html><head><title>Print</title></head><body>');
-            printWindow.document.write('<h1>USER\'S MESSAGES</h1>');
-            printWindow.document.write(document.getElementById('messageTable').outerHTML);
-            printWindow.document.write('</body></html>');
-            printWindow.document.close();
-            printWindow.print();
-        }
-    </script> -->
 </html>
 
 <% 

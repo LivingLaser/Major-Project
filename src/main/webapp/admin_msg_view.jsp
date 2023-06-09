@@ -22,15 +22,13 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <h1 class="display-4">Customer's Message</h1>
     <table class="table">
       <tbody>
-        <!--ekhane logged in user er id er hrough te data gulo fetch hbe-->
-        <%
-				@SuppressWarnings("unchecked")
-				HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
-				%>
-		
+      <%
+      @SuppressWarnings("unchecked")
+      HashMap<String, String> views = (HashMap<String, String>)request.getAttribute("view");
+      %>
         <tr>
           <th>Customer's Message ID:</th>
-          <td><% out.print(views.get("id")); %></td>
+          <td><% out.print(views.get("mid")); %></td>
         </tr>
 
         <tr>

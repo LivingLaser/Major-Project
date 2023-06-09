@@ -18,17 +18,18 @@ public class DeleteCartItem extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String cid = request.getParameter("cid");
 		String uid = request.getParameter("uid");
+		String pid = request.getParameter("pid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "delete from cart where cid=?";
+				String sql = "delete from cart where uid=? and pid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, cid);
+				pstm.setString(1, uid);
+				pstm.setString(2, pid);
 				int rows = pstm.executeUpdate();
 				
 				if(rows==1) {

@@ -46,21 +46,21 @@ public class AddCart extends HttpServlet {
 							response.sendRedirect(referer);
 						}
 						else {
-							String vsql = "select cid, qty from cart where uid=? and pid=?";
+							String vsql = "select qty from cart where uid=? and pid=?";
 							PreparedStatement vpstm = con.prepareStatement(vsql);
 							vpstm.setString(1, uid);
 							vpstm.setString(2, pid);
 							ResultSet vrs = vpstm.executeQuery();
 							
 							if(vrs.next()) {
-								String cid = vrs.getString("cid");
 								int qty = vrs.getInt("qty");
 								qty += 1;
 								
-								String sql = "update cart set qty=? where cid=?";
+								String sql = "update cart set qty=? where uid=? and pid=?";
 								PreparedStatement pstm = con.prepareStatement(sql);
 								pstm.setInt(1, qty);
-								pstm.setString(2, cid);
+								pstm.setString(2, uid);
+								pstm.setString(3, pid);
 								int rows = pstm.executeUpdate();
 								
 								if(rows==1) {
@@ -73,7 +73,7 @@ public class AddCart extends HttpServlet {
 								}
 							}
 							else {
-								String sql = "insert into cart set uid=?, pid=?, qty=1";
+								String sql = "insert into cart set uid=?, pid=?";
 								PreparedStatement pstm = con.prepareStatement(sql);
 								pstm.setString(1, uid);
 								pstm.setString(2, pid);

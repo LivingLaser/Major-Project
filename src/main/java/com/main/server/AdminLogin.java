@@ -19,7 +19,7 @@ public class AdminLogin extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String name = request.getParameter("username");
+		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
 		try {
@@ -29,19 +29,17 @@ public class AdminLogin extends HttpServlet {
 			try {
 				String sql = "select * from admin where username=? and password=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, name);
+				pstm.setString(1, username);
 				pstm.setString(2, password);
 				ResultSet rs = pstm.executeQuery();
 				
 				if(rs.next()) {
 					String color = "success";
 					String msg = "Welcome " + rs.getString("username");
-					String id = rs.getString("id");
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
-					session.setAttribute("color",color);
-					request.getSession().setAttribute("loggedAdmin", true);
-					request.getSession().setAttribute("id", id);
+					session.setAttribute("color", color);
+					session.setAttribute("loggedAdmin", true);
 					response.sendRedirect("admin_dashboard.jsp");
 				}
 				else {
@@ -49,8 +47,7 @@ public class AdminLogin extends HttpServlet {
 					String msg = "Wrong Admin ID or Password";
 					HttpSession session = request.getSession();
 					session.setAttribute("message", msg);
-					session.setAttribute("color",color);
-					request.getSession().removeAttribute("loggedAdmin");
+					session.setAttribute("color", color);
 					response.sendRedirect("adminauth.jsp");
 				}
 			}

@@ -50,6 +50,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
                               <hr class="my-4">
                                <p>
                                You can change your account information here and see your Orders. <i class="fa fa-hand-o-down" aria-hidden="true"></i>
+                               </p>
                                <div class="row">
                                <div class="col-md-2">
                                 <form action="update_profile" method="post">

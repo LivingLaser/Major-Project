@@ -12,7 +12,6 @@ body {
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;
-      background-position: center calc(50% + 200px);
 }
 
 .footer {
@@ -22,25 +21,13 @@ body {
 a {
      color: white;
 }
-.scrollable-div {
-  overflow-y: scroll; 
-  max-height: 700px; 
-}
-
-.scrollable-div nav {
-   position: sticky; 
-  top: 0; 
-  z-index: 1; 
-
-}
-
 </style>
 </head>
 
-
 <body>
-<div class="scrollable-div">
+
 <jsp:include page="inc/base.jsp"></jsp:include>
+
 <section id="about-us">
   <div class="container">
     <div class="row">
@@ -49,10 +36,8 @@ a {
         <p class="lead text-white mb-4">We are a grocery delivery service that is dedicated to making your life easier. Our mission is to provide fresh, high-quality groceries at affordable prices, delivered straight to your door.</p>
         <p class="text-white">Our team is made up of passionate individuals who are committed to ensuring that you have a hassle-free grocery shopping experience. We understand that your time is valuable, which is why we offer a wide selection of products that you can easily order online.</p>
       </div>
-      <div class="col-md-6">
-       
-      </div>
     </div>
+    
     <div class="row mt-5">
       <div class="col-md-12">
         <h2 class="section-title text-white mb-4"><b>Why Choose Us?</b></h2>
@@ -110,9 +95,13 @@ a {
      </div>
     </div>
    </section>
-   <!-- footer -->
    
-<br><footer class="footer">
+<br>
+</body>
+
+<!-- footer -->
+
+<footer class="footer">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -144,11 +133,5 @@ a {
       </div>
     </div>
   </footer>
-  
-  
- </div>
-</body>
-
-
 
 </html>

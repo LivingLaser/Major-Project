@@ -83,7 +83,7 @@
 				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 				
 				try {
-					String sql = "select cid from cart where uid=?";
+					String sql = "select * from cart where uid=?";
 					PreparedStatement pstm = con.prepareStatement(sql);
 					pstm.setString(1, uid);
 					ResultSet rs = pstm.executeQuery();

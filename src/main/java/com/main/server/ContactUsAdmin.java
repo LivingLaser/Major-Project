@@ -24,7 +24,7 @@ public class ContactUsAdmin extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select id, name, email from contact_us";
+				String sql = "select mid, name, email from contact";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				ResultSet rs = pstm.executeQuery();
 				
@@ -34,7 +34,7 @@ public class ContactUsAdmin extends HttpServlet {
 				while(rs.next()) {
 					HashMap<String, String> hm = new HashMap<>();
 					
-					hm.put("id", rs.getString("id"));
+					hm.put("mid", rs.getString("mid"));
 					hm.put("name", rs.getString("name"));
 					hm.put("email", rs.getString("email"));
 					

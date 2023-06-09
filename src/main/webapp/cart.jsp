@@ -73,8 +73,8 @@ if(!products.isEmpty()) {
       </div>
       <div class="col-md-1 mt-auto mb-auto">
        <form action="delete_cart_item" method="post">
-       <input type="hidden" name="cid" value="<% out.print(products.get(i).get("cid")); %>">
        <input type="hidden" name="uid" value="<% out.print(products.get(i).get("uid")); %>">
+       <input type="hidden" name="pid" value="<% out.print(products.get(i).get("pid")); %>">
        <button type="submit" style="padding-left: 17px; padding-right: 17px;" class="btn btn-danger mx-auto"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
        </form>
       </div>

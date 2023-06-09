@@ -18,16 +18,16 @@ public class DeleteMessage extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
+		String mid = request.getParameter("mid");
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "delete from contact_us where id=?";
+				String sql = "delete from contact where mid=?";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, id);
+				pstm.setString(1, mid);
 				pstm.executeUpdate();
 				
 				response.sendRedirect("contact_us_admin");
