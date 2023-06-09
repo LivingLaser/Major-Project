@@ -40,7 +40,7 @@ public class Payment extends HttpServlet {
 						String pid = crs.getString("product.pid");
 						int qty = crs.getInt("qty");
 						
-						String sql = "insert into orders set uid=?, pid=?, qty=?, payment=?, order_date=CURRENT_DATE, order_time=CURRENT_TIME";
+						String sql = "insert into orders set uid=?, pid=?, qty=?, payment=?";
 						PreparedStatement pstm = con.prepareStatement(sql);
 						pstm.setString(1, uid);
 						pstm.setString(2, pid);

@@ -27,34 +27,37 @@ public class Checkout extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String asql = "select cid from cart where uid=?";
+				String asql = "select * from cart where uid=?";
 				PreparedStatement apstm = con.prepareStatement(asql);
 				apstm.setString(1, uid);
 				ResultSet ars = apstm.executeQuery();
 				
 				if(ars.next()) {
-					String csql = "select cid, stock, qty from user, product, cart where user.uid=? and user.uid=cart.uid and product.pid=cart.pid";
+					String csql = "select cart.uid, cart.pid, stock, qty from user, product, cart where user.uid=? and user.uid=cart.uid and product.pid=cart.pid";
 					PreparedStatement cpstm = con.prepareStatement(csql);
 					cpstm.setString(1, uid);
 					ResultSet crs = cpstm.executeQuery();
 					
 					while(crs.next()) {
-						String cid = crs.getString("cid");
+						String cuid = crs.getString("cart.uid");
+						String cpid = crs.getString("cart.pid");
 						int stock = crs.getInt("stock");
 						int qty = crs.getInt("qty");
 						
 						if(stock==0) {
-							String vsql = "delete from cart where cid=?";
+							String vsql = "delete from cart where uid=? and pid=?";
 							PreparedStatement vpstm = con.prepareStatement(vsql);
-							vpstm.setString(1, cid);
+							vpstm.setString(1, cuid);
+							vpstm.setString(2, cpid);
 							vpstm.executeUpdate();
 						}
 						
 						if(qty>stock) {
-							String vsql = "update cart set qty=? where cid=?";
+							String vsql = "update cart set qty=? where uid=? and pid=?";
 							PreparedStatement vpstm = con.prepareStatement(vsql);
 							vpstm.setInt(1, stock);
-							vpstm.setString(2, cid);
+							vpstm.setString(2, cuid);
+							vpstm.setString(3, cpid);
 							vpstm.executeUpdate();
 						}
 					}

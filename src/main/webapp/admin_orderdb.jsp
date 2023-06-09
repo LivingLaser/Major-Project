@@ -92,13 +92,17 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
             <td><% out.print(orders.get(i).get("time")); %></td>
             <td>
             	<form action="view_order" method="post">
-            	<input type="hidden" name="oid" value="<% out.print(orders.get(i).get("oid")); %>">
+            	<input type="hidden" name="date" value="<% out.print(orders.get(i).get("date")); %>">
+            	<input type="hidden" name="time" value="<% out.print(orders.get(i).get("time")); %>">
             	<button type="submit" class="btn btn-info">View</button>
             	</form>
             </td>
             <td>
             	<form action="delete_order" method="post">
-            	<input type="hidden" name="oid" value="<% out.print(orders.get(i).get("oid")); %>">
+            	<input type="hidden" name="uid" value="<% out.print(orders.get(i).get("uid")); %>">
+            	<input type="hidden" name="pid" value="<% out.print(orders.get(i).get("pid")); %>">
+            	<input type="hidden" name="date" value="<% out.print(orders.get(i).get("date")); %>">
+            	<input type="hidden" name="time" value="<% out.print(orders.get(i).get("time")); %>">
             	<button onclick="return confirm('Are you sure ?')" type="submit" class="btn btn-danger">Delete</button>
             	</form>
             </td>

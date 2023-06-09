@@ -24,7 +24,7 @@ public class OrderData extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select oid, name, email, order_date, order_time from user, orders where user.uid=orders.uid order by order_date desc, order_time desc";
+				String sql = "select orders.uid, orders.pid, name, email, order_date, order_time from user, orders where user.uid=orders.uid order by order_date desc, order_time desc";
 				PreparedStatement pstm = con.prepareStatement(sql);
 				ResultSet rs = pstm.executeQuery();
 				
@@ -34,7 +34,8 @@ public class OrderData extends HttpServlet {
 				while(rs.next()) {
 					HashMap<String, String> hm = new HashMap<>();
 					
-					hm.put("oid", rs.getString("oid"));
+					hm.put("uid", rs.getString("orders.uid"));
+					hm.put("pid", rs.getString("orders.pid"));
 					hm.put("name", rs.getString("name"));
 					hm.put("email", rs.getString("email"));
 					hm.put("date", rs.getString("order_date"));
