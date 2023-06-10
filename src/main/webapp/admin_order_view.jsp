@@ -45,7 +45,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
 
         <tr>
           <th>Customer Address:</th>
-          <td><% out.print(views.get("address")); %></td>
+          <td><% out.print(views.get("address")); %>, <% out.print(views.get("city")); %></td>
         </tr>
 
         <tr>

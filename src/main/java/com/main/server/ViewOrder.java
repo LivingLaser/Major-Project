@@ -41,6 +41,7 @@ public class ViewOrder extends HttpServlet {
 					hm.put("email", rs.getString("email"));
 					hm.put("phone", rs.getString("phone_number"));
 					hm.put("address", rs.getString("address"));
+					hm.put("city", rs.getString("city"));
 					hm.put("pincode", rs.getString("pincode"));
 					hm.put("date", rs.getString("order_date"));
 					hm.put("time", rs.getString("order_time"));
