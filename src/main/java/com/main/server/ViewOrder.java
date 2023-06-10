@@ -19,6 +19,7 @@ public class ViewOrder extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String uid = request.getParameter("uid");
 		String date = request.getParameter("date");
 		String time = request.getParameter("time");
 		
@@ -27,10 +28,11 @@ public class ViewOrder extends HttpServlet {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
 			
 			try {
-				String sql = "select * from user, product, orders where order_date=? and order_time=? and user.uid=orders.uid and product.pid=orders.pid";
+				String sql = "select * from user, product, orders where orders.uid=? and order_date=? and order_time=? and user.uid=orders.uid and product.pid=orders.pid";
 				PreparedStatement pstm = con.prepareStatement(sql);
-				pstm.setString(1, date);
-				pstm.setString(2, time);
+				pstm.setString(1, uid);
+				pstm.setString(2, date);
+				pstm.setString(3, time);
 				ResultSet rs = pstm.executeQuery();
 				
 				HashMap<String, String> hm = new HashMap<>();
