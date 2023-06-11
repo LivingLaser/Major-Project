@@ -93,6 +93,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
             <td>
             	<form action="view_order" method="post">
             	<input type="hidden" name="uid" value="<% out.print(orders.get(i).get("uid")); %>">
+            	<input type="hidden" name="pid" value="<% out.print(orders.get(i).get("pid")); %>">
             	<input type="hidden" name="date" value="<% out.print(orders.get(i).get("date")); %>">
             	<input type="hidden" name="time" value="<% out.print(orders.get(i).get("time")); %>">
             	<button type="submit" class="btn btn-info">View</button>
