@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/contact.css">
     <style>
     body {
-	background-image: url('https://img.freepik.com/premium-photo/contact-us-hand-man-holding-mobile-smartphone-with-phone-email-chat-icon-cutomer-support-concept-gray-wide-banner_256259-2770.jpg');
+	background-image: url('elements/contactus.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

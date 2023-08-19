@@ -36,7 +36,7 @@ public class AddProduct extends HttpServlet {
 		Part pt = request.getPart("image");
 		String image = pt.getSubmittedFileName();
 		
-		for(@SuppressWarnings("unused") Part fpart:request.getParts()) {
+		for(Part fpart:request.getParts()) {
 			fpart.write("E:\\Workspaces\\Java (J2EE)\\Major Project\\Major-Project\\src\\main\\webapp\\img\\" + image);
 		}
 		

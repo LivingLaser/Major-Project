@@ -98,9 +98,8 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                     <th scope="col">SL. NO.</th>
                     <th scope="col">NAME</th>
                     <th scope="col">QUANTITY</th>
-                    <th scope="col">STOCK (units)</th>
                     <th scope="col">
-                      <button class="btn btn-primary" id="linkbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Availability</button>
+                      <button class="btn btn-primary" id="linkbtn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">AVAILABILITY</button>
                        <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                          <div class="offcanvas-header">
                               <h5 id="offcanvasTopLabel text-dark"></h5>
@@ -129,7 +128,6 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                     <td><b><% out.print(i+1); %></b></td>
                     <td><% out.print(products.get(i).get("name")); %></td>
                     <td><% out.print(products.get(i).get("quantity")); %></td>
-                    <td><% out.print(products.get(i).get("stock")); %></td>
                     <td><div class="col-md-4 py-2 mt-2 mx-auto bg-<% out.print(products.get(i).get("color")); %>"></div></td>
                     <td>
                     <form action="view_product" method="post">

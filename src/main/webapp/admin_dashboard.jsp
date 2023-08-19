@@ -13,7 +13,7 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
     <title>admin</title>
     <style>
     body {
-          background-image: url('https://c4.wallpaperflare.com/wallpaper/904/1022/350/hud-1-wallpaper-preview.jpg');
+          background-image: url('elements/adashboard.jpg');
           background-repeat: no-repeat;
           background-attachment: fixed;
           background-size: cover;

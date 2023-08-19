@@ -11,7 +11,7 @@ if(session.getAttribute("loggedIn") != null && (boolean)session.getAttribute("lo
 <title>update profile</title>
 <style>
 body {
-    background-image: url('https://static.storyweaver.org.in/illustrations/58827/large/14.jpg');
+    background-image: url('elements/update.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

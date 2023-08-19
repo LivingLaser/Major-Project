@@ -8,7 +8,7 @@
 <title>About us</title>
 <style>
 body {
-      background-image: url('img/aboutus.jpg');
+      background-image: url('elements/aboutus.jpg');
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;

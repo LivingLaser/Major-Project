@@ -37,7 +37,6 @@ public class ProductList extends HttpServlet {
 					hm.put("pid", rs.getString("pid"));
 					hm.put("name", rs.getString("name"));
 					hm.put("quantity", rs.getString("quantity"));
-					hm.put("stock", rs.getString("stock"));
 					
 					int stock = rs.getInt("stock");
 					

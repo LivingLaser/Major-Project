@@ -15,22 +15,19 @@
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-interval="3000">
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="https://files.sysers.com/cp/upload/omega/gallery/full/front-door-deliver-groceries-right-to-my-front-door-grocery-delivery-bay-area-food-delivery.jpg" class="d-block w-100" alt="...">
+        <img src="elements/carousel1.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://osiamart.com/image/cache/catalog/cold-drinks/new%20banner/vege%20bannar%201200X300-3600x900.jpg" class="d-block w-100" alt="...">
+        <img src="elements/carousel2.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://snmart.co.in/wp-content/uploads/2021/06/grocery.png" class="d-block w-100" alt="...">
+        <img src="elements/carousel3.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://www.stayinvermont.org/wp-content/uploads/2015/05/GROCERIES_headerA.jpg" class="d-block w-100" alt="...">
+        <img src="elements/carousel4.jpg" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://miro.medium.com/v2/resize:fit:1200/1*sVeICYfxCyz-iH6F31rXAA.jpeg" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://cdn.shopify.com/s/files/1/1797/4963/files/famousfood-b_b75a4f3a-55e7-46af-baee-cd989b86bcf4_1200x300.jpg?v=1662651132" class="d-block w-100" alt="...">
+        <img src="elements/carousel5.jpg" class="d-block w-100" alt="...">
       </div>
     </div>
 </div>
@@ -44,7 +41,7 @@
   <div class="row">
     <div class="col-md-4 mb-4">
       <div class="card">
-        <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHFdCN1V3DgbdtT_ci9UDf0WYgUpdENufE7w&usqp=CAU" alt="Vegetables">
+        <img class="card-img-top" src="elements/VF.jpeg" alt="Vegetables">
         <div class="card-body">
           <h5 class="card-title">Vegetables &amp; Fruits</h5>
           <p class="card-text">Fresh and healthy vegetables.</p>
@@ -58,7 +55,7 @@
     </div>
     <div class="col-md-4 mb-4">
       <div class="card">
-        <img class="card-img-top" src="https://img.freepik.com/premium-photo/natural-super-foods-cereals-selection-bowls_788160-735.jpg?w=360" alt="Fruits">
+        <img class="card-img-top" src="elements/FM.jpg" alt="Masalas">
         <div class="card-body">
           <h5 class="card-title">Foodgrains &amp; Masalas</h5>
           <p class="card-text">Enjoy all type of masalas and ingredients.</p>
@@ -72,7 +69,7 @@
     </div>
     <div class="col-md-4 mb-4">
       <div class="card">
-        <img class="card-img-top" src="https://www.licious.in/blog/wp-content/uploads/2022/12/Shutterstock_1503436736-360x240.jpg" alt="Bakery">
+        <img class="card-img-top" src="elements/EMF.jpg" alt="Fish">
         <div class="card-body">
           <h5 class="card-title">Eggs, Meats &amp; Fish</h5>
           <p class="card-text">Fresh Meat and eggs at Discount</p>

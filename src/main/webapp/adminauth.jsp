@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 <style>
 body {
-       background-image: url('https://i.pinimg.com/736x/d2/51/dc/d251dcc27cdd25b905d3c4845b2a7f01.jpg');
+       background-image: url('elements/alogin.jpg');
        background-repeat: no-repeat;
        background-attachment: fixed;
        background-size: cover;
