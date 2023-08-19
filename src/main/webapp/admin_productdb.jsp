@@ -105,12 +105,12 @@ if(session.getAttribute("loggedAdmin") != null && (boolean)session.getAttribute(
                               <h5 id="offcanvasTopLabel text-dark"></h5>
                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                          </div>
-                         <div class="offcanvas-body h3">
-                               <ul>
+                         <div class="offcanvas-body">
+                               <ul class="h4">
                                   <li class="text-success">Green = Products Available</li>
                                   <li class="text-warning"> Yellow = Limited Products Left</li>
                                   <li class="text-danger">RED = Out Of Stock</li>
-                              </ul>
+                               </ul>
                           </div>
                         </div>         
                     </th>
