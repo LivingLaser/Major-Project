@@ -24,7 +24,7 @@ public class Search extends HttpServlet {
 		if(search!=null) {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom", "root", "DBMS");
 				
 				try {
 					String sql = "select * from product where name like '%"+search+"%' order by name";

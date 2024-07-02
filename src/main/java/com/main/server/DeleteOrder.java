@@ -25,7 +25,7 @@ public class DeleteOrder extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom", "root", "DBMS");
 			
 			try {
 				String sql = "delete from orders where uid=? and pid=? and order_date=? and order_time=?";

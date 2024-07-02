@@ -31,7 +31,7 @@ public class Signup extends HttpServlet {
 		if(password.equals(confirm_password)) {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom", "root", "DBMS");
 				
 				try {
 					String sql = "insert into user set name=?, email=?, phone_number=?, address=?, city=?, pincode=?, password=?";

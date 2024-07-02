@@ -26,7 +26,7 @@ public class ViewOrder extends HttpServlet {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom", "root", "DBMS");
 			
 			try {
 				String sql = "select * from user, product, orders where orders.uid=? and orders.pid=? and order_date=? and order_time=? and user.uid=orders.uid and product.pid=orders.pid";

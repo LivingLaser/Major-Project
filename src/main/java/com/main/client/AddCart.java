@@ -26,7 +26,7 @@ public class AddCart extends HttpServlet {
 		if(!uid.equals("null")) {
 			try {
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3307/ecom", "root", "DBMS");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ecom", "root", "DBMS");
 				
 				try {
 					String csql = "select stock from product where pid=?";
